@@ -1,0 +1,55 @@
+---
+import type { Testimonial } from '../data/site';
+interface Props extends Testimonial {
+  delay?: number;
+}
+const { quote, name, role, date, delay = 0 } = Astro.props;
+---
+
+<figure class="card card-glow quote" data-reveal style={`--reveal-delay:${delay}ms`}>
+  <div class="quote-head">
+    <span class="quote-mark serif gtext" aria-hidden="true">“</span>
+    <span class="quote-chip">{date}</span>
+  </div>
+  <blockquote class="quote-body">{quote}</blockquote>
+  <figcaption class="quote-foot">
+    <span class="quote-stars" aria-label="5 out of 5 stars">★★★★★</span>
+    <span class="quote-name">{name}</span>
+    <span class="quote-role">{role}</span>
+  </figcaption>
+</figure>
+
+<style>
+  .quote {
+    padding: clamp(1.7rem, 1.2rem + 1.2vw, 2.4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    min-height: 100%;
+  }
+  .quote-head { display: flex; align-items: flex-start; justify-content: space-between; }
+  .quote-mark { font-size: 3.4rem; line-height: 0.6; }
+  .quote-chip {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-mute);
+    border: 1px solid var(--line-strong);
+    padding: 0.35em 0.8em;
+    border-radius: 999px;
+    margin-top: 0.6rem;
+  }
+  .quote-body {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+    line-height: 1.45;
+    color: var(--text);
+    flex: 1;
+  }
+  .quote-foot { display: grid; gap: 0.25rem; padding-top: 0.5rem; border-top: 1px solid var(--line); }
+  .quote-stars { color: var(--pink); letter-spacing: 0.12em; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .quote-name { font-weight: 600; font-family: var(--font-display); letter-spacing: -0.01em; }
+  .quote-role { font-size: 0.88rem; color: var(--text-mute); }
+</style>

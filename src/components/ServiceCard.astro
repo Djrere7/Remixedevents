@@ -1,0 +1,55 @@
+---
+import type { Service } from '../data/site';
+interface Props extends Service {
+  delay?: number;
+}
+const { tag, title, blurb, points, delay = 0 } = Astro.props;
+---
+
+<article class="card card-glow svc" data-reveal style={`--reveal-delay:${delay}ms`}>
+  <div class="svc-top">
+    <span class="svc-tag">{tag}</span>
+    <span class="svc-mark gtext" aria-hidden="true">✦</span>
+  </div>
+  <h3 class="h3 svc-title">{title}</h3>
+  <p class="svc-blurb">{blurb}</p>
+  <ul class="svc-points">
+    {points.map((p) => (
+      <li><span class="svc-dot" aria-hidden="true"></span>{p}</li>
+    ))}
+  </ul>
+</article>
+
+<style>
+  .svc {
+    padding: clamp(1.6rem, 1.2rem + 1vw, 2.2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 100%;
+  }
+  .svc-top { display: flex; align-items: center; justify-content: space-between; }
+  .svc-tag {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-mute);
+  }
+  .svc-mark { font-size: 1.1rem; }
+  .svc-title { margin-top: 0.2rem; }
+  .svc-blurb { color: var(--text-dim); font-size: 0.98rem; flex: 1; }
+  .svc-points { display: grid; gap: 0.5rem; margin-top: 0.4rem; }
+  .svc-points li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+  .svc-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--grad-soft);
+    flex-shrink: 0;
+  }
+</style>

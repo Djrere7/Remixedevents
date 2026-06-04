@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Marquee from '../components/Marquee.astro';
+import { services, eventTypes, awards } from '../data/site';
+
+const process = [
+  { n: '01', t: 'Discovery', d: 'We learn your goals, your guests and the feeling you want in the room.' },
+  { n: '02', t: 'Design', d: 'A custom proposal — sound direction, lighting, talent and run-of-show.' },
+  { n: '03', t: 'Production', d: 'We handle logistics, gear, setup and soundcheck so you don’t have to.' },
+  { n: '04', t: 'Showtime', d: 'A flawless night, read in real time, with energy that never dips.' },
+];
+---
+
+<Base title="Experiences" description="Explore REmixed Events services: brand activations, corporate events, luxury weddings, VIP experiences, women-led events, and full sound & lighting production across South Florida.">
+  <PageHeader
+    kicker="What we design"
+    title="Experiences,"
+    emphasis="anything but ordinary."
+    lede="From intimate VIP soirées to full-scale brand activations, every REmixed event is produced end-to-end. Pick a lane below — or mix them. That’s kind of our thing."
+  />
+
+  <section class="section tight">
+    <div class="container wide">
+      <div class="svc-grid">
+        {services.map((s, i) => <ServiceCard {...s} delay={i * 60} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section section-light">
+    <div class="container wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker" data-reveal>How it works</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">A producer’s process, <span class="serif gtext">start to last dance.</span></h2>
+        </div>
+      </div>
+      <div class="proc-grid">
+        {process.map((p, i) => (
+          <div class="proc card" data-reveal style={`--reveal-delay:${i * 80}ms`}>
+            <span class="proc-n gtext">{p.n}</span>
+            <h3 class="proc-t">{p.t}</h3>
+            <p class="proc-d">{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT TYPES -->
+  <section class="section tight">
+    <div class="container wide">
+      <p class="kicker center mx-auto" data-reveal style="display:flex;justify-content:center">Events we love</p>
+      <div class="types" data-reveal style="--reveal-delay:80ms">
+        {eventTypes.map((t) => <span class="chip type-chip">{t}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight awards-band">
+    <Marquee items={awards} speed={28} />
+  </section>
+</Base>
+
+<style>
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  @media (max-width: 900px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .svc-grid { grid-template-columns: 1fr; } }
+
+  .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
+  .sec-head > div { display: grid; gap: 0.9rem; }
+
+  .proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+  .proc { padding: 1.8rem 1.5rem; display: grid; gap: 0.6rem; align-content: start; }
+  .proc-n { font-family: var(--font-display); font-weight: 700; font-size: 2rem; letter-spacing: -0.03em; }
+  .proc-t { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; }
+  .proc-d { color: var(--cream-dim); font-size: 0.93rem; }
+  @media (max-width: 820px) { .proc-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .proc-grid { grid-template-columns: 1fr; } }
+
+  .types { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; max-width: 880px; margin: 1.6rem auto 0; }
+  .type-chip { font-size: 0.92rem; padding: 0.6em 1.1em; }
+  .awards-band { border-top: 1px solid var(--line); }
+</style>

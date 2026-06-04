@@ -1,0 +1,55 @@
+---
+interface Props {
+  items: string[];
+  /** seconds for one full loop */
+  speed?: number;
+}
+const { items, speed = 32 } = Astro.props;
+const loop = [...items, ...items];
+---
+
+<div class="marquee" style={`--speed:${speed}s`}>
+  <div class="marquee-track">
+    {loop.map((item) => (
+      <span class="marquee-item">
+        <span class="marquee-star" aria-hidden="true">✦</span>
+        {item}
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll var(--speed) linear infinite;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding-inline: 1.6rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.35rem);
+    letter-spacing: -0.01em;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  .marquee-star {
+    background: var(--grad-soft);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 0.9em;
+  }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+</style>

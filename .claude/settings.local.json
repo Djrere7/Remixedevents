@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "WebFetch(domain:remixedeventsllc.com)",
+      "WebSearch",
+      "Read(//usr/local/bin/**)",
+      "Read(//Users/djrere/.nvm/versions/**)",
+      "Bash(brew --version)",
+      "Read(//Users/djrere/.volta/**)",
+      "Bash(xcode-select -p)",
+      "WebFetch(domain:www.gigsalad.com)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -fsSL -o node.tar.gz \"https://nodejs.org/dist/v20.18.1/node-v20.18.1-darwin-arm64.tar.gz\")"
+    ]
+  }
+}

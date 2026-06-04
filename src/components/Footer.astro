@@ -1,0 +1,116 @@
+---
+import Logo from './Logo.astro';
+import { site, nav } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container wide">
+    <div class="footer-cta card">
+      <div class="footer-cta-glow glow" aria-hidden="true"></div>
+      <div class="footer-cta-inner">
+        <p class="kicker">Let’s design something unforgettable</p>
+        <h2 class="h1">Your event, <span class="serif gtext">anything but ordinary.</span></h2>
+        <p class="lede">Tell us the vision. We’ll bring the sound, the lights and the energy that turns guests into fans.</p>
+        <div class="footer-cta-actions">
+          <a href="/contact" class="btn btn-primary btn-lg">Request a Quote <span class="arrow">→</span></a>
+          <a href={`mailto:${site.email}`} class="btn btn-ghost btn-lg">Email the team</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <Logo />
+        <p class="footer-slogan">{site.slogan}</p>
+        <div class="footer-socials">
+          <a href={site.socials.instagram} target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href={site.socials.facebook} target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+          <a href={site.socials.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a href={site.socials.twitter} target="_blank" rel="noopener" aria-label="X">X</a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Footer">
+        <h3 class="footer-h">Explore</h3>
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href="/contact">Request a Quote</a>
+      </nav>
+
+      <div class="footer-col">
+        <h3 class="footer-h">Connect</h3>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <span class="footer-meta">{site.location}</span>
+        <span class="footer-meta">Available nationwide & destination</span>
+      </div>
+    </div>
+
+    <hr class="eased-line" />
+    <div class="footer-base">
+      <span>© {year} {site.legalName}. All rights reserved.</span>
+      <span class="footer-tag">{site.tagline}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer { padding-block: clamp(3rem, 2rem + 4vw, 5rem) 2.5rem; position: relative; }
+
+  .footer-cta {
+    padding: clamp(2.5rem, 1.5rem + 5vw, 5rem);
+    text-align: center;
+    margin-bottom: clamp(3rem, 2rem + 4vw, 5rem);
+    background: linear-gradient(180deg, var(--surface-2), var(--ink-2));
+    border-color: var(--line-strong);
+  }
+  .footer-cta-inner { position: relative; z-index: 1; display: grid; gap: 1.4rem; justify-items: center; }
+  .footer-cta .lede { margin-inline: auto; }
+  .footer-cta-glow {
+    width: 60%; height: 70%;
+    top: -20%; left: 20%;
+    background: var(--grad-radial);
+    opacity: 0.35;
+  }
+  .footer-cta-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2.5rem;
+    padding-block: 1rem 2.5rem;
+  }
+  .footer-slogan { color: var(--text-dim); max-width: 34ch; margin-top: 1.2rem; font-size: 0.98rem; }
+  .footer-socials { display: flex; gap: 1.2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .footer-socials a { font-size: 0.9rem; color: var(--text-mute); transition: color 0.3s var(--ease); }
+  .footer-socials a:hover { color: var(--magenta); }
+
+  .footer-col { display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-h {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .footer-col a { color: var(--text-dim); font-size: 0.95rem; transition: color 0.3s var(--ease); width: fit-content; }
+  .footer-col a:hover { color: var(--text); }
+  .footer-meta { color: var(--text-mute); font-size: 0.95rem; }
+
+  .footer-base {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.6rem;
+    color: var(--text-mute);
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+  .footer-tag { font-family: var(--font-serif); font-style: italic; letter-spacing: 0.01em; }
+
+  @media (max-width: 760px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>

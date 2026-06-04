@@ -1,0 +1,29 @@
+---
+interface Props {
+  kicker: string;
+  title: string;
+  emphasis?: string;
+  lede?: string;
+}
+const { kicker, title, emphasis, lede } = Astro.props;
+---
+
+<section class="ph">
+  <div class="ph-glow glow" aria-hidden="true"></div>
+  <div class="container wide ph-inner">
+    <p class="kicker" data-reveal>{kicker}</p>
+    <h1 class="display ph-title" data-reveal style="--reveal-delay:80ms">
+      {title} {emphasis && <span class="serif gtext">{emphasis}</span>}
+    </h1>
+    {lede && <p class="lede ph-lede" data-reveal style="--reveal-delay:150ms">{lede}</p>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .ph { position: relative; padding-top: 150px; padding-bottom: clamp(2.5rem, 1.5rem + 4vw, 4.5rem); overflow: hidden; }
+  .ph-glow { width: 55vw; height: 55vw; max-width: 680px; max-height: 680px; top: -18%; right: -8%; background: var(--grad-radial); opacity: 0.4; }
+  .ph-inner { position: relative; z-index: 1; }
+  .ph-title { font-size: clamp(2.6rem, 1.6rem + 5vw, 6rem); margin-bottom: 1.5rem; max-width: 16ch; }
+  .ph-lede { max-width: 62ch; }
+</style>

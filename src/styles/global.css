@@ -1,0 +1,356 @@
+/* =================================================================
+   REMIXED EVENTS — Design System
+   Bold gradient maximalist · feminine · modern
+   Palette pulled from the logo: electric blue → violet → magenta
+   ================================================================= */
+
+/* ---- Type ---------------------------------------------------- */
+/* Clash Display + General Sans via Fontshare, Fraunces via Google */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=general-sans@400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;0,9..144,500&display=swap');
+
+:root {
+  /* Brand spectrum */
+  --blue: #2a1ce8;
+  --indigo: #5b27ee;
+  --violet: #7b2ff7;
+  --purple: #a429e6;
+  --magenta: #dc1ee3;
+  --pink: #ff3dc0;
+
+  /* Signature gradients */
+  --grad: linear-gradient(115deg, #2a1ce8 0%, #7b2ff7 48%, #dc1ee3 100%);
+  --grad-soft: linear-gradient(115deg, #3a2cff 0%, #9d2be0 55%, #ff3dc0 100%);
+  --grad-radial: radial-gradient(120% 120% at 15% 0%, #3a2cff 0%, #7b2ff7 38%, #dc1ee3 72%, #ff5cc8 100%);
+
+  /* Ink / surface */
+  --ink: #08040f;
+  --ink-2: #0f0819;
+  --surface: #160c25;
+  --surface-2: #1d1030;
+  --line: rgba(255, 255, 255, 0.10);
+  --line-strong: rgba(255, 255, 255, 0.18);
+
+  /* Text */
+  --text: #f6f1fc;
+  --text-dim: #c7b9dd;
+  --text-mute: #9685b0;
+
+  /* Light surfaces (for alternating sections) */
+  --cream: #f7f3fb;
+  --cream-ink: #18091f;
+  --cream-dim: #5a4b6b;
+
+  /* Type families */
+  --font-display: 'Clash Display', 'Space Grotesk', system-ui, sans-serif;
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'General Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Rhythm */
+  --container: 1240px;
+  --container-wide: 1440px;
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --radius: 22px;
+  --radius-lg: 32px;
+  --radius-sm: 14px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---- Reset --------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--ink);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.08rem);
+  letter-spacing: 0.005em;
+  overflow-x: hidden;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+ul, ol { list-style: none; padding: 0; }
+
+::selection {
+  background: var(--magenta);
+  color: #fff;
+}
+
+/* ---- Type scale ---------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.9rem, 1.4rem + 7vw, 7.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+.h1 { font-size: clamp(2.4rem, 1.4rem + 4.4vw, 5rem); line-height: 0.98; letter-spacing: -0.03em; }
+.h2 { font-size: clamp(2rem, 1.3rem + 3vw, 3.6rem); line-height: 1; letter-spacing: -0.028em; }
+.h3 { font-size: clamp(1.45rem, 1.1rem + 1.4vw, 2.1rem); letter-spacing: -0.02em; }
+
+.serif { font-family: var(--font-serif); font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
+
+/* Gradient text */
+.gtext {
+  background: var(--grad-soft);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Eyebrow / kicker */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.kicker::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad-soft);
+}
+.kicker.center::before { display: none; }
+
+/* ---- Layout -------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container.wide { max-width: var(--container-wide); }
+
+.section { padding-block: clamp(4.5rem, 3rem + 7vw, 9rem); position: relative; }
+.section.tight { padding-block: clamp(3rem, 2rem + 4vw, 5.5rem); }
+
+.lede {
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--text-dim);
+  max-width: 60ch;
+}
+
+/* ---- Buttons ------------------------------------------------- */
+.btn {
+  --pad-y: 1rem;
+  --pad-x: 1.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: var(--pad-y) var(--pad-x);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), background 0.4s var(--ease), color 0.3s var(--ease);
+  position: relative;
+  isolation: isolate;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px) scale(0.99); }
+
+.btn-primary {
+  background: var(--grad);
+  color: #fff;
+  box-shadow: 0 10px 30px -10px rgba(220, 30, 227, 0.6), 0 2px 8px rgba(42, 28, 232, 0.4);
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--grad-soft);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  z-index: -1;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 45px -12px rgba(220, 30, 227, 0.7), 0 4px 14px rgba(42, 28, 232, 0.5);
+}
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--line-strong);
+  color: var(--text);
+  backdrop-filter: blur(6px);
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.32);
+  transform: translateY(-3px);
+}
+
+.btn-lg { --pad-y: 1.15rem; --pad-x: 2.1rem; font-size: 1.05rem; }
+
+.btn .arrow { transition: transform 0.4s var(--ease); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* Text link with animated underline */
+.tlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-weight: 600;
+  background-image: linear-gradient(var(--magenta), var(--magenta));
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s var(--ease), color 0.3s var(--ease);
+  padding-bottom: 2px;
+}
+.tlink:hover { background-size: 100% 2px; }
+.tlink .arrow { transition: transform 0.35s var(--ease); }
+.tlink:hover .arrow { transform: translateX(4px); }
+
+/* ---- Cards / chips ------------------------------------------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+}
+
+.card {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--ink-2) 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient hairline frame on hover */
+.card-glow { transition: transform 0.5s var(--ease), border-color 0.5s var(--ease); }
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--grad-soft);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+  pointer-events: none;
+}
+.card-glow:hover { transform: translateY(-6px); border-color: transparent; }
+.card-glow:hover::before { opacity: 1; }
+
+/* ---- Decorative ---------------------------------------------- */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Reveal on scroll ---------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* ---- Helpers ------------------------------------------------- */
+.center { text-align: center; }
+.mx-auto { margin-inline: auto; }
+.stack > * + * { margin-top: var(--stack, 1.25rem); }
+.eased-line {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Light section variant */
+.section-light {
+  background: var(--cream);
+  color: var(--cream-ink);
+}
+.section-light .lede { color: var(--cream-dim); }
+.section-light .kicker { color: var(--cream-dim); }
+.section-light .card {
+  background: #fff;
+  border-color: rgba(24, 9, 31, 0.08);
+  box-shadow: 0 20px 50px -30px rgba(24, 9, 31, 0.25);
+}

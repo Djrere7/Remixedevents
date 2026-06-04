@@ -1,0 +1,166 @@
+---
+import Logo from './Logo.astro';
+import { nav } from '../data/site';
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+---
+
+<header class="nav" data-nav>
+  <div class="container wide nav-inner">
+    <a href="/" class="nav-brand" aria-label="REmixed Events — home">
+      <Logo />
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      {nav.map((item) => (
+        <a href={item.href} class:list={['nav-link', { active: isActive(item.href) }]}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="nav-cta">
+      <a href="/contact" class="btn btn-primary nav-quote">Request a Quote <span class="arrow">→</span></a>
+    </div>
+
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false" data-burger>
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile sheet -->
+  <div class="nav-sheet" data-sheet hidden>
+    <nav class="nav-sheet-links" aria-label="Mobile">
+      {nav.map((item) => (
+        <a href={item.href} class="nav-sheet-link">{item.label}</a>
+      ))}
+      <a href="/contact" class="btn btn-primary btn-lg nav-sheet-cta">Request a Quote <span class="arrow">→</span></a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease), border-color 0.4s var(--ease);
+    border-bottom: 1px solid transparent;
+  }
+  .nav[data-scrolled] {
+    background: rgba(8, 4, 15, 0.72);
+    backdrop-filter: blur(18px) saturate(1.4);
+    border-bottom-color: var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 78px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    padding: 0.55rem 0.95rem;
+    border-radius: 999px;
+    transition: color 0.3s var(--ease), background 0.3s var(--ease);
+    position: relative;
+  }
+  .nav-link:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
+  .nav-link.active { color: var(--text); }
+  .nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0.15rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--grad-soft);
+  }
+  .nav-cta { display: flex; align-items: center; }
+  .nav-quote { --pad-y: 0.7rem; --pad-x: 1.3rem; font-size: 0.9rem; }
+
+  .nav-burger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    width: 44px; height: 44px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+  }
+  .nav-burger span {
+    width: 20px; height: 2px; border-radius: 2px;
+    background: var(--text);
+    transition: transform 0.35s var(--ease), opacity 0.25s var(--ease);
+  }
+  .nav-burger[aria-expanded='true'] span:first-child { transform: translateY(4px) rotate(45deg); }
+  .nav-burger[aria-expanded='true'] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+
+  .nav-sheet {
+    position: fixed;
+    inset: 78px 0 0 0;
+    background: rgba(8, 4, 15, 0.96);
+    backdrop-filter: blur(20px);
+    padding: 2rem var(--gutter) 3rem;
+    animation: sheet 0.4s var(--ease);
+  }
+  @keyframes sheet { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  .nav-sheet-links { display: flex; flex-direction: column; gap: 0.4rem; }
+  .nav-sheet-link {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-sheet-cta { margin-top: 1.5rem; }
+
+  @media (max-width: 940px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-burger { display: flex; }
+  }
+</style>
+
+<script>
+  const header = document.querySelector('[data-nav]');
+  const onScroll = () => {
+    if (!header) return;
+    if (window.scrollY > 12) header.setAttribute('data-scrolled', '');
+    else header.removeAttribute('data-scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const burger = document.querySelector('[data-burger]');
+  const sheet = document.querySelector('[data-sheet]');
+  burger?.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!open));
+    if (sheet) (sheet as HTMLElement).hidden = open;
+    document.body.style.overflow = open ? '' : 'hidden';
+  });
+  sheet?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      burger?.setAttribute('aria-expanded', 'false');
+      (sheet as HTMLElement).hidden = true;
+      document.body.style.overflow = '';
+    }),
+  );
+</script>

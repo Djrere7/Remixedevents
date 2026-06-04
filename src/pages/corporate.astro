@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { site } from '../data/site';
+
+const capabilities = [
+  { t: 'Brand activations', d: 'Pop-ups, product launches and experiential builds with custom-branded DJ booths and on-theme sound design that pulls a crowd and holds it.' },
+  { t: 'Conferences & summits', d: 'Keynote walk-ons, breakout energy, networking sets and award-show polish — timed to the minute, run by a dedicated lead.' },
+  { t: 'Galas & holiday parties', d: 'Black-tie elegance to peak-hour dance floor, with live musician add-ons and seamless transitions across the night.' },
+  { t: 'Corporate entertainment', d: 'MCs, hosts, live musicians and DJs from our all-female collective — vetted, insured and rehearsed.' },
+];
+
+const why = [
+  { t: 'Enterprise-reliable', d: 'Contracts, COIs and insurance handled. We hit load-in windows and deadlines without drama.' },
+  { t: 'Content-ready moments', d: 'Every activation is built with your marketing team in mind — designed to be filmed, posted and remembered.' },
+  { t: 'One point of contact', d: 'A dedicated event lead from brief to breakdown. No vendor ping-pong, no surprises.' },
+  { t: 'Full production', d: 'Line-array sound, intelligent lighting, staging and DJ facades — scaled to your room and budget.' },
+];
+
+const logos = ['Universe Communications', 'Bella Wear', 'Tech & SaaS', 'Hospitality', 'Fashion & Beauty', 'Real Estate'];
+---
+
+<Base title="Corporate & Brand Activations" description="REmixed Events produces brand activations, corporate galas, product launches and conferences across South Florida — enterprise-reliable, fully insured, content-ready entertainment.">
+  <PageHeader
+    kicker="For brands & corporate teams"
+    title="Activations that earn the"
+    emphasis="double-take."
+    lede="When your brand is on the line, you need more than a DJ. REmixed produces corporate events and brand activations end-to-end — with the reliability your stakeholders expect and the energy they’ll talk about for weeks."
+  >
+    <div class="ph-actions" data-reveal style="--reveal-delay:200ms">
+      <a href="/contact" class="btn btn-primary btn-lg">Plan your activation <span class="arrow">→</span></a>
+      <a href={`mailto:${site.email}`} class="btn btn-ghost btn-lg">Talk to the team</a>
+    </div>
+  </PageHeader>
+
+  <!-- CLIENT STRIP -->
+  <section class="section tight clients">
+    <div class="container wide">
+      <p class="clients-label">Trusted by teams across industries</p>
+      <div class="clients-row" data-reveal>
+        {logos.map((l) => <span class="client-name">{l}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="section">
+    <div class="container wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker" data-reveal>Capabilities</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Built for the corporate calendar.</h2>
+        </div>
+      </div>
+      <div class="cap-grid">
+        {capabilities.map((c, i) => (
+          <article class="card card-glow cap" data-reveal style={`--reveal-delay:${i * 70}ms`}>
+            <span class="cap-mark gtext" aria-hidden="true">✦</span>
+            <h3 class="h3">{c.t}</h3>
+            <p>{c.d}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section section-light">
+    <div class="container wide">
+      <div class="why-head">
+        <p class="kicker" data-reveal>Why REmixed for business</p>
+        <h2 class="h1" data-reveal style="--reveal-delay:80ms">Polished where it counts. <span class="serif gtext">Electric where it matters.</span></h2>
+      </div>
+      <div class="why-grid">
+        {why.map((w, i) => (
+          <div class="why card" data-reveal style={`--reveal-delay:${i * 70}ms`}>
+            <h3 class="why-t">{w.t}</h3>
+            <p class="why-d">{w.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="section">
+    <div class="container wide">
+      <figure class="big-quote" data-reveal>
+        <p class="big-quote-text serif">
+          “DJ ReRe of REmixed Events is one of the best and most versatile entertainers that I have witnessed.”
+        </p>
+        <figcaption class="big-quote-cite">
+          <span class="gtext">Tony Terry</span> · Director of Media, Universe Communications Inc.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ph-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 2rem; }
+
+  .clients { border-block: 1px solid var(--line); }
+  .clients-label { text-align: center; font-size: 0.74rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 1.4rem; }
+  .clients-row { display: flex; flex-wrap: wrap; gap: 1.2rem 2.4rem; justify-content: center; }
+  .client-name { font-family: var(--font-display); font-weight: 500; font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem); color: var(--text-dim); opacity: 0.85; }
+
+  .sec-head { margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
+  .sec-head > div { display: grid; gap: 0.9rem; }
+
+  .cap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .cap { padding: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); display: grid; gap: 0.9rem; align-content: start; }
+  .cap-mark { font-size: 1.3rem; }
+  .cap p { color: var(--text-dim); }
+  @media (max-width: 760px) { .cap-grid { grid-template-columns: 1fr; } }
+
+  .why-head { display: grid; gap: 0.9rem; max-width: 22ch; margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
+  .why-head .h1 { max-width: 14ch; }
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .why { padding: 1.7rem 1.5rem; display: grid; gap: 0.5rem; align-content: start; }
+  .why-t { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; }
+  .why-d { color: var(--cream-dim); font-size: 0.92rem; }
+  @media (max-width: 880px) { .why-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .why-grid { grid-template-columns: 1fr; } }
+
+  .big-quote { max-width: 26ch; margin: 0 auto; text-align: center; display: grid; gap: 1.4rem; }
+  .big-quote-text { font-size: clamp(1.6rem, 1.1rem + 2.6vw, 3rem); line-height: 1.18; letter-spacing: -0.02em; }
+  .big-quote-cite { color: var(--text-dim); font-size: 0.95rem; }
+  .big-quote-cite .gtext { font-weight: 600; }
+</style>

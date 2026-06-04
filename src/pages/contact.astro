@@ -1,0 +1,108 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, awards } from '../data/site';
+
+const steps = [
+  { n: '01', t: 'Tell us the vision', d: 'Share your date, venue and the feeling you’re after. The more detail, the better the proposal.' },
+  { n: '02', t: 'Get a tailored quote', d: 'We’ll come back fast with a curated package and transparent pricing — no templated guesswork.' },
+  { n: '03', t: 'Lock it in', d: 'Sign, secure your date and hand off the details. We produce the rest, start to finish.' },
+];
+---
+
+<Base title="Request a Quote" description="Request a quote from REmixed Events — South Florida’s premier DJ and event production company for brand activations, corporate events, weddings and VIP experiences.">
+  <section class="ct-hero">
+    <div class="ct-glow glow" aria-hidden="true"></div>
+    <div class="container wide ct-grid">
+      <div class="ct-copy">
+        <p class="kicker" data-reveal>Let’s talk</p>
+        <h1 class="h1" data-reveal style="--reveal-delay:80ms">
+          Tell us about your <span class="serif gtext">event.</span>
+        </h1>
+        <p class="lede" data-reveal style="--reveal-delay:140ms">
+          Whether it’s a brand activation, a corporate gala or the wedding of the year — share the details
+          and we’ll design a package that fits. Most quotes go out within one business day.
+        </p>
+
+        <ol class="ct-steps" data-reveal style="--reveal-delay:200ms">
+          {steps.map((s) => (
+            <li class="ct-step">
+              <span class="ct-step-n gtext">{s.n}</span>
+              <div>
+                <h3 class="ct-step-t">{s.t}</h3>
+                <p class="ct-step-d">{s.d}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div class="ct-direct" data-reveal style="--reveal-delay:260ms">
+          <p>Prefer email?</p>
+          <a href={`mailto:${site.email}`} class="tlink">{site.email} <span class="arrow">→</span></a>
+        </div>
+
+        <ul class="ct-badges" data-reveal style="--reveal-delay:320ms">
+          {awards.slice(0, 3).map((a) => <li class="chip">✦ {a}</li>)}
+        </ul>
+      </div>
+
+      <div class="ct-form-col" data-reveal style="--reveal-delay:160ms">
+        <div class="ct-form-frame">
+          <iframe
+            id="quote-iframe"
+            src="/quote-form.html"
+            title="Request a quote"
+            loading="eager"
+            scrolling="no"
+            style="width:100%;border:0;height:1500px;"
+          ></iframe>
+        </div>
+        <p class="ct-secure">🔒 Submissions go straight to the REmixed Events team. We never share your details.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ct-hero { position: relative; padding-top: 130px; padding-bottom: 5rem; overflow: hidden; }
+  .ct-glow { width: 50vw; height: 50vw; max-width: 620px; max-height: 620px; top: -12%; left: -10%; background: var(--grad-radial); opacity: 0.34; }
+  .ct-grid {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+    align-items: start;
+  }
+  .ct-copy { display: grid; gap: 1.4rem; position: sticky; top: 100px; }
+  .ct-steps { display: grid; gap: 1.1rem; margin-top: 0.6rem; }
+  .ct-step { display: flex; gap: 1rem; align-items: flex-start; }
+  .ct-step-n { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; flex-shrink: 0; min-width: 2.2rem; }
+  .ct-step-t { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
+  .ct-step-d { color: var(--text-dim); font-size: 0.95rem; margin-top: 0.2rem; }
+  .ct-direct { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; padding-top: 0.5rem; }
+  .ct-direct p { color: var(--text-mute); }
+  .ct-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  .ct-form-frame {
+    border-radius: 24px;
+    padding: 1px;
+    background: var(--grad-soft);
+    box-shadow: 0 30px 70px -30px rgba(220, 30, 227, 0.5);
+  }
+  .ct-form-frame iframe { border-radius: 23px; display: block; background: var(--surface); }
+  .ct-secure { text-align: center; color: var(--text-mute); font-size: 0.85rem; margin-top: 1rem; }
+
+  @media (max-width: 880px) {
+    .ct-grid { grid-template-columns: 1fr; }
+    .ct-copy { position: static; }
+  }
+</style>
+
+<script>
+  // Auto-size the quote iframe to its content.
+  window.addEventListener('message', (e) => {
+    if (e?.data?.type === 'qf-height' && typeof e.data.height === 'number') {
+      const frame = document.getElementById('quote-iframe') as HTMLIFrameElement | null;
+      if (frame) frame.style.height = Math.max(600, e.data.height + 24) + 'px';
+    }
+  });
+</script>

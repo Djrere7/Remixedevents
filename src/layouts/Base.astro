@@ -1,0 +1,123 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = 'South Florida’s premier events company. REmixed Events designs luxe, high-energy entertainment for brand activations, corporate events, luxury weddings and VIP experiences. Anything But Ordinary.',
+  image = '/og.jpg',
+} = Astro.props;
+
+const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · South Florida’s Premier Events Company`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://remixedeventsllc.com').href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content="REmixed Events" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#08040f" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site ?? 'https://remixedeventsllc.com').href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Preconnect fonts -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Local business structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'EntertainmentBusiness',
+      name: site.legalName,
+      description,
+      email: site.email,
+      url: 'https://remixedeventsllc.com',
+      areaServed: 'South Florida',
+      address: { '@type': 'PostalAddress', addressRegion: 'FL', addressCountry: 'US', addressLocality: 'Miami' },
+      sameAs: Object.values(site.socials),
+      slogan: site.tagline,
+    })} />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="spotlight" aria-hidden="true" data-spotlight></div>
+    <a href="#main" class="sr-only">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <style>
+      .spotlight {
+        position: fixed;
+        top: 0; left: 0;
+        width: 540px; height: 540px;
+        margin: -270px 0 0 -270px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(220, 30, 227, 0.10), rgba(42, 28, 232, 0.06) 40%, transparent 70%);
+        pointer-events: none;
+        z-index: 1;
+        transform: translate3d(-1000px, -1000px, 0);
+        transition: opacity 0.6s ease;
+        opacity: 0;
+      }
+      @media (hover: none) { .spotlight { display: none; } }
+    </style>
+
+    <script>
+      // Reveal-on-scroll
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+      );
+      const observe = () => document.querySelectorAll('[data-reveal]:not(.in)').forEach((el) => io.observe(el));
+      observe();
+
+      // Cursor spotlight (desktop, pointer only)
+      const spot = document.querySelector('[data-spotlight]') as HTMLElement | null;
+      if (spot && window.matchMedia('(hover: hover)').matches) {
+        let raf = 0;
+        window.addEventListener('pointermove', (e) => {
+          if (raf) return;
+          raf = requestAnimationFrame(() => {
+            spot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+            spot.style.opacity = '1';
+            raf = 0;
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

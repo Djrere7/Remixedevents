@@ -1,0 +1,151 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Marquee from '../components/Marquee.astro';
+import { awards, stats, site } from '../data/site';
+
+const values = [
+  { t: 'Experiences, not playlists', d: 'We design atmosphere — curated soundscapes, intelligent lighting and a read-the-room instinct that turns a good night into a story people retell.' },
+  { t: 'Women at the decks', d: 'An all-female collective of world-class DJs, musicians and producers, raising the bar for what event entertainment looks and sounds like.' },
+  { t: 'Trustworthy & precise', d: 'Highly experienced, organized and detail-obsessed. We sweat the run-of-show so you can be a guest at your own event.' },
+];
+---
+
+<Base title="About" description="Meet DJ ReRe, founder of REmixed Events — an internationally recognized DJ, creative director and founder of the MixHer nonprofit empowering women in music.">
+  <PageHeader
+    kicker="The woman behind the decks"
+    title="Meet"
+    emphasis="DJ ReRe."
+    lede="Founder, creative director and the heartbeat of REmixed Events — an internationally recognized DJ and host celebrated for turning rooms into experiences people can’t stop talking about."
+  />
+
+  <!-- STORY -->
+  <section class="section tight">
+    <div class="container wide story-grid">
+      <div class="story-portrait card" data-reveal>
+        <div class="portrait-glow glow" aria-hidden="true"></div>
+        <div class="portrait-inner">
+          <span class="portrait-mark gtext">ReRe</span>
+          <p class="portrait-note">Drop a photo at <code>/public/djrere.jpg</code> to feature it here.</p>
+        </div>
+      </div>
+
+      <div class="story-copy" data-reveal style="--reveal-delay:120ms">
+        <p class="story-lead serif">“We don’t just play music — we design experiences that move people.”</p>
+        <p>
+          DJ ReRe has spent over a decade behind the decks at top venues around the world, earning multiple
+          appearances on DJane Magazine’s <strong>Top 100 Female DJs</strong>, three national DJ awards, and
+          features in <strong>Rolling Out</strong> and beyond. Her wedding work earned the
+          <strong>Global Wedding Awards’ Best Female Wedding DJ Provider</strong> title.
+        </p>
+        <p>
+          But the accolades aren’t the point — the room is. ReRe built REmixed Events to do entertainment
+          differently: an all-female collective of DJs, live musicians and producers obsessed with craft,
+          energy and the kind of detail that makes a night feel effortless.
+        </p>
+        <p>
+          Based in Miami and working across South Florida and beyond, REmixed brings the same artistry to a
+          200-person product launch as a candlelit first dance. <em>Anything but ordinary</em> isn’t a tagline.
+          It’s the standard.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="about-stats">
+        {stats.map((s, i) => (
+          <div class="astat" data-reveal style={`--reveal-delay:${i * 80}ms`}>
+            <span class="astat-v gtext">{s.value}</span>
+            <span class="astat-l">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section">
+    <div class="container wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker" data-reveal>What we stand for</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">More than a booking. A philosophy.</h2>
+        </div>
+      </div>
+      <div class="val-grid">
+        {values.map((v, i) => (
+          <article class="card card-glow val" data-reveal style={`--reveal-delay:${i * 80}ms`}>
+            <span class="val-mark gtext" aria-hidden="true">✦</span>
+            <h3 class="h3">{v.t}</h3>
+            <p>{v.d}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MIXHER -->
+  <section class="section">
+    <div class="container wide">
+      <div class="mixher card" data-reveal>
+        <div class="mixher-glow glow" aria-hidden="true"></div>
+        <div class="mixher-inner">
+          <p class="kicker">Giving back</p>
+          <h2 class="h1">
+            <span class="gtext">MixHer</span> — handing women the mic.
+          </h2>
+          <p class="lede">
+            Through her nonprofit MixHer, DJ ReRe mentors and platforms emerging female DJs and artists —
+            helping them assert their voice and take the main stage. Every REmixed event is a working
+            extension of that mission.
+          </p>
+          <a href="/contact" class="btn btn-primary btn-lg">Work with the collective <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight awards-band">
+    <Marquee items={awards} speed={30} />
+  </section>
+</Base>
+
+<style>
+  .story-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem, 1rem + 4vw, 4rem); align-items: start; }
+  .story-portrait { aspect-ratio: 4 / 5; position: relative; overflow: hidden; display: grid; place-items: center; background: linear-gradient(160deg, var(--surface-2), var(--ink)); border-color: var(--line-strong); }
+  .portrait-glow { width: 80%; height: 80%; inset: 10%; background: var(--grad-radial); opacity: 0.4; }
+  .portrait-inner { position: relative; z-index: 1; text-align: center; display: grid; gap: 0.8rem; padding: 1.5rem; }
+  .portrait-mark { font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 2rem + 5vw, 5rem); letter-spacing: -0.04em; }
+  .portrait-note { font-size: 0.8rem; color: var(--text-mute); }
+  .portrait-note code { background: rgba(255,255,255,0.08); padding: 0.1em 0.4em; border-radius: 6px; font-size: 0.9em; }
+
+  .story-copy { display: grid; gap: 1.2rem; }
+  .story-lead { font-size: clamp(1.4rem, 1.1rem + 1.6vw, 2.1rem); line-height: 1.25; letter-spacing: -0.01em; margin-bottom: 0.4rem; }
+  .story-copy p { color: var(--text-dim); }
+  .story-copy strong { color: var(--text); font-weight: 600; }
+  @media (max-width: 820px) { .story-grid { grid-template-columns: 1fr; } .story-portrait { max-width: 360px; } }
+
+  .about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; border-block: 1px solid var(--line); padding-block: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); }
+  .astat { display: grid; gap: 0.3rem; text-align: center; }
+  .astat-v { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 1.6rem + 2.4vw, 3.4rem); letter-spacing: -0.03em; line-height: 1; }
+  .astat-l { color: var(--text-dim); font-size: 0.9rem; }
+  @media (max-width: 620px) { .about-stats { grid-template-columns: 1fr 1fr; gap: 1.6rem; } }
+
+  .sec-head { margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
+  .sec-head > div { display: grid; gap: 0.9rem; }
+
+  .val-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .val { padding: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); display: grid; gap: 0.8rem; align-content: start; }
+  .val-mark { font-size: 1.3rem; }
+  .val p { color: var(--text-dim); }
+  @media (max-width: 820px) { .val-grid { grid-template-columns: 1fr; } }
+
+  .mixher { padding: clamp(2.2rem, 1.5rem + 4vw, 4.5rem); background: linear-gradient(135deg, var(--surface-2), var(--ink-2) 75%); border-color: var(--line-strong); overflow: hidden; }
+  .mixher-glow { width: 45%; height: 130%; top: -15%; right: -8%; background: var(--grad-radial); opacity: 0.3; }
+  .mixher-inner { position: relative; z-index: 1; display: grid; gap: 1.3rem; max-width: 640px; }
+  .mixher-inner .h1 { max-width: 16ch; }
+  .awards-band { border-top: 1px solid var(--line); }
+</style>

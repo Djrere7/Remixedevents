@@ -1,0 +1,61 @@
+---
+/**
+ * Brand wordmark. Renders a typographic treatment with the signature
+ * reversed "R" + gradient. To use your real logo art instead, drop a file at
+ * /public/logo.svg (or .png) and set `useImage` — see the commented block below.
+ */
+interface Props {
+  /** show the EVENTS sub-label */
+  full?: boolean;
+  class?: string;
+}
+const { full = true, class: cls = '' } = Astro.props;
+---
+
+<span class={`logo ${cls}`} aria-label="REmixed Events">
+  <span class="logo-word">
+    <span class="logo-r" aria-hidden="true">R</span><span class="logo-rest gtext">Emixed</span>
+  </span>
+  {full && <span class="logo-sub">Events</span>}
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 0.86;
+    font-family: var(--font-display);
+    user-select: none;
+  }
+  .logo-word {
+    display: inline-flex;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.04em;
+  }
+  /* The signature flipped R */
+  .logo-r {
+    display: inline-block;
+    transform: scaleX(-1);
+    background: var(--grad-soft);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-right: 0.01em;
+  }
+  .logo-rest { font-weight: 700; }
+  .logo-sub {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.6rem;
+    letter-spacing: 0.52em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding-left: 0.15em;
+    margin-top: 0.35em;
+  }
+  /* Light-context override */
+  :global(.on-light) .logo-sub { color: var(--cream-dim); }
+</style>
