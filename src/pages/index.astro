@@ -3,7 +3,17 @@ import Base from '../layouts/Base.astro';
 import Marquee from '../components/Marquee.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
+import MediaPlaceholder from '../components/MediaPlaceholder.astro';
 import { services, testimonials, awards, stats, site } from '../data/site';
+
+const gallery = [
+  { label: 'Brand activation crowd', hint: 'Photo · 1200×1500', aspect: '4/5' },
+  { label: 'DJ ReRe on the decks', hint: 'Photo · 1200×900', aspect: '4/3' },
+  { label: 'Luxury wedding reception', hint: 'Photo · 1200×900', aspect: '4/3' },
+  { label: 'Lighting & stage production', hint: 'Photo · 1200×1500', aspect: '4/5' },
+  { label: 'VIP soirée moment', hint: 'Photo · 1200×900', aspect: '4/3' },
+  { label: 'Corporate gala', hint: 'Photo · 1200×1500', aspect: '4/5' },
+];
 ---
 
 <Base>
@@ -116,6 +126,36 @@ import { services, testimonials, awards, stats, site } from '../data/site';
             <a href="/corporate" class="btn btn-primary btn-lg">Explore corporate & brands <span class="arrow">→</span></a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOWREEL ============ -->
+  <section class="section reel">
+    <div class="container wide">
+      <div class="reel-head">
+        <p class="kicker" data-reveal>Press play</p>
+        <h2 class="h2" data-reveal style="--reveal-delay:80ms">See the <span class="font-stroke gtext">energy</span> in motion.</h2>
+        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A 60-second taste of what a REmixed night feels like — the drops, the crowd, the moments.</p>
+      </div>
+      <MediaPlaceholder type="video" aspect="16/9" label="Event showreel" hint="MP4 · 1920×1080 — drop your highlight reel here" class="reel-frame" />
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker" data-reveal>The REmixed lookbook</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Moments worth reliving.</h2>
+        </div>
+        <a href="/contact" class="tlink sec-head-link" data-reveal>Book your moment <span class="arrow">→</span></a>
+      </div>
+      <div class="gallery">
+        {gallery.map((g, i) => (
+          <MediaPlaceholder type="image" aspect={g.aspect} label={g.label} hint={g.hint} class="gallery-item" />
+        ))}
       </div>
     </div>
   </section>
@@ -290,6 +330,15 @@ import { services, testimonials, awards, stats, site } from '../data/site';
     color: #fff;
     flex-shrink: 0;
   }
+
+  /* ---------- SHOWREEL ---------- */
+  .reel-head { text-align: center; display: grid; gap: 0.9rem; justify-items: center; max-width: 60ch; margin: 0 auto clamp(2rem, 1.5rem + 2vw, 3rem); }
+  .reel :global(.reel-frame) { box-shadow: 0 50px 90px -50px rgba(123, 47, 247, 0.6); }
+
+  /* ---------- GALLERY (masonry) ---------- */
+  .gallery { columns: 3 240px; column-gap: 1.1rem; }
+  .gallery :global(.gallery-item) { margin-bottom: 1.1rem; break-inside: avoid; }
+  @media (max-width: 560px) { .gallery { columns: 2 150px; } }
 
   /* ---------- TESTIMONIALS GRID ---------- */
   .quote-grid {

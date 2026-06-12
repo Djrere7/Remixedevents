@@ -1,0 +1,105 @@
+---
+/**
+ * Designed placeholder for imagery / video that hasn't been added yet.
+ * Looks intentional (gradient-tinted, labeled) so the layout reads as
+ * finished. Swap for a real <img>/<video> when assets are ready.
+ *
+ * Usage:
+ *   <MediaPlaceholder type="image" aspect="4/5" label="DJ ReRe at the decks" hint="Portrait · 1200×1500" />
+ *   <MediaPlaceholder type="video" aspect="16/9" label="Event showreel" hint="MP4 · 1920×1080" />
+ */
+interface Props {
+  type?: 'image' | 'video';
+  aspect?: string;          // CSS aspect-ratio, e.g. "16/9", "4/5", "1/1"
+  label?: string;
+  hint?: string;
+  class?: string;
+}
+const { type = 'image', aspect = '4/3', label, hint, class: cls = '' } = Astro.props;
+---
+
+<figure class={`mph mph-${type} ${cls}`} style={`aspect-ratio:${aspect}`} data-reveal>
+  <span class="mph-corner" aria-hidden="true">{type === 'video' ? 'VIDEO' : 'IMAGE'}</span>
+
+  {type === 'video' ? (
+    <span class="mph-play" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
+    </span>
+  ) : (
+    <svg class="mph-icon" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true">
+      <path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="8" cy="10" r="1.8" fill="currentColor"/>
+      <path d="m4 18 5-5 4 4 3-3 4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
+  )}
+
+  {label && <figcaption class="mph-label">{label}</figcaption>}
+  {hint && <span class="mph-hint">{hint}</span>}
+</figure>
+
+<style>
+  .mph {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    border-radius: var(--radius);
+    color: var(--violet);
+    text-align: center;
+    padding: 1.2rem;
+    overflow: hidden;
+    border: 1.5px dashed color-mix(in srgb, var(--violet) 38%, transparent);
+    background:
+      radial-gradient(120% 120% at 20% 0%, color-mix(in srgb, var(--blue) 14%, transparent), transparent 55%),
+      radial-gradient(120% 120% at 100% 100%, color-mix(in srgb, var(--magenta) 16%, transparent), transparent 55%),
+      var(--surface-2);
+    transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+  }
+  .mph:hover { transform: translateY(-4px); box-shadow: 0 26px 50px -30px rgba(123, 47, 247, 0.45); }
+
+  .mph-corner {
+    position: absolute;
+    top: 0.8rem; left: 0.8rem;
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    padding: 0.3em 0.6em;
+    border-radius: 999px;
+    color: #fff;
+    background: var(--grad);
+  }
+
+  .mph-icon { opacity: 0.9; }
+
+  .mph-play {
+    display: grid;
+    place-items: center;
+    width: 62px; height: 62px;
+    border-radius: 50%;
+    color: #fff;
+    background: var(--grad);
+    box-shadow: 0 14px 30px -10px rgba(123, 47, 247, 0.6);
+    padding-left: 3px;
+  }
+  .mph:hover .mph-play { transform: scale(1.06); }
+
+  .mph-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    max-width: 22ch;
+  }
+  .mph-hint {
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    color: var(--text-mute);
+  }
+
+  @media (prefers-reduced-motion: reduce) { .mph:hover { transform: none; } }
+</style>

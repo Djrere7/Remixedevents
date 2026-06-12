@@ -1,5 +1,6 @@
 ---
 import type { Service } from '../data/site';
+import MediaPlaceholder from './MediaPlaceholder.astro';
 interface Props extends Service {
   delay?: number;
 }
@@ -7,6 +8,7 @@ const { tag, title, blurb, points, delay = 0 } = Astro.props;
 ---
 
 <article class="card card-glow svc" data-reveal style={`--reveal-delay:${delay}ms`}>
+  <MediaPlaceholder type="image" aspect="16/10" label={`${title}`} hint="Photo · 1600×1000" class="svc-thumb" />
   <div class="svc-top">
     <span class="svc-tag">{tag}</span>
     <span class="svc-mark gtext" aria-hidden="true">✦</span>
@@ -22,11 +24,19 @@ const { tag, title, blurb, points, delay = 0 } = Astro.props;
 
 <style>
   .svc {
-    padding: clamp(1.6rem, 1.2rem + 1vw, 2.2rem);
+    --pad: clamp(1.6rem, 1.2rem + 1vw, 2.2rem);
+    padding: var(--pad);
     display: flex;
     flex-direction: column;
     gap: 1rem;
     min-height: 100%;
+  }
+  .svc :global(.svc-thumb) {
+    margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0.4rem;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
   }
   .svc-top { display: flex; align-items: center; justify-content: space-between; }
   .svc-tag {

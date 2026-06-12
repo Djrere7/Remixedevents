@@ -2,7 +2,15 @@
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
+import MediaPlaceholder from '../components/MediaPlaceholder.astro';
 import { testimonials, site } from '../data/site';
+
+const wedGallery = [
+  { label: 'Ceremony processional', hint: 'Photo · 1200×1500', aspect: '4/5' },
+  { label: 'First dance', hint: 'Photo · 1200×900', aspect: '4/3' },
+  { label: 'Packed reception floor', hint: 'Photo · 1200×900', aspect: '4/3' },
+  { label: 'Golden-hour portraits', hint: 'Photo · 1200×1500', aspect: '4/5' },
+];
 
 const includes = [
   { t: 'Ceremony', d: 'A string trio or curated playlist, perfectly timed processional, and crystal-clear sound for your vows.' },
@@ -62,6 +70,23 @@ const wedTestimonials = testimonials.filter((t) => t.date === 'Wedding').concat(
     </div>
   </section>
 
+  <!-- GALLERY -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker" data-reveal>Real celebrations</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">A night styled down to the <span class="font-stroke gtext">last dance.</span></h2>
+        </div>
+      </div>
+      <div class="wed-gallery">
+        {wedGallery.map((g) => (
+          <MediaPlaceholder type="image" aspect={g.aspect} label={g.label} hint={g.hint} />
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- TESTIMONIALS -->
   <section class="section section-light">
     <div class="container wide">
@@ -103,4 +128,7 @@ const wedTestimonials = testimonials.filter((t) => t.date === 'Wedding').concat(
 
   .wed-quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
   @media (max-width: 760px) { .wed-quotes { grid-template-columns: 1fr; max-width: 560px; } }
+
+  .wed-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; align-items: start; }
+  @media (max-width: 820px) { .wed-gallery { grid-template-columns: 1fr 1fr; } }
 </style>
