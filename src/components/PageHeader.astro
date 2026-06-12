@@ -3,9 +3,11 @@ interface Props {
   kicker: string;
   title: string;
   emphasis?: string;
+  /** font treatment for the emphasis word — defaults to the italic serif */
+  emphasisClass?: string;
   lede?: string;
 }
-const { kicker, title, emphasis, lede } = Astro.props;
+const { kicker, title, emphasis, emphasisClass = 'serif', lede } = Astro.props;
 ---
 
 <section class="ph">
@@ -13,7 +15,7 @@ const { kicker, title, emphasis, lede } = Astro.props;
   <div class="container wide ph-inner">
     <p class="kicker" data-reveal>{kicker}</p>
     <h1 class="display ph-title" data-reveal style="--reveal-delay:80ms">
-      {title} {emphasis && <span class="serif gtext">{emphasis}</span>}
+      {title} {emphasis && <span class:list={['gtext', emphasisClass]}>{emphasis}</span>}
     </h1>
     {lede && <p class="lede ph-lede" data-reveal style="--reveal-delay:150ms">{lede}</p>}
     <slot />

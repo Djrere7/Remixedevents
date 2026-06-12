@@ -18,7 +18,7 @@ import { services, testimonials, awards, stats, site } from '../data/site';
       <h1 class="display hero-title">
         <span class="line" data-reveal style="--reveal-delay:60ms">We don’t just</span>
         <span class="line" data-reveal style="--reveal-delay:140ms">play music —</span>
-        <span class="line gtext" data-reveal style="--reveal-delay:220ms">we move people.</span>
+        <span class="line gtext font-stroke" data-reveal style="--reveal-delay:220ms">we move people.</span>
       </h1>
 
       <div class="hero-foot">
@@ -94,7 +94,7 @@ import { services, testimonials, awards, stats, site } from '../data/site';
 
   <!-- ============ CORPORATE BAND ============ -->
   <section class="section corp">
-    <div class="container wide card corp-card">
+    <div class="container wide card corp-card on-grad">
       <div class="corp-glow glow" aria-hidden="true"></div>
       <div class="corp-inner">
         <div class="corp-copy">
@@ -264,15 +264,17 @@ import { services, testimonials, awards, stats, site } from '../data/site';
   /* ---------- CORPORATE BAND ---------- */
   .corp-card {
     padding: clamp(2.2rem, 1.5rem + 4vw, 4.5rem);
-    background: linear-gradient(135deg, var(--surface-2), var(--ink-2) 70%);
-    border-color: var(--line-strong);
+    background: var(--grad);
+    border: 0;
     overflow: hidden;
+    box-shadow: 0 40px 80px -36px rgba(123, 47, 247, 0.55);
   }
   .corp-glow {
-    width: 50%; height: 120%;
-    top: -10%; right: -10%;
-    background: var(--grad-radial);
-    opacity: 0.28;
+    width: 60%; height: 130%;
+    top: -15%; right: -12%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 65%);
+    opacity: 0.55;
+    filter: blur(60px);
   }
   .corp-inner { position: relative; z-index: 1; max-width: 720px; }
   .corp-copy { display: grid; gap: 1.4rem; }
@@ -280,15 +282,12 @@ import { services, testimonials, awards, stats, site } from '../data/site';
   .corp-list li {
     display: flex;
     gap: 0.7rem;
-    color: var(--text-dim);
+    color: rgba(255, 255, 255, 0.92);
     font-size: 1rem;
   }
   .corp-list li::before {
     content: "✦";
-    background: var(--grad-soft);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
     flex-shrink: 0;
   }
 

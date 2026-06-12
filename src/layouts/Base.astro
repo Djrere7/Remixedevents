@@ -30,7 +30,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://remixedeven
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#08040f" />
+    <meta name="theme-color" content="#fbf9ff" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -79,7 +79,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://remixedeven
         width: 540px; height: 540px;
         margin: -270px 0 0 -270px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(220, 30, 227, 0.10), rgba(42, 28, 232, 0.06) 40%, transparent 70%);
+        background: radial-gradient(circle, rgba(220, 30, 227, 0.14), rgba(42, 28, 232, 0.08) 40%, transparent 70%);
+        mix-blend-mode: multiply;
         pointer-events: none;
         z-index: 1;
         transform: translate3d(-1000px, -1000px, 0);

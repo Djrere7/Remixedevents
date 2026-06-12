@@ -134,8 +134,8 @@ export const eventTypes = [
 
 /** Headline stats — adjust to taste / true numbers. */
 export const stats = [
+  { value: '20+', label: 'Years on the decks' },
+  { value: '15+', label: 'Countries performed' },
   { value: '500+', label: 'Events designed' },
-  { value: '10+', label: 'Years on the decks' },
   { value: '3×', label: 'National award winner' },
-  { value: '100%', label: 'All-female collective' },
 ];

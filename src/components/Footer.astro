@@ -6,11 +6,11 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="container wide">
-    <div class="footer-cta card">
+    <div class="footer-cta card on-grad">
       <div class="footer-cta-glow glow" aria-hidden="true"></div>
       <div class="footer-cta-inner">
         <p class="kicker">Let’s design something unforgettable</p>
-        <h2 class="h1">Your event, <span class="serif gtext">anything but ordinary.</span></h2>
+        <h2 class="h1">Your event, <span class="font-stroke">anything but ordinary.</span></h2>
         <p class="lede">Tell us the vision. We’ll bring the sound, the lights and the energy that turns guests into fans.</p>
         <div class="footer-cta-actions">
           <a href="/contact" class="btn btn-primary btn-lg">Request a Quote <span class="arrow">→</span></a>
@@ -60,16 +60,17 @@ const year = new Date().getFullYear();
     padding: clamp(2.5rem, 1.5rem + 5vw, 5rem);
     text-align: center;
     margin-bottom: clamp(3rem, 2rem + 4vw, 5rem);
-    background: linear-gradient(180deg, var(--surface-2), var(--ink-2));
-    border-color: var(--line-strong);
+    border: 0;
+    box-shadow: 0 40px 80px -36px rgba(123, 47, 247, 0.55);
   }
   .footer-cta-inner { position: relative; z-index: 1; display: grid; gap: 1.4rem; justify-items: center; }
   .footer-cta .lede { margin-inline: auto; }
   .footer-cta-glow {
-    width: 60%; height: 70%;
-    top: -20%; left: 20%;
-    background: var(--grad-radial);
-    opacity: 0.35;
+    width: 70%; height: 90%;
+    top: -25%; left: 15%;
+    background: radial-gradient(circle, rgba(255,255,255,0.45), transparent 65%);
+    opacity: 0.6;
+    filter: blur(60px);
   }
   .footer-cta-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
 

@@ -16,6 +16,7 @@ const values = [
     kicker="The woman behind the decks"
     title="Meet"
     emphasis="DJ ReRe."
+    emphasisClass="font-stroke"
     lede="Founder, creative director and the heartbeat of REmixed Events — an internationally recognized DJ and host celebrated for turning rooms into experiences people can’t stop talking about."
   />
 
@@ -90,7 +91,7 @@ const values = [
   <!-- MIXHER -->
   <section class="section">
     <div class="container wide">
-      <div class="mixher card" data-reveal>
+      <div class="mixher card on-grad" data-reveal>
         <div class="mixher-glow glow" aria-hidden="true"></div>
         <div class="mixher-inner">
           <p class="kicker">Giving back</p>
@@ -120,7 +121,7 @@ const values = [
   .portrait-inner { position: relative; z-index: 1; text-align: center; display: grid; gap: 0.8rem; padding: 1.5rem; }
   .portrait-mark { font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 2rem + 5vw, 5rem); letter-spacing: -0.04em; }
   .portrait-note { font-size: 0.8rem; color: var(--text-mute); }
-  .portrait-note code { background: rgba(255,255,255,0.08); padding: 0.1em 0.4em; border-radius: 6px; font-size: 0.9em; }
+  .portrait-note code { background: rgba(26,11,56,0.08); padding: 0.1em 0.4em; border-radius: 6px; font-size: 0.9em; }
 
   .story-copy { display: grid; gap: 1.2rem; }
   .story-lead { font-size: clamp(1.4rem, 1.1rem + 1.6vw, 2.1rem); line-height: 1.25; letter-spacing: -0.01em; margin-bottom: 0.4rem; }
@@ -143,8 +144,8 @@ const values = [
   .val p { color: var(--text-dim); }
   @media (max-width: 820px) { .val-grid { grid-template-columns: 1fr; } }
 
-  .mixher { padding: clamp(2.2rem, 1.5rem + 4vw, 4.5rem); background: linear-gradient(135deg, var(--surface-2), var(--ink-2) 75%); border-color: var(--line-strong); overflow: hidden; }
-  .mixher-glow { width: 45%; height: 130%; top: -15%; right: -8%; background: var(--grad-radial); opacity: 0.3; }
+  .mixher { padding: clamp(2.2rem, 1.5rem + 4vw, 4.5rem); background: var(--grad); border: 0; overflow: hidden; box-shadow: 0 40px 80px -36px rgba(123, 47, 247, 0.55); }
+  .mixher-glow { width: 55%; height: 130%; top: -15%; right: -8%; background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 65%); opacity: 0.55; filter: blur(60px); }
   .mixher-inner { position: relative; z-index: 1; display: grid; gap: 1.3rem; max-width: 640px; }
   .mixher-inner .h1 { max-width: 16ch; }
   .awards-band { border-top: 1px solid var(--line); }

@@ -50,9 +50,10 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
     border-bottom: 1px solid transparent;
   }
   .nav[data-scrolled] {
-    background: rgba(8, 4, 15, 0.72);
+    background: rgba(255, 255, 255, 0.78);
     backdrop-filter: blur(18px) saturate(1.4);
     border-bottom-color: var(--line);
+    box-shadow: 0 8px 30px -22px rgba(40, 16, 80, 0.4);
   }
   .nav-inner {
     display: flex;
@@ -78,7 +79,7 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
     transition: color 0.3s var(--ease), background 0.3s var(--ease);
     position: relative;
   }
-  .nav-link:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
+  .nav-link:hover { color: var(--text); background: rgba(26, 11, 56, 0.05); }
   .nav-link.active { color: var(--text); }
   .nav-link.active::after {
     content: "";
@@ -100,7 +101,7 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
     width: 44px; height: 44px;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.05);
+    background: rgba(26, 11, 56, 0.04);
     border: 1px solid var(--line-strong);
     border-radius: 12px;
   }
@@ -115,7 +116,7 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
   .nav-sheet {
     position: fixed;
     inset: 78px 0 0 0;
-    background: rgba(8, 4, 15, 0.96);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
     padding: 2rem var(--gutter) 3rem;
     animation: sheet 0.4s var(--ease);
