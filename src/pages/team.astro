@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Media from '../components/Media.astro';
+import Marquee from '../components/Marquee.astro';
+import { awards, stats, site } from '../data/site';
+
+const team = [
+  {
+    name: 'DJ ReRe',
+    role: 'Founder & Managing Director',
+    img: '/img/team-rere.jpg',
+    alt: 'DJ ReRe, founder of REmixed Events',
+    bio: 'The heartbeat of the brand and a powerhouse in entertainment. An international award winning DJ and host, she has rocked stages from Miami across the globe for celebrities, luxury brands and countless weddings. The vision, style and gold standard behind every REmixed celebration.',
+  },
+  {
+    name: 'DJ Pynk Honey',
+    role: 'Rockstar DJ & Creative Media Director',
+    img: '/img/team-pynk.jpg',
+    alt: 'DJ Pynk Honey, DJ and creative media director',
+    bio: 'More than a vibe, she is a full visual and party experience. Serious energy on the decks, plus a licensed drone pilot and content creator capturing every unforgettable moment. From beats to bird’s eye views, she is the heartbeat behind our storytelling.',
+  },
+  {
+    name: 'DJ Ibe',
+    role: 'Event Host & Performance Director',
+    img: '/img/team-ibe.jpg',
+    alt: 'DJ Ibe, event host and performance director',
+    bio: 'Commands the stage with confidence, charisma and undeniable talent. She rocks the turntables, energizes the crowd as an emcee and keeps every event running smoothly. Rooted in dance, with a gift for performance that keeps the floor moving.',
+  },
+];
+---
+
+<Base title="Meet The Team" description="Meet the all female collective behind REmixed Events: DJ ReRe, DJ Pynk Honey and DJ Ibe. Award winning DJs, hosts and producers designing South Florida’s most unforgettable events.">
+  <PageHeader
+    kicker="The collective"
+    title="Meet the women of"
+    emphasis="REmixed."
+    emphasisClass="font-stroke"
+    lede="We are an all female collective of DJs, hosts, producers and creatives who live to design experiences that move people. Different strengths, one standard: anything but ordinary."
+  />
+
+  <!-- ROSTER -->
+  <section class="section tight">
+    <div class="container wide roster">
+      {team.map((m, i) => (
+        <article class="member" data-reveal style={`--reveal-delay:${i * 90}ms`}>
+          <Media src={m.img} alt={m.alt} aspect="4/5" position="top" class="member-photo" />
+          <div class="member-body">
+            <h2 class="member-name">{m.name}</h2>
+            <p class="member-role gtext">{m.role}</p>
+            <p class="member-bio">{m.bio}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- GROUP PHOTO -->
+  <section class="section tight">
+    <div class="container wide group-wrap">
+      <Media src="/img/team.jpg" alt="The REmixed Events team together" aspect="16/9" feather={false} class="group-photo" />
+      <p class="group-cap serif">One crew. Every detail handled.</p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="about-stats">
+        {stats.map((s, i) => (
+          <div class="astat" data-reveal style={`--reveal-delay:${i * 80}ms`}>
+            <span class="astat-v gtext">{s.value}</span>
+            <span class="astat-l">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MIXHER -->
+  <section class="section">
+    <div class="container wide">
+      <div class="mixher card on-grad" data-reveal>
+        <div class="mixher-glow glow" aria-hidden="true"></div>
+        <div class="mixher-inner">
+          <p class="kicker">Giving back</p>
+          <h2 class="h1"><span class="gtext">MixHer,</span> <span class="font-stroke">handing women the mic.</span></h2>
+          <p class="lede">
+            Through her nonprofit MixHer, DJ ReRe mentors and platforms emerging female DJs and artists,
+            helping them assert their voice and take the main stage. Every REmixed event is a working
+            extension of that mission.
+          </p>
+          <a href="/contact" class="btn btn-primary btn-lg">Work with the collective <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight awards-band">
+    <Marquee items={awards} speed={30} />
+  </section>
+</Base>
+
+<style>
+  .roster { display: grid; gap: clamp(2rem, 1.4rem + 3vw, 4rem); }
+  .member {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+    align-items: center;
+  }
+  .member:nth-child(even) { grid-template-columns: 1.1fr 0.9fr; }
+  .member:nth-child(even) .member-photo { order: 2; }
+  .member-body { display: grid; gap: 0.7rem; align-content: center; }
+  .member-name { font-family: var(--font-display); font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem); font-weight: 600; letter-spacing: -0.02em; }
+  .member-role { font-family: var(--font-sans); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; }
+  .member-bio { color: var(--text-dim); font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem); max-width: 52ch; }
+  .member-photo { max-width: 460px; }
+  .member:nth-child(even) .member-photo { justify-self: end; }
+
+  @media (max-width: 760px) {
+    .member, .member:nth-child(even) { grid-template-columns: 1fr; gap: 1.4rem; }
+    .member:nth-child(even) .member-photo { order: 0; }
+    .member-photo { max-width: 360px; }
+  }
+
+  .group-wrap { display: grid; gap: 1rem; justify-items: center; }
+  .group-cap { font-size: clamp(1.2rem, 1rem + 1vw, 1.7rem); color: var(--text-dim); text-align: center; }
+
+  .about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; border-block: 1px solid var(--line); padding-block: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); }
+  .astat { display: grid; gap: 0.3rem; text-align: center; }
+  .astat-v { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 1.6rem + 2.4vw, 3.4rem); letter-spacing: -0.03em; line-height: 1; }
+  .astat-l { color: var(--text-dim); font-size: 0.9rem; }
+  @media (max-width: 620px) { .about-stats { grid-template-columns: 1fr 1fr; gap: 1.6rem; } }
+
+  .mixher { padding: clamp(2.2rem, 1.5rem + 4vw, 4.5rem); border: 0; overflow: hidden; box-shadow: 0 40px 80px -36px rgba(123, 47, 247, 0.55); }
+  .mixher-glow { width: 55%; height: 130%; top: -15%; right: -8%; background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 65%); opacity: 0.55; filter: blur(60px); }
+  .mixher-inner { position: relative; z-index: 1; display: grid; gap: 1.3rem; max-width: 640px; }
+  .mixher-inner .h1 { max-width: 18ch; }
+  .awards-band { border-top: 1px solid var(--line); }
+</style>

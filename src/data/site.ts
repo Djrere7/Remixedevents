@@ -7,7 +7,7 @@ export const site = {
   name: 'REmixed Events',
   legalName: 'REmixed Events LLC',
   tagline: 'Anything But Ordinary',
-  slogan: "We don't just play music. We design experiences that move people.",
+  slogan: 'Not Your Ordinary DJ Company. Fresh, stylish entertainment curated for celebrations that feel like you.',
   location: 'Miami · South Florida',
   email: 'info@remixedeventsllc.com',
   // DJ Event Planner lead pipeline
@@ -15,7 +15,7 @@ export const site = {
   quoteAction: 'https://remixedent.com/request_information.asp',
   socials: {
     instagram: 'https://www.instagram.com/remixedeventsllc',
-    facebook: 'https://www.facebook.com/ReReTheDJ',
+    facebook: 'https://www.facebook.com/Remixedeventsllc',
     twitter: 'https://twitter.com/remixed_events',
     linkedin: 'https://www.linkedin.com/in/djrere/',
   },
@@ -25,7 +25,7 @@ export const nav = [
   { label: 'Experiences', href: '/experiences' },
   { label: 'Corporate & Brands', href: '/corporate' },
   { label: 'Weddings', href: '/weddings' },
-  { label: 'About', href: '/about' },
+  { label: 'Meet The Team', href: '/team' },
 ];
 
 export type Service = {
