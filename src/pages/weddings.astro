@@ -2,33 +2,33 @@
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
-import MediaPlaceholder from '../components/MediaPlaceholder.astro';
+import Media from '../components/Media.astro';
 import { testimonials, site } from '../data/site';
 
 const wedGallery = [
-  { label: 'Ceremony processional', hint: 'Photo · 1200×1500', aspect: '4/5' },
-  { label: 'First dance', hint: 'Photo · 1200×900', aspect: '4/3' },
-  { label: 'Packed reception floor', hint: 'Photo · 1200×900', aspect: '4/3' },
-  { label: 'Golden-hour portraits', hint: 'Photo · 1200×1500', aspect: '4/5' },
+  { src: '/img/venue-uplights.jpg', alt: 'Ballroom transformed with custom uplighting and a monogram floor', aspect: '4/5' },
+  { src: '/img/production-sparks.jpg', alt: 'Cold spark fountains for a grand entrance', aspect: '4/3' },
+  { src: '/img/booth-setup.jpg', alt: 'Elegant DJ booth with warm uplighting', aspect: '4/3' },
+  { src: '/img/led-pool.jpg', alt: 'LED accents glowing across a waterfront reception', aspect: '4/5' },
 ];
 
 const includes = [
-  { t: 'Ceremony', d: 'A string trio or curated playlist, perfectly timed processional, and crystal-clear sound for your vows.' },
-  { t: 'Cocktail hour', d: 'Live-musician add-ons and open-format sets that set the mood while guests mingle.' },
-  { t: 'Reception', d: 'Grand entrance to last dance — read in real time so the floor never empties.' },
-  { t: 'The details', d: 'Custom mixes & remixes, bilingual MC/hosting, and a planning process that takes the stress off you.' },
+  { t: 'Ceremony', d: 'A string trio or curated playlist, a perfectly timed processional, and crystal clear sound for your vows.' },
+  { t: 'Cocktail hour', d: 'Live musician add ons and open format sets that set the mood while guests mingle.' },
+  { t: 'Reception', d: 'Grand entrance to last dance, read in real time so the floor never empties.' },
+  { t: 'The details', d: 'Custom mixes & remixes, bilingual MC and hosting, and a planning process that takes the stress off you.' },
 ];
 
 const wedTestimonials = testimonials.filter((t) => t.date === 'Wedding').concat(testimonials.filter((t) => t.date !== 'Wedding')).slice(0, 2);
 ---
 
-<Base title="Luxury Weddings" description="Award-winning wedding entertainment in South Florida. REmixed Events and DJ ReRe craft ceremonies and receptions that keep the dance floor full — named Best Female Wedding DJ Provider.">
+<Base title="Luxury Weddings" description="Award winning wedding entertainment in South Florida. REmixed Events and DJ ReRe craft ceremonies and receptions that keep the dance floor full, named Best Female Wedding DJ Provider.">
   <PageHeader
-    kicker="Award-winning wedding entertainment"
+    kicker="Award winning wedding entertainment"
     title="A reception they’ll"
     emphasis="never forget."
     emphasisClass="font-stroke"
-    lede="Named Best Female Wedding DJ Provider at the Global Wedding Awards, REmixed brings ceremony-to-last-dance artistry, custom remixes and a read-the-room instinct that keeps every generation on the floor."
+    lede="Named Best Female Wedding DJ Provider at the Global Wedding Awards, REmixed brings ceremony to last dance artistry, custom remixes and a read the room instinct that keeps every generation on the floor."
   >
     <div class="ph-actions" data-reveal style="--reveal-delay:200ms">
       <a href="/contact" class="btn btn-primary btn-lg">Check your date <span class="arrow">→</span></a>
@@ -81,7 +81,7 @@ const wedTestimonials = testimonials.filter((t) => t.date === 'Wedding').concat(
       </div>
       <div class="wed-gallery">
         {wedGallery.map((g) => (
-          <MediaPlaceholder type="image" aspect={g.aspect} label={g.label} hint={g.hint} />
+          <Media src={g.src} alt={g.alt} aspect={g.aspect} />
         ))}
       </div>
     </div>

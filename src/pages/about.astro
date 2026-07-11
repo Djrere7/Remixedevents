@@ -2,34 +2,34 @@
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import Marquee from '../components/Marquee.astro';
-import MediaPlaceholder from '../components/MediaPlaceholder.astro';
+import Media from '../components/Media.astro';
 import { awards, stats, site } from '../data/site';
 
 const values = [
-  { t: 'Experiences, not playlists', d: 'We design atmosphere — curated soundscapes, intelligent lighting and a read-the-room instinct that turns a good night into a story people retell.' },
-  { t: 'Women at the decks', d: 'An all-female collective of world-class DJs, musicians and producers, raising the bar for what event entertainment looks and sounds like.' },
-  { t: 'Trustworthy & precise', d: 'Highly experienced, organized and detail-obsessed. We sweat the run-of-show so you can be a guest at your own event.' },
+  { t: 'Experiences, not playlists', d: 'We design atmosphere. Curated soundscapes, intelligent lighting and a read the room instinct that turns a good night into a story people retell.' },
+  { t: 'Women at the decks', d: 'An all female collective of world class DJs, musicians and producers, raising the bar for what event entertainment looks and sounds like.' },
+  { t: 'Trustworthy & precise', d: 'Highly experienced, organized and detail obsessed. We sweat the run of show so you can be a guest at your own event.' },
 ];
 ---
 
-<Base title="About" description="Meet DJ ReRe, founder of REmixed Events — an internationally recognized DJ, creative director and founder of the MixHer nonprofit empowering women in music.">
+<Base title="About" description="Meet DJ ReRe, founder of REmixed Events, an internationally recognized DJ, creative director and founder of the MixHer nonprofit empowering women in music.">
   <PageHeader
     kicker="The woman behind the decks"
     title="Meet"
     emphasis="DJ ReRe."
     emphasisClass="font-stroke"
-    lede="Founder, creative director and the heartbeat of REmixed Events — an internationally recognized DJ and host celebrated for turning rooms into experiences people can’t stop talking about."
+    lede="Founder, creative director and the heartbeat of REmixed Events. An internationally recognized DJ and host celebrated for turning rooms into experiences people can’t stop talking about."
   />
 
   <!-- STORY -->
   <section class="section tight">
     <div class="container wide story-grid">
       <div class="story-portrait" data-reveal>
-        <MediaPlaceholder type="image" aspect="4/5" label="DJ ReRe — signature portrait" hint="Photo · 1200×1500" />
+        <Media src="/img/rere-portrait.jpg" alt="DJ ReRe, founder of REmixed Events" aspect="4/5" eager={true} />
       </div>
 
       <div class="story-copy" data-reveal style="--reveal-delay:120ms">
-        <p class="story-lead serif">“We don’t just play music — we design experiences that move people.”</p>
+        <p class="story-lead serif">“We don’t just play music. We design experiences that move people.”</p>
         <p>
           DJ ReRe has spent over a decade behind the decks at top venues around the world, earning multiple
           appearances on DJane Magazine’s <strong>Top 100 Female DJs</strong>, three national DJ awards, and
@@ -37,13 +37,13 @@ const values = [
           <strong>Global Wedding Awards’ Best Female Wedding DJ Provider</strong> title.
         </p>
         <p>
-          But the accolades aren’t the point — the room is. ReRe built REmixed Events to do entertainment
-          differently: an all-female collective of DJs, live musicians and producers obsessed with craft,
+          But the accolades aren’t the point. The room is. ReRe built REmixed Events to do entertainment
+          differently: an all female collective of DJs, live musicians and producers obsessed with craft,
           energy and the kind of detail that makes a night feel effortless.
         </p>
         <p>
           Based in Miami and working across South Florida and beyond, REmixed brings the same artistry to a
-          200-person product launch as a candlelit first dance. <em>Anything but ordinary</em> isn’t a tagline.
+          200 person product launch as a candlelit first dance. <em>Anything but ordinary</em> isn’t a tagline.
           It’s the standard.
         </p>
       </div>
@@ -71,7 +71,7 @@ const values = [
         <p class="kicker center" data-reveal style="display:flex;justify-content:center">In her own words</p>
         <h2 class="h2 center" data-reveal style="--reveal-delay:80ms">Meet the woman <span class="font-stroke gtext">behind the booth.</span></h2>
       </div>
-      <MediaPlaceholder type="video" aspect="16/9" label="DJ ReRe — intro reel" hint="MP4 · 1920×1080" class="meet-video" />
+      <Media type="video" src="/video/dj.mp4" poster="/video/dj-poster.jpg" aspect="16/9" feather={false} class="meet-video" />
     </div>
   </section>
 
@@ -104,10 +104,10 @@ const values = [
         <div class="mixher-inner">
           <p class="kicker">Giving back</p>
           <h2 class="h1">
-            <span class="gtext">MixHer</span> — handing women the mic.
+            <span class="gtext">MixHer,</span> <span class="font-stroke">handing women the mic.</span>
           </h2>
           <p class="lede">
-            Through her nonprofit MixHer, DJ ReRe mentors and platforms emerging female DJs and artists —
+            Through her nonprofit MixHer, DJ ReRe mentors and platforms emerging female DJs and artists,
             helping them assert their voice and take the main stage. Every REmixed event is a working
             extension of that mission.
           </p>

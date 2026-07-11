@@ -9,6 +9,18 @@ node_modules/
 .env.production
 # macOS
 .DS_Store
+
+# raw source media (huge originals / HEIC / MOV) — optimized copies live in public/img & public/video
+public/Images/
+
+# raw source videos are huge; only the optimized web-ready clips are committed
+public/video/*
+!public/video/hero.mp4
+!public/video/hero-poster.jpg
+!public/video/reel.mp4
+!public/video/reel-poster.jpg
+!public/video/dj.mp4
+!public/video/dj-poster.jpg
 # logs
 npm-debug.log*
 # editor

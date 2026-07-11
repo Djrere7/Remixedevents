@@ -3,38 +3,41 @@ import Base from '../layouts/Base.astro';
 import Marquee from '../components/Marquee.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
-import MediaPlaceholder from '../components/MediaPlaceholder.astro';
+import Media from '../components/Media.astro';
 import { services, testimonials, awards, stats, site } from '../data/site';
 
 const gallery = [
-  { label: 'Brand activation crowd', hint: 'Photo · 1200×1500', aspect: '4/5' },
-  { label: 'DJ ReRe on the decks', hint: 'Photo · 1200×900', aspect: '4/3' },
-  { label: 'Luxury wedding reception', hint: 'Photo · 1200×900', aspect: '4/3' },
-  { label: 'Lighting & stage production', hint: 'Photo · 1200×1500', aspect: '4/5' },
-  { label: 'VIP soirée moment', hint: 'Photo · 1200×900', aspect: '4/3' },
-  { label: 'Corporate gala', hint: 'Photo · 1200×1500', aspect: '4/5' },
+  { src: '/img/rere-decks.jpg', alt: 'DJ ReRe on the decks in a REmixed Events tee', aspect: '4/5' },
+  { src: '/img/dj-outdoor.jpg', alt: 'DJ ReRe bringing the energy at an outdoor activation', aspect: '4/3' },
+  { src: '/img/venue-uplights.jpg', alt: 'Uplit ballroom with a monogram dance floor', aspect: '4/3' },
+  { src: '/img/production-sparks.jpg', alt: 'Cold spark fountains lighting up a grand entrance', aspect: '4/5' },
+  { src: '/img/rere-disco.jpg', alt: 'DJ ReRe with a disco ball', aspect: '4/3' },
+  { src: '/img/corporate-acc.jpg', alt: 'Branded booth at a corporate activation', aspect: '4/5' },
 ];
 ---
 
 <Base>
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero-glow glow glow-a" aria-hidden="true"></div>
-    <div class="hero-glow glow glow-b" aria-hidden="true"></div>
+    <div class="hero-media" aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/video/hero-poster.jpg">
+        <source src="/video/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-scrim"></div>
+    </div>
 
     <div class="container wide hero-inner">
       <p class="kicker hero-kicker" data-reveal>South Florida’s Premier Events Company</p>
 
       <h1 class="display hero-title">
-        <span class="line" data-reveal style="--reveal-delay:60ms">We don’t just</span>
-        <span class="line" data-reveal style="--reveal-delay:140ms">play music —</span>
-        <span class="line gtext font-stroke" data-reveal style="--reveal-delay:220ms">we move people.</span>
+        <span class="line" data-reveal style="--reveal-delay:60ms">We don’t just play music.</span>
+        <span class="line hero-accent font-stroke" data-reveal style="--reveal-delay:180ms">We move people.</span>
       </h1>
 
       <div class="hero-foot">
         <p class="lede hero-lede" data-reveal style="--reveal-delay:300ms">
-          Luxe, high-energy entertainment for brand activations, VIP soirées, women-led experiences,
-          chic weddings and corporate takeovers. An all-female collective led by award-winning <strong>DJ ReRe</strong>.
+          Luxe, high energy entertainment for brand activations, VIP soirées, women led experiences,
+          chic weddings and corporate takeovers. An all female collective led by award winning <strong>DJ ReRe</strong>.
         </p>
         <div class="hero-actions" data-reveal style="--reveal-delay:360ms">
           <a href="/contact" class="btn btn-primary btn-lg">Request a Quote <span class="arrow">→</span></a>
@@ -62,11 +65,11 @@ const gallery = [
       <div class="intro-copy">
         <p class="kicker" data-reveal>The REmixed difference</p>
         <h2 class="h1" data-reveal style="--reveal-delay:80ms">
-          Every event is a <span class="serif gtext">production</span>, not a playlist.
+          Every event is a <span class="font-stroke gtext">production</span>, not a playlist.
         </h2>
         <p class="lede" data-reveal style="--reveal-delay:140ms">
-          From the first beat to the last dance, we engineer atmosphere — curated soundscapes, intelligent
-          lighting and a read-the-room instinct you can’t fake. The result is the kind of night people
+          From the first beat to the last dance, we engineer atmosphere. Curated soundscapes, intelligent
+          lighting and a read the room instinct you can’t fake. The result is the kind of night people
           can’t stop talking about.
         </p>
         <div class="intro-cta" data-reveal style="--reveal-delay:200ms">
@@ -110,17 +113,17 @@ const gallery = [
         <div class="corp-copy">
           <p class="kicker" data-reveal>For brands & corporate teams</p>
           <h2 class="h1" data-reveal style="--reveal-delay:80ms">
-            Activations that earn the <span class="serif gtext">double-take.</span>
+            Activations that earn the <span class="font-stroke gtext">double take.</span>
           </h2>
           <p class="lede" data-reveal style="--reveal-delay:140ms">
-            Product launches, conferences, galas and pop-ups — produced end-to-end with enterprise-grade
-            reliability and content-ready moments your marketing team will actually want to post.
+            Product launches, conferences, galas and pop ups, produced start to finish with enterprise grade
+            reliability and content ready moments your marketing team will actually want to post.
           </p>
           <ul class="corp-list" data-reveal style="--reveal-delay:200ms">
-            <li>Custom-branded DJ booths & on-theme sound design</li>
-            <li>Full production: line-array sound, intelligent lighting, staging</li>
+            <li>Custom branded DJ booths & on theme sound design</li>
+            <li>Full production: line array sound, intelligent lighting, staging</li>
             <li>Dedicated event lead from brief to breakdown</li>
-            <li>Insured, contract-ready & deadline-proof</li>
+            <li>Insured, contract ready & deadline proof</li>
           </ul>
           <div data-reveal style="--reveal-delay:260ms">
             <a href="/corporate" class="btn btn-primary btn-lg">Explore corporate & brands <span class="arrow">→</span></a>
@@ -136,9 +139,9 @@ const gallery = [
       <div class="reel-head">
         <p class="kicker" data-reveal>Press play</p>
         <h2 class="h2" data-reveal style="--reveal-delay:80ms">See the <span class="font-stroke gtext">energy</span> in motion.</h2>
-        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A 60-second taste of what a REmixed night feels like — the drops, the crowd, the moments.</p>
+        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A quick taste of what a REmixed night feels like. The drops, the crowd, the moments.</p>
       </div>
-      <MediaPlaceholder type="video" aspect="16/9" label="Event showreel" hint="MP4 · 1920×1080 — drop your highlight reel here" class="reel-frame" />
+      <Media type="video" src="/video/reel.mp4" poster="/video/reel-poster.jpg" aspect="16/9" feather={false} class="reel-frame" />
     </div>
   </section>
 
@@ -153,8 +156,8 @@ const gallery = [
         <a href="/contact" class="tlink sec-head-link" data-reveal>Book your moment <span class="arrow">→</span></a>
       </div>
       <div class="gallery">
-        {gallery.map((g, i) => (
-          <MediaPlaceholder type="image" aspect={g.aspect} label={g.label} hint={g.hint} class="gallery-item" />
+        {gallery.map((g) => (
+          <Media src={g.src} alt={g.alt} aspect={g.aspect} class="gallery-item" />
         ))}
       </div>
     </div>
@@ -177,49 +180,50 @@ const gallery = [
 </Base>
 
 <style>
-  /* ---------- HERO ---------- */
+  /* ---------- HERO (video) ---------- */
   .hero {
     position: relative;
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     padding-top: 120px;
-    padding-bottom: 4rem;
+    padding-bottom: clamp(2.5rem, 1.5rem + 4vw, 5rem);
     overflow: hidden;
+    isolation: isolate;
   }
-  .hero-glow { z-index: 0; }
-  .glow-a {
-    width: 60vw; height: 60vw; max-width: 760px; max-height: 760px;
-    top: -16%; right: -10%;
-    background: var(--grad-radial);
-    opacity: 0.55;
-  }
-  .glow-b {
-    width: 46vw; height: 46vw; max-width: 560px; max-height: 560px;
-    bottom: -22%; left: -12%;
-    background: radial-gradient(circle, #2a1ce8, transparent 68%);
-    opacity: 0.4;
+  .hero-media { position: absolute; inset: 0; z-index: 0; }
+  .hero-video { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(8,4,15,0.42) 0%, rgba(8,4,15,0.10) 24%, rgba(8,4,15,0.18) 55%, rgba(8,4,15,0.84) 100%),
+      linear-gradient(90deg, rgba(8,4,15,0.55) 0%, rgba(8,4,15,0.08) 58%, transparent 100%);
   }
   .hero-inner { position: relative; z-index: 2; }
-  .hero-kicker { margin-bottom: 1.6rem; }
-  .hero-title { margin-bottom: clamp(2rem, 1rem + 4vw, 3.4rem); }
+  .hero-kicker { margin-bottom: 1.6rem; color: #fff; }
+  .hero-title { margin-bottom: clamp(1.6rem, 1rem + 3vw, 2.8rem); color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35); }
   .hero-title .line { display: block; }
+  .hero-accent {
+    background: linear-gradient(110deg, #ffffff 0%, #ffd8f6 45%, #cdb6ff 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-lede { color: rgba(255,255,255,0.9); }
+  .hero-lede strong { color: #fff; font-weight: 600; }
+  .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-self: start; }
   .hero-foot {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 2.5rem;
     align-items: end;
   }
-  .hero-lede strong { color: var(--text); font-weight: 600; }
-  .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-self: start; }
 
   .hero-scroll {
     position: absolute;
-    bottom: 2rem; left: 50%;
+    bottom: 1.4rem; left: 50%;
     transform: translateX(-50%);
     width: 26px; height: 42px;
-    border: 1.5px solid var(--line-strong);
+    border: 1.5px solid rgba(255,255,255,0.5);
     border-radius: 14px;
     display: flex;
     justify-content: center;
@@ -228,7 +232,7 @@ const gallery = [
   }
   .hero-scroll-dot {
     width: 4px; height: 8px; border-radius: 4px;
-    background: var(--text-dim);
+    background: #fff;
     animation: scrolldot 1.8s var(--ease) infinite;
   }
   @keyframes scrolldot { 0% { opacity: 0; transform: translateY(-4px); } 40% { opacity: 1; } 80%, 100% { opacity: 0; transform: translateY(8px); } }

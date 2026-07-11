@@ -1,0 +1,79 @@
+---
+/**
+ * Real image or autoplay video with soft, feathered edges (not a hard square).
+ *   <Media src="/img/rere-portrait.jpg" alt="DJ ReRe" aspect="4/5" />
+ *   <Media type="video" src="/video/hero.mp4" poster="/video/hero-poster.jpg" aspect="16/9" />
+ */
+interface Props {
+  type?: 'image' | 'video';
+  src: string;
+  poster?: string;
+  alt?: string;
+  aspect?: string;
+  feather?: boolean;
+  eager?: boolean;
+  position?: string;   // object-position
+  class?: string;
+}
+const {
+  type = 'image',
+  src,
+  poster,
+  alt = '',
+  aspect = '4/3',
+  feather = true,
+  eager = false,
+  position = 'center',
+  class: cls = '',
+} = Astro.props;
+---
+
+<figure class:list={['media', { feather }, cls]} style={`aspect-ratio:${aspect}`} data-reveal>
+  {type === 'video' ? (
+    <video
+      class="media-el"
+      style={`object-position:${position}`}
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster={poster}
+    >
+      <source src={src} type="video/mp4" />
+    </video>
+  ) : (
+    <img
+      class="media-el"
+      style={`object-position:${position}`}
+      src={src}
+      alt={alt}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+    />
+  )}
+</figure>
+
+<style>
+  .media {
+    position: relative;
+    width: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface-2);
+    box-shadow: 0 22px 48px -30px rgba(40, 16, 80, 0.4);
+  }
+  .media-el {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Soft feathered edges so imagery melts into the page instead of hard-cropping */
+  .media.feather {
+    box-shadow: none;
+    border-radius: calc(var(--radius) + 6px);
+    -webkit-mask-image: radial-gradient(125% 125% at 50% 50%, #000 82%, transparent 100%);
+    mask-image: radial-gradient(125% 125% at 50% 50%, #000 82%, transparent 100%);
+  }
+</style>

@@ -1,14 +1,14 @@
 ---
 import type { Service } from '../data/site';
-import MediaPlaceholder from './MediaPlaceholder.astro';
+import Media from './Media.astro';
 interface Props extends Service {
   delay?: number;
 }
-const { tag, title, blurb, points, delay = 0 } = Astro.props;
+const { tag, title, blurb, points, image, alt, delay = 0 } = Astro.props;
 ---
 
 <article class="card card-glow svc" data-reveal style={`--reveal-delay:${delay}ms`}>
-  <MediaPlaceholder type="image" aspect="16/10" label={`${title}`} hint="Photo · 1600×1000" class="svc-thumb" />
+  <Media src={image} alt={alt} aspect="16/10" feather={false} class="svc-thumb" />
   <div class="svc-top">
     <span class="svc-tag">{tag}</span>
     <span class="svc-mark gtext" aria-hidden="true">✦</span>

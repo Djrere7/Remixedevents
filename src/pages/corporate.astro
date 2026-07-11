@@ -1,33 +1,40 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
-import MediaPlaceholder from '../components/MediaPlaceholder.astro';
+import Media from '../components/Media.astro';
 import { site } from '../data/site';
 
 const capabilities = [
-  { t: 'Brand activations', d: 'Pop-ups, product launches and experiential builds with custom-branded DJ booths and on-theme sound design that pulls a crowd and holds it.' },
-  { t: 'Conferences & summits', d: 'Keynote walk-ons, breakout energy, networking sets and award-show polish — timed to the minute, run by a dedicated lead.' },
-  { t: 'Galas & holiday parties', d: 'Black-tie elegance to peak-hour dance floor, with live musician add-ons and seamless transitions across the night.' },
-  { t: 'Corporate entertainment', d: 'MCs, hosts, live musicians and DJs from our all-female collective — vetted, insured and rehearsed.' },
+  { t: 'Brand activations', d: 'Pop ups, product launches and experiential builds with custom branded DJ booths and on theme sound design that pulls a crowd and holds it.' },
+  { t: 'Conferences & summits', d: 'Keynote entrances, breakout energy, networking sets and award show polish, timed to the minute and run by a dedicated lead.' },
+  { t: 'Galas & holiday parties', d: 'Black tie elegance into a peak hour dance floor, with live musician add ons and seamless transitions across the night.' },
+  { t: 'Corporate entertainment', d: 'MCs, hosts, live musicians and DJs from our all female collective, vetted, insured and rehearsed.' },
 ];
 
 const why = [
-  { t: 'Enterprise-reliable', d: 'Contracts, COIs and insurance handled. We hit load-in windows and deadlines without drama.' },
-  { t: 'Content-ready moments', d: 'Every activation is built with your marketing team in mind — designed to be filmed, posted and remembered.' },
-  { t: 'One point of contact', d: 'A dedicated event lead from brief to breakdown. No vendor ping-pong, no surprises.' },
-  { t: 'Full production', d: 'Line-array sound, intelligent lighting, staging and DJ facades — scaled to your room and budget.' },
+  { t: 'Enterprise reliable', d: 'Contracts, COIs and insurance handled. We hit load in windows and deadlines without drama.' },
+  { t: 'Content ready moments', d: 'Every activation is built with your marketing team in mind, designed to be filmed, posted and remembered.' },
+  { t: 'One point of contact', d: 'A dedicated event lead from brief to breakdown. No vendor ping pong, no surprises.' },
+  { t: 'Full production', d: 'Line array sound, intelligent lighting, staging and DJ facades, scaled to your room and budget.' },
 ];
 
 const logos = ['Smartwater', "Raising Cane's", 'Universe Communications', 'Miami Music Week', 'We The Best', 'The Source'];
+
+const activationImgs = [
+  { src: '/img/activation-aero.jpg', alt: 'Aeropostale and Cheetos brand activation booth', aspect: '3/4' },
+  { src: '/img/corporate-acc.jpg', alt: 'ACC branded activation tent', aspect: '3/4' },
+  { src: '/img/dj-outdoor.jpg', alt: 'DJ ReRe energizing an outdoor corporate crowd', aspect: '3/4' },
+  { src: '/img/venue-uplights.jpg', alt: 'Uplit corporate gala stage', aspect: '3/4' },
+];
 ---
 
-<Base title="Corporate & Brand Activations" description="REmixed Events produces brand activations, corporate galas, product launches and conferences across South Florida — enterprise-reliable, fully insured, content-ready entertainment.">
+<Base title="Corporate & Brand Activations" description="REmixed Events produces brand activations, corporate galas, product launches and conferences across South Florida. Enterprise reliable, fully insured, content ready entertainment.">
   <PageHeader
     kicker="For brands & corporate teams"
     title="Activations that earn the"
-    emphasis="double-take."
+    emphasis="double take."
     emphasisClass="font-stroke"
-    lede="When your brand is on the line, you need more than a DJ. REmixed produces corporate events and brand activations end-to-end — with the reliability your stakeholders expect and the energy they’ll talk about for weeks."
+    lede="When your brand is on the line, you need more than a DJ. REmixed produces corporate events and brand activations from brief to breakdown, with the reliability your stakeholders expect and the energy they’ll talk about for weeks."
   >
     <div class="ph-actions" data-reveal style="--reveal-delay:200ms">
       <a href="/contact" class="btn btn-primary btn-lg">Plan your activation <span class="arrow">→</span></a>
@@ -72,10 +79,10 @@ const logos = ['Smartwater', "Raising Cane's", 'Universe Communications', 'Miami
       <div class="cs-copy">
         <p class="kicker" data-reveal>Inside a REmixed activation</p>
         <h2 class="h2" data-reveal style="--reveal-delay:80ms">Watch a brand <span class="font-stroke gtext">come alive.</span></h2>
-        <p class="lede" data-reveal style="--reveal-delay:140ms">From load-in to last call — see how we turn a footprint into a feeling your audience remembers.</p>
+        <p class="lede" data-reveal style="--reveal-delay:140ms">From load in to last call, see how we turn a footprint into a feeling your audience remembers.</p>
         <a href="/contact" class="btn btn-primary btn-lg" data-reveal style="--reveal-delay:200ms">Start your brief <span class="arrow">→</span></a>
       </div>
-      <MediaPlaceholder type="video" aspect="16/9" label="Activation case study" hint="MP4 · 1920×1080" class="cs-video" />
+      <Media type="video" src="/video/reel.mp4" poster="/video/reel-poster.jpg" aspect="16/9" feather={false} class="cs-video" />
     </div>
   </section>
 
@@ -89,10 +96,9 @@ const logos = ['Smartwater', "Raising Cane's", 'Universe Communications', 'Miami
         </div>
       </div>
       <div class="act-gallery">
-        <MediaPlaceholder type="image" aspect="3/4" label="Branded DJ booth build" hint="Photo · 1200×1600" />
-        <MediaPlaceholder type="image" aspect="3/4" label="Product launch crowd" hint="Photo · 1200×1600" />
-        <MediaPlaceholder type="image" aspect="3/4" label="Corporate gala stage" hint="Photo · 1200×1600" />
-        <MediaPlaceholder type="image" aspect="3/4" label="Conference main stage" hint="Photo · 1200×1600" />
+        {activationImgs.map((g) => (
+          <Media src={g.src} alt={g.alt} aspect={g.aspect} />
+        ))}
       </div>
     </div>
   </section>
