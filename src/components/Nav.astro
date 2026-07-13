@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { nav } from '../data/site';
+import { nav, site } from '../data/site';
 const path = Astro.url.pathname;
 const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
 ---
@@ -20,7 +20,7 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
     </nav>
 
     <div class="nav-cta">
-      <a href="/contact" class="btn btn-primary nav-quote">Request a Quote <span class="arrow">→</span></a>
+      <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-primary nav-quote">Book a Call <span class="arrow">→</span></a>
     </div>
 
     <button class="nav-burger" aria-label="Open menu" aria-expanded="false" data-burger>
@@ -34,7 +34,7 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
       {nav.map((item) => (
         <a href={item.href} class="nav-sheet-link">{item.label}</a>
       ))}
-      <a href="/contact" class="btn btn-primary btn-lg nav-sheet-cta">Request a Quote <span class="arrow">→</span></a>
+      <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-primary btn-lg nav-sheet-cta">Book a Call <span class="arrow">→</span></a>
     </nav>
   </div>
 </header>

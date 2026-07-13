@@ -13,8 +13,8 @@ const year = new Date().getFullYear();
         <h2 class="h1">Ready for a DJ company that actually <span class="font-stroke">gets it?</span></h2>
         <p class="lede">Tell us what you are planning. We’ll help curate the right DJ entertainment, sound, style and energy for your event.</p>
         <div class="footer-cta-actions">
-          <a href="/contact" class="btn btn-primary btn-lg">Request a Quote <span class="arrow">→</span></a>
-          <a href={`mailto:${site.email}`} class="btn btn-ghost btn-lg">Email the team</a>
+          <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-primary btn-lg">Schedule a Free Consultation <span class="arrow">→</span></a>
+          <a href="/contact" class="btn btn-ghost btn-lg">Contact us</a>
         </div>
       </div>
     </div>
@@ -22,6 +22,7 @@ const year = new Date().getFullYear();
     <div class="footer-grid">
       <div class="footer-brand">
         <Logo />
+        <p class="footer-mini">Not Your Ordinary DJ Company.</p>
         <p class="footer-slogan">{site.slogan}</p>
         <div class="footer-socials">
           <a href={site.socials.instagram} target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
@@ -40,7 +41,8 @@ const year = new Date().getFullYear();
       <div class="footer-col">
         <h3 class="footer-h">Connect</h3>
         <a href={`mailto:${site.email}`}>{site.email}</a>
-        <span class="footer-meta">{site.location}</span>
+        <a href={site.phoneHref}>{site.phone}</a>
+        <span class="footer-meta">{site.address}</span>
         <span class="footer-meta">Available nationwide & destination</span>
       </div>
     </div>
@@ -80,7 +82,8 @@ const year = new Date().getFullYear();
     gap: 2.5rem;
     padding-block: 1rem 2.5rem;
   }
-  .footer-slogan { color: var(--text-dim); max-width: 34ch; margin-top: 1.2rem; font-size: 0.98rem; }
+  .footer-mini { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; margin-top: 1.1rem; color: var(--text); }
+  .footer-slogan { color: var(--text-dim); max-width: 40ch; margin-top: 0.6rem; font-size: 0.95rem; }
   .footer-socials { display: flex; gap: 1.2rem; margin-top: 1.5rem; flex-wrap: wrap; }
   .footer-socials a { font-size: 0.9rem; color: var(--text-mute); transition: color 0.3s var(--ease); }
   .footer-socials a:hover { color: var(--magenta); }

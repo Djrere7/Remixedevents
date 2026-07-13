@@ -7,19 +7,20 @@ export const site = {
   name: 'REmixed Events',
   legalName: 'REmixed Events LLC',
   tagline: 'Anything but ordinary.',
-  category: 'South Florida’s Female DJ Entertainment Company',
+  category: 'South Florida’s DJ Entertainment Brand',
   slogan:
-    'REmixed Events specializes in female DJs, polished production, and stylish entertainment experiences for weddings, brands, schools, corporate events, and private celebrations across South Florida and beyond.',
+    'DJ entertainment, sound, lighting, photo booths and party details for luxe weddings, brand and influencer events, and special events across South Florida.',
   location: 'Miami Beach · South Florida',
   email: 'info@remixedeventsllc.com',
-  phone: '(305) 306-2858',
-  phoneHref: 'tel:+13053062858',
-  address: '1000 5th St, Suite 200-Y8, Miami Beach, FL 33139',
-  mapQuery: 'REmixed Events, 1000 5th St, Miami Beach, FL 33139',
+  phone: '786-910-2799',
+  phoneHref: 'tel:+17869102799',
+  address: '1000 5th Street, Miami Beach, Florida 33139',
+  mapQuery: 'REmixed Events, 1000 5th Street, Miami Beach, FL 33139',
   googleRating: '5.0',
   reviewUrl: 'https://g.page/r/CcgSr28MvgQsEBE/review',
   mixherUrl: 'https://www.themixher.org',
-  // DJ Event Planner lead pipeline
+  calendly: 'https://calendly.com/djrere/15min',
+  // DJ Event Planner lead pipeline (CRM form)
   djid: '25716',
   quoteAction: 'https://remixedent.com/request_information.asp',
   socials: {
@@ -44,53 +45,49 @@ export type Service = {
   tag: string;
   image: string;
   alt: string;
+  href?: string;
 };
 
 export const services: Service[] = [
   {
     tag: '01',
-    title: 'Weddings',
+    title: 'Luxe Weddings',
     blurb:
-      'For the couple who wants their wedding to feel like them. From ceremony sound to the final party set, a soundtrack that feels personal, polished and full of joy.',
-    points: ['Ceremony to last dance', 'Custom edits', 'Cocktail hour music', 'Reception party sets'],
+      'For couples who want their wedding day to feel as unique as they are. We bring the music, hosting, production and details that keep the celebration flowing beautifully, from ceremony sound to the final dance.',
+    points: ['Ceremony to last dance', 'Hosting & MC', 'Custom music direction', 'Production & details'],
     image: '/img/venue-uplights.jpg',
-    alt: 'Elegant ballroom with custom uplighting and a monogram dance floor',
+    alt: 'Elegant wedding ballroom with custom uplighting and a monogram floor',
+    href: '/weddings',
   },
   {
     tag: '02',
-    title: 'Brand & Corporate',
+    title: 'Brand & Influencer Events',
     blurb:
-      'For the agency, planner or brand team that needs the room to feel on brand from the first beat. Launches, pop ups, conferences, galas and celebrations with polished DJs, sound, lighting and production.',
-    points: ['On brand music direction', 'Sound & lighting', 'Content friendly moments', 'One experienced team'],
-    image: '/img/corporate-acc.jpg',
-    alt: 'REmixed Events branded booth at a corporate activation',
+      'For brands, agencies, creators and influencer teams who want the room to feel intentional, camera ready and full of energy. DJs, hosting, sound, lighting and content minded energy for every moment.',
+    points: ['DJs & hosting', 'Sound & lighting', 'Content ready energy', 'On brand curation'],
+    image: '/img/activation-aero.jpg',
+    alt: 'A polished REmixed brand activation',
+    href: '/corporate',
   },
   {
     tag: '03',
-    title: 'Schools',
+    title: 'Special Events',
     blurb:
-      'For teachers, administrators and school teams who want students to have fun without the chaos. Clean music, high energy DJs and an organized, age appropriate team.',
-    points: ['Clean music', 'Proms & homecomings', 'Graduations & pep rallies', 'Professional sound & lighting'],
-    image: '/img/dj-outdoor.jpg',
-    alt: 'A REmixed DJ bringing high energy to an outdoor crowd',
+      'Yacht parties, boat parties, milestone celebrations, private events, luxury dinners, proms, galas and social events that need personality, music and a team that knows how to read the room.',
+    points: ['Yacht & boat parties', 'Milestones & private events', 'Proms & galas', 'Community events'],
+    image: '/img/rere-khaled.jpg',
+    alt: 'REmixed bringing the energy to a private celebration',
+    href: '/experiences',
   },
   {
     tag: '04',
-    title: 'Birthdays & Private',
+    title: 'Production & Enhancements',
     blurb:
-      'For the birthday girl, host or friend group that wants the night to feel cute, fun and unforgettable. We curate the music and energy around the guest of honor.',
-    points: ['Birthday parties', 'Private celebrations', 'Luxury dinners', 'Custom party vibe'],
-    image: '/img/rere-disco.jpg',
-    alt: 'DJ ReRe bringing the party energy with a disco ball',
-  },
-  {
-    tag: '05',
-    title: 'Production & Lighting',
-    blurb:
-      'The right production changes the room before the first song even plays. Sound, lighting, microphones and DJ booths that make your event look and feel complete.',
-    points: ['Professional sound', 'Lighting', 'Wireless microphones', 'DJ booths & setups'],
+      'Sound, lighting, microphones, DJ booths, photo booths, cold sparks, dancing on the clouds and the details that make the room feel complete.',
+    points: ['Sound & lighting', 'Photo booths', 'Cold sparks', 'Dancing on clouds'],
     image: '/img/booth-setup.jpg',
     alt: 'REmixed Events DJ booth with custom uplighting',
+    href: '/experiences',
   },
 ];
 
@@ -120,7 +117,7 @@ export const testimonials: Testimonial[] = [
     quote:
       'You understood exactly what we wanted. The energy never dropped for a second and everyone was on the dance floor all night.',
     name: 'Verified Google review',
-    role: 'Corporate event',
+    role: 'Brand event',
     date: '5.0★',
   },
 ];
@@ -135,20 +132,17 @@ export const awards: string[] = [
 ];
 
 export const eventTypes = [
-  'Weddings',
-  'Brand Activations',
-  'Corporate Events',
+  'Luxe Weddings',
+  'Brand Events',
+  'Influencer Events',
+  'Yacht Parties',
+  'Boat Parties',
+  'Private Celebrations',
+  'Luxury Dinners',
+  'Galas',
   'Product Launches',
-  'School Events',
   'Proms',
   'Homecomings',
-  'Birthdays',
-  'Private Parties',
-  'Luxury Dinners',
-  'Influencer Events',
-  'Galas',
-  'Holiday Parties',
-  'Girls’ Nights',
   'Community Events',
 ];
 
@@ -157,5 +151,5 @@ export const stats = [
   { value: '5★', label: 'Rated on Google' },
   { value: '2×', label: 'BusinessRate Top 3' },
   { value: '2022', label: 'Global Wedding Vendor' },
-  { value: '100%', label: 'Female DJ powered' },
+  { value: '100%', label: 'Woman owned' },
 ];

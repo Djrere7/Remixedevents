@@ -1,53 +1,32 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site, awards } from '../data/site';
-
-const steps = [
-  { n: '01', t: 'Tell us the vision', d: 'Share your date, venue and the feeling you’re after. The more detail, the better the proposal.' },
-  { n: '02', t: 'Get a tailored quote', d: 'We’ll come back fast with a curated package and transparent pricing, no templated guesswork.' },
-  { n: '03', t: 'Lock it in', d: 'Sign, secure your date and hand off the details. We produce the rest, start to finish.' },
-];
 ---
 
-<Base title="Request a Quote" description="Request a quote from REmixed Events, South Florida’s female DJ entertainment company for weddings, brands, schools, corporate events and private celebrations.">
+<Base title="Contact" description="Schedule a free consultation with REmixed Events, South Florida’s DJ entertainment brand for luxe weddings, brand and influencer events, and special events.">
   <section class="ct-hero">
     <div class="ct-glow glow" aria-hidden="true"></div>
     <div class="container wide ct-grid">
       <div class="ct-copy">
         <p class="kicker" data-reveal>Let’s talk</p>
         <h1 class="h1" data-reveal style="--reveal-delay:80ms">
-          Tell us what you are planning. We already know it <span class="font-stroke gtext">matters.</span>
+          Tell us what you’re <span class="font-stroke gtext">planning.</span>
         </h1>
-        <p class="lede" data-reveal style="--reveal-delay:140ms">
-          Whether you are planning a wedding, brand activation, school event, corporate celebration, birthday or
-          private party, we would love to hear about it. Tell us the date, location, guest count and the feeling
-          you want in the room, and we’ll help curate the right female DJ, production and experience to match.
-          No basic playlists. No awkward energy. Just a team that gets it.
+        <p class="ct-sub" data-reveal style="--reveal-delay:120ms">Schedule a free consultation today.</p>
+        <p class="lede" data-reveal style="--reveal-delay:160ms">
+          Ready to talk through your event? Book a free consultation call with our team and let’s see how REmixed
+          can bring the music, style and energy to your celebration. We reply quickly, keep the process simple and
+          help you figure out exactly what you need.
         </p>
 
-        <ol class="ct-steps" data-reveal style="--reveal-delay:200ms">
-          {steps.map((s) => (
-            <li class="ct-step">
-              <span class="ct-step-n gtext">{s.n}</span>
-              <div>
-                <h3 class="ct-step-t">{s.t}</h3>
-                <p class="ct-step-d">{s.d}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <div class="ct-cta" data-reveal style="--reveal-delay:220ms">
+          <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-primary btn-lg">Schedule Your Free Consultation <span class="arrow">→</span></a>
+        </div>
 
         <div class="ct-direct" data-reveal style="--reveal-delay:260ms">
           <a href={`mailto:${site.email}`} class="tlink">{site.email} <span class="arrow">→</span></a>
           <a href={site.phoneHref} class="tlink">{site.phone} <span class="arrow">→</span></a>
         </div>
-
-        <!-- quick email capture -->
-        <form class="ct-capture" data-capture data-reveal style="--reveal-delay:300ms">
-          <label class="sr-only" for="cap-email">Your email</label>
-          <input id="cap-email" type="email" name="email" required placeholder="Your email, we’ll reach out" />
-          <button type="submit" class="btn btn-primary">Say hello <span class="arrow">→</span></button>
-        </form>
 
         <ul class="ct-badges" data-reveal style="--reveal-delay:320ms">
           {awards.slice(0, 3).map((a) => <li class="chip">✦ {a}</li>)}
@@ -55,6 +34,7 @@ const steps = [
       </div>
 
       <div class="ct-form-col" data-reveal style="--reveal-delay:160ms">
+        <p class="ct-form-h">Prefer to share details now? Use our quick form.</p>
         <div class="ct-form-frame">
           <iframe
             id="quote-iframe"
@@ -75,8 +55,8 @@ const steps = [
     <div class="container wide ct-map-grid">
       <div class="ct-map-copy">
         <p class="kicker" data-reveal>Find us</p>
-        <h2 class="h2" data-reveal style="--reveal-delay:80ms">Based in <span class="font-stroke gtext">Miami Beach.</span></h2>
-        <p class="lede" data-reveal style="--reveal-delay:140ms">Proudly serving weddings, brands, schools and celebrations across South Florida and beyond.</p>
+        <h2 class="h2" data-reveal style="--reveal-delay:80ms">Find us in <span class="font-stroke gtext">South Florida.</span></h2>
+        <p class="lede" data-reveal style="--reveal-delay:140ms">Based in Miami Beach and serving South Florida, destination events and celebrations beyond.</p>
         <ul class="ct-details" data-reveal style="--reveal-delay:200ms">
           <li><span class="ct-d-k">Studio</span><span>{site.address}</span></li>
           <li><span class="ct-d-k">Email</span><a href={`mailto:${site.email}`}>{site.email}</a></li>
@@ -112,9 +92,12 @@ const steps = [
   .ct-step-n { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; flex-shrink: 0; min-width: 2.2rem; }
   .ct-step-t { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
   .ct-step-d { color: var(--text-dim); font-size: 0.95rem; margin-top: 0.2rem; }
+  .ct-sub { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.1rem, 1rem + 0.6vw, 1.5rem); letter-spacing: -0.01em; color: var(--violet); }
+  .ct-cta { padding-top: 0.3rem; }
   .ct-direct { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; padding-top: 0.5rem; }
   .ct-direct p { color: var(--text-mute); }
   .ct-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .ct-form-h { font-size: 0.9rem; color: var(--text-mute); margin-bottom: 0.8rem; text-align: center; }
 
   .ct-capture { display: flex; gap: 0.6rem; flex-wrap: wrap; }
   .ct-capture input {

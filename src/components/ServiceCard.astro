@@ -4,14 +4,15 @@ import Media from './Media.astro';
 interface Props extends Service {
   delay?: number;
 }
-const { tag, title, blurb, points, image, alt, delay = 0 } = Astro.props;
+const { tag, title, blurb, points, image, alt, href, delay = 0 } = Astro.props;
+const Tag = href ? 'a' : 'article';
 ---
 
-<article class="card card-glow svc" data-reveal style={`--reveal-delay:${delay}ms`}>
+<Tag class="card card-glow svc" data-reveal style={`--reveal-delay:${delay}ms`} href={href}>
   <Media src={image} alt={alt} aspect="16/10" feather={false} class="svc-thumb" />
   <div class="svc-top">
     <span class="svc-tag">{tag}</span>
-    <span class="svc-mark gtext" aria-hidden="true">✦</span>
+    <span class="svc-mark gtext" aria-hidden="true">{href ? '→' : '✦'}</span>
   </div>
   <h3 class="h3 svc-title">{title}</h3>
   <p class="svc-blurb">{blurb}</p>
@@ -20,7 +21,7 @@ const { tag, title, blurb, points, image, alt, delay = 0 } = Astro.props;
       <li><span class="svc-dot" aria-hidden="true"></span>{p}</li>
     ))}
   </ul>
-</article>
+</Tag>
 
 <style>
   .svc {

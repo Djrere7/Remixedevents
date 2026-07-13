@@ -34,6 +34,8 @@ public/video/*
 !public/video/dj-poster.jpg
 !public/video/wed-hero.mp4
 !public/video/wed-hero-poster.jpg
+!public/video/corp.mp4
+!public/video/corp-poster.jpg
 # logs
 npm-debug.log*
 # editor

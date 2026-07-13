@@ -22,10 +22,10 @@ const team = [
   },
   {
     name: 'DJ Ibe',
-    role: 'Event Host & Performance Director',
+    role: 'DJ · Host · Breakdancer · Hype Lead',
     img: '/img/team-ibe.jpg',
-    alt: 'DJ Ibe, event host and performance director',
-    bio: 'Commands the stage with confidence, charisma and undeniable talent. She rocks the turntables, energizes the crowd as an emcee and keeps every event running smoothly. Rooted in dance, with a gift for performance that keeps the floor moving.',
+    alt: 'DJ Ibe, DJ, host and breakdancer',
+    bio: 'DJ Ibe brings charisma, movement and mic confidence to every event. As a breakdancer, performer and versatile open format DJ, she knows how to read the room, keep the crowd engaged and bring the energy when it matters most. She is professional, fun, timeline aware and always ready to rock your event.',
   },
 ];
 ---
@@ -44,7 +44,7 @@ const team = [
     <div class="container wide roster">
       {team.map((m, i) => (
         <article class="member" data-reveal style={`--reveal-delay:${i * 90}ms`}>
-          <Media src={m.img} alt={m.alt} aspect="4/5" position="center 28%" feather={false} class="member-photo" />
+          <Media src={m.img} alt={m.alt} aspect="4/5" position="center top" feather={false} class="member-photo" />
           <div class="member-body">
             <h2 class="member-name">{m.name}</h2>
             <p class="member-role gtext">{m.role}</p>

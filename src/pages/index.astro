@@ -4,7 +4,7 @@ import Marquee from '../components/Marquee.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import Media from '../components/Media.astro';
-import { services, testimonials, awards, stats, site } from '../data/site';
+import { services, testimonials, awards, stats, site, eventTypes } from '../data/site';
 
 const gallery = [
   { src: '/img/rere-decks.jpg', label: 'On the decks', alt: 'DJ ReRe on the decks in a REmixed Events tee', aspect: '4/5' },
@@ -27,7 +27,7 @@ const gallery = [
     </div>
 
     <div class="container wide hero-inner">
-      <p class="kicker hero-kicker" data-reveal>South Florida’s Female DJ Entertainment Company</p>
+      <p class="kicker hero-kicker" data-reveal>South Florida’s DJ Entertainment Brand</p>
 
       <h1 class="display hero-title">
         <span class="line" data-reveal style="--reveal-delay:60ms">Not Your Ordinary</span>
@@ -36,12 +36,11 @@ const gallery = [
 
       <div class="hero-foot">
         <p class="lede hero-lede" data-reveal style="--reveal-delay:300ms">
-          REmixed Events specializes in female DJs, polished production and stylish entertainment for weddings,
-          brands, schools and celebrations across South Florida and beyond. We bring the music, the energy and
-          the kind of vibe your guests will actually remember.
+          REmixed Events brings stylish DJ entertainment, polished production and unforgettable energy to luxe
+          weddings, brand and influencer events, and special events across South Florida and beyond.
         </p>
         <div class="hero-actions" data-reveal style="--reveal-delay:360ms">
-          <a href="/contact" class="btn btn-primary btn-lg">Plan Your Event <span class="arrow">→</span></a>
+          <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-primary btn-lg">Schedule a Free Consultation <span class="arrow">→</span></a>
           <a href="/experiences" class="btn btn-ghost btn-lg">Explore Experiences</a>
         </div>
       </div>
@@ -70,8 +69,8 @@ const gallery = [
         </h2>
         <p class="lede" data-reveal style="--reveal-delay:140ms">
           For years, DJ ReRe was the DJ people were always hoping to find. Professional, stylish, easy to work
-          with and completely in tune with the room. That became the heartbeat of REmixed Events, a female DJ
-          entertainment company built for people who want the party to feel personal, polished and anything but ordinary.
+          with and completely in tune with the room. That became the heartbeat of REmixed Events, a DJ
+          entertainment brand built for people who want the party to feel personal, polished and anything but ordinary.
         </p>
         <div class="intro-cta" data-reveal style="--reveal-delay:200ms">
           <a href="/team" class="tlink">Meet the REmixed team <span class="arrow">→</span></a>
@@ -94,8 +93,13 @@ const gallery = [
     <div class="container wide">
       <div class="sec-head">
         <div>
-          <p class="kicker" data-reveal>What we do</p>
+          <p class="kicker" data-reveal>Who we are</p>
           <h2 class="h2" data-reveal style="--reveal-delay:80ms">Entertainment that feels like you.</h2>
+          <p class="lede" data-reveal style="--reveal-delay:140ms">
+            REmixed is the team you book when you want the people behind the booth to feel just as intentional
+            as the music. Stylish, organized, warm, high energy and fully in tune with the room. Yes, we DJ.
+            But more than that, we help make the whole event feel like <span class="font-stroke gtext">you.</span>
+          </p>
         </div>
         <a href="/experiences" class="tlink sec-head-link" data-reveal>All experiences <span class="arrow">→</span></a>
       </div>
@@ -118,13 +122,28 @@ const gallery = [
     </div>
   </section>
 
+  <!-- ============ EVENTS WE LOVE ============ -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="center-head-x">
+        <p class="kicker mx-auto" data-reveal style="display:flex;justify-content:center">Events we love</p>
+        <h2 class="h2" data-reveal style="--reveal-delay:80ms">The rooms and moments we love <span class="font-stroke gtext">bringing to life.</span></h2>
+        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A look at the weddings, brands, celebrations and moments REmixed brings to life across South Florida.</p>
+      </div>
+      <div class="evt-chips" data-reveal style="--reveal-delay:180ms">
+        {eventTypes.map((t) => <span class="chip evt-chip">{t}</span>)}
+      </div>
+    </div>
+  </section>
+
   <!-- ============ GALLERY ============ -->
   <section class="section tight">
     <div class="container wide">
       <div class="sec-head">
         <div>
           <p class="kicker" data-reveal>The gallery</p>
-          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Remixed Moments.</h2>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">REmixed Moments.</h2>
+          <p class="lede" data-reveal style="--reveal-delay:120ms">Real events. Real dance floors. Real moments brought to life by REmixed.</p>
         </div>
         <a href="/contact" class="tlink sec-head-link" data-reveal>Book your moment <span class="arrow">→</span></a>
       </div>
@@ -275,11 +294,11 @@ const gallery = [
   /* ---------- SERVICES GRID ---------- */
   .svc-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
   }
-  @media (max-width: 900px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { .svc-grid { grid-template-columns: 1fr; } .sec-head { flex-direction: column; align-items: flex-start; } }
+  @media (max-width: 640px) { .svc-grid { grid-template-columns: 1fr; } .sec-head { flex-direction: column; align-items: flex-start; } }
+  .svc { text-decoration: none; color: inherit; }
 
   /* ---------- CORPORATE BAND ---------- */
   .corp-card {
@@ -314,6 +333,11 @@ const gallery = [
   /* ---------- SHOWREEL ---------- */
   .reel-head { text-align: center; display: grid; gap: 0.9rem; justify-items: center; max-width: 60ch; margin: 0 auto clamp(2rem, 1.5rem + 2vw, 3rem); }
   .reel :global(.reel-frame) { box-shadow: 0 50px 90px -50px rgba(123, 47, 247, 0.6); }
+
+  /* ---------- EVENTS WE LOVE ---------- */
+  .center-head-x { text-align: center; display: grid; gap: 0.9rem; justify-items: center; max-width: 44ch; margin: 0 auto clamp(2rem, 1.5rem + 2vw, 3rem); }
+  .evt-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; max-width: 940px; margin: 0 auto; }
+  .evt-chip { font-size: 0.92rem; padding: 0.6em 1.1em; }
 
   /* ---------- GALLERY (masonry) ---------- */
   .gallery { columns: 3 240px; column-gap: 1.1rem; }

@@ -6,14 +6,16 @@ import TestimonialCard from '../components/TestimonialCard.astro';
 import { testimonials, site } from '../data/site';
 
 const weddingServices = [
-  { icon: '♪', t: 'DJs & MC Hosting', d: 'DJs and confident hosts who read the room, run the timeline and keep every generation on the floor.' },
+  { icon: '♪', t: 'Wedding DJ & MC', d: 'A DJ and confident MC who reads the room, runs the timeline and keeps every generation on the floor.' },
+  { icon: '◈', t: 'Ceremony Sound', d: 'Crystal clear sound and wireless microphones for your vows, readings and the moments that matter most.' },
+  { icon: '♫', t: 'Reception Entertainment', d: 'Grand entrances, first dances, dinner music and party sets that build naturally all night long.' },
   { icon: '✦', t: 'Photo Booths', d: 'Modern open air photo booths with custom prints and props your guests will line up for all night.' },
-  { icon: '✺', t: 'Cold Spark Machines', d: 'Safe, indoor friendly spark fountains for a jaw dropping grand entrance or first dance.' },
   { icon: '☁', t: 'Dancing on the Clouds', d: 'A dreamy low lying cloud effect that makes your first dance float. Pure magic on camera.' },
-  { icon: '❋', t: 'Uplighting & Lighting', d: 'Custom uplighting, monogram gobos and dance floor lighting that transform any venue.' },
-  { icon: '◈', t: 'Sound & Production', d: 'Crystal clear ceremony sound, wireless microphones, DJ booths and the details that make the room feel complete.' },
-  { icon: '✎', t: 'Planning & Day of Coordination', d: 'From timeline building to day of coordination, we help keep your wedding organized and stress free.' },
-  { icon: '❤', t: 'Photo, Video & Content', d: 'Photographers, videographers and content creators within reach, so your day is captured beautifully from every angle.' },
+  { icon: '✺', t: 'Cold Sparks', d: 'Safe, indoor friendly spark fountains for a jaw dropping grand entrance or first dance.' },
+  { icon: '❋', t: 'Lighting', d: 'Custom uplighting, monogram gobos and dance floor lighting that transform any venue.' },
+  { icon: '★', t: 'Hosting', d: 'Warm, professional hosting that keeps announcements smooth and the energy exactly where it should be.' },
+  { icon: '✎', t: 'Planning Support', d: 'From timeline building to day of coordination, we help keep your wedding organized and stress free.' },
+  { icon: '❤', t: 'Creative Vendor Connections', d: 'Photographers, videographers and content creators within reach, so your day is captured from every angle.' },
 ];
 
 const moments = [
@@ -55,9 +57,9 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
     <div class="container wide whero-inner">
       <p class="kicker whero-kicker" data-reveal>Wedding entertainment, remixed</p>
       <h1 class="display whero-title">
-        <span class="line" data-reveal>For the couple who wants</span>
-        <span class="line" data-reveal style="--reveal-delay:120ms">it to feel like</span>
-        <span class="line whero-accent font-stroke" data-reveal style="--reveal-delay:220ms">them.</span>
+        <span class="line" data-reveal>For couples who want their</span>
+        <span class="line" data-reveal style="--reveal-delay:120ms">wedding to feel as</span>
+        <span class="line whero-accent font-stroke" data-reveal style="--reveal-delay:220ms">unique as they are.</span>
       </h1>
       <div class="whero-actions" data-reveal style="--reveal-delay:320ms">
         <a href="/contact" class="btn btn-primary btn-lg">Check Your Date <span class="arrow">→</span></a>
@@ -70,10 +72,10 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
   <section class="section tight">
     <div class="container wide wed-intro">
       <p class="lede" data-reveal>
-        Your wedding should not sound like everyone else’s. It should sound like your love story, your culture,
-        your people and the party you have been waiting to have. We create a wedding experience that feels
-        personal from ceremony to last dance. You do not need a DJ who takes over the wedding. You need one who
-        <span class="font-stroke gtext">understands it.</span>
+        Your wedding deserves more than a DJ and a speaker. REmixed brings music, hosting, sound, lighting,
+        photo booths, dancing on the clouds, cold sparks and the right team to keep the celebration flowing
+        beautifully. From ceremony sound to the final song, we create a wedding that feels personal, polished
+        and <span class="font-stroke gtext">full of life.</span>
       </p>
     </div>
   </section>
