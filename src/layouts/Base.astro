@@ -12,11 +12,11 @@ interface Props {
 
 const {
   title,
-  description = 'South Florida’s premier events company. REmixed Events designs luxe, high-energy entertainment for brand activations, corporate events, luxury weddings and VIP experiences. Anything But Ordinary.',
+  description = 'REmixed Events is South Florida’s female DJ entertainment company, specializing in female DJs, polished production and stylish entertainment for weddings, brands, schools and celebrations. Not your ordinary DJ company.',
   image = '/og.jpg',
 } = Astro.props;
 
-const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · South Florida’s Premier Events Company`;
+const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · South Florida’s Female DJ Entertainment Company`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://remixedeventsllc.com').href;
 ---
 

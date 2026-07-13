@@ -6,8 +6,10 @@
 export const site = {
   name: 'REmixed Events',
   legalName: 'REmixed Events LLC',
-  tagline: 'Anything But Ordinary',
-  slogan: 'Not Your Ordinary DJ Company. Fresh, stylish entertainment curated for celebrations that feel like you.',
+  tagline: 'Anything but ordinary.',
+  category: 'South Florida’s Female DJ Entertainment Company',
+  slogan:
+    'REmixed Events specializes in female DJs, polished production, and stylish entertainment experiences for weddings, brands, schools, corporate events, and private celebrations across South Florida and beyond.',
   location: 'Miami · South Florida',
   email: 'info@remixedeventsllc.com',
   // DJ Event Planner lead pipeline
@@ -40,55 +42,55 @@ export type Service = {
 export const services: Service[] = [
   {
     tag: '01',
-    title: 'Brand Activations',
+    title: 'Female DJ Experiences',
     blurb:
-      'Pop ups, product launches and experiential moments engineered to make people stop scrolling and start feeling your brand.',
-    points: ['Custom branded DJ booths', 'On theme sound design', 'Content ready moments', 'Multi day footprints'],
+      'This is what we are known for. Our female DJs bring presence, personality and a fresh kind of energy, with the soundtrack curated around your crowd and the feeling you want your guests to remember.',
+    points: ['Female DJ talent', 'Open format music', 'Custom music direction', 'MC & hosting options'],
     image: '/img/activation-aero.jpg',
-    alt: 'DJ ReRe at an Aeropostale brand activation booth',
+    alt: 'A REmixed female DJ on the decks at an event',
   },
   {
     tag: '02',
-    title: 'Corporate Events',
+    title: 'Brand & Corporate',
     blurb:
-      'Galas, conferences, holiday parties and VIP dinners with the polish your stakeholders expect and the energy they don’t.',
-    points: ['Full production management', 'MC & host services', 'Seamless run of show', 'Enterprise reliability'],
+      'For the agency, planner or brand team that needs the room to feel on brand from the first beat. Launches, pop ups, conferences, galas and celebrations with female DJs, sound, lighting and polished production.',
+    points: ['Female DJs', 'Brand friendly music direction', 'Sound & lighting', 'Content friendly moments'],
     image: '/img/corporate-acc.jpg',
-    alt: 'REmixed Events branded booth at an ACC corporate activation',
+    alt: 'REmixed Events branded booth at a corporate activation',
   },
   {
     tag: '03',
-    title: 'Luxury Weddings',
+    title: 'Weddings',
     blurb:
-      'Award winning wedding entertainment, from a ceremony string trio to a reception that never sees an empty dance floor.',
-    points: ['Ceremony to last dance', 'Live musician add ons', 'Custom mixes & remixes', 'Bilingual hosting'],
+      'For the couple who wants their wedding to feel like them. From ceremony sound to the final party set, a soundtrack that feels personal, polished and full of joy.',
+    points: ['Ceremony to last dance', 'Custom edits', 'Cocktail hour music', 'Reception party sets'],
     image: '/img/venue-uplights.jpg',
     alt: 'Elegant ballroom with custom uplighting and a monogram dance floor',
   },
   {
     tag: '04',
-    title: 'VIP & Influencer',
+    title: 'Schools',
     blurb:
-      'Soirées, suites and tastemaker gatherings where the guest list is small, the standards are high and the vibe is everything.',
-    points: ['Discreet, white glove service', 'Curated open format sets', 'Vibe curation', 'Last minute capable'],
-    image: '/img/rere-khaled.jpg',
-    alt: 'DJ ReRe with DJ Khaled at a VIP event',
+      'For teachers, administrators and school teams who want students to have fun without the chaos. Clean music, high energy DJs and an organized, age appropriate team.',
+    points: ['Clean music', 'Proms & homecomings', 'Graduations & pep rallies', 'Professional sound & lighting'],
+    image: '/img/team.jpg',
+    alt: 'The all female REmixed Events team',
   },
   {
     tag: '05',
-    title: 'Women-Led Experiences',
+    title: 'Birthdays & Private',
     blurb:
-      'Wellness retreats, summits and community celebrations powered by our all female collective and the MixHer mission.',
-    points: ['All female talent', 'Empowerment programming', 'Soundscapes & ambiance', 'Mission aligned'],
-    image: '/img/team.jpg',
-    alt: 'The all female REmixed Events team',
+      'For the birthday girl, host or friend group that wants the night to feel cute, fun and unforgettable. We curate the music and energy around the guest of honor.',
+    points: ['Birthday parties', 'Private celebrations', 'Luxury dinners', 'Custom party vibe'],
+    image: '/img/rere-khaled.jpg',
+    alt: 'REmixed at a high profile private celebration',
   },
   {
     tag: '06',
     title: 'Production & Lighting',
     blurb:
-      'Concert grade sound, intelligent lighting and staging that turns any room into a headline venue.',
-    points: ['Line array sound systems', 'Intelligent lighting', 'Stage & DJ facades', 'On site engineers'],
+      'The right production changes the room before the first song even plays. Sound, lighting, microphones and DJ booths that make your event look and feel complete.',
+    points: ['Professional sound', 'Lighting', 'Wireless microphones', 'DJ booths & setups'],
     image: '/img/booth-setup.jpg',
     alt: 'REmixed Events DJ booth with custom uplighting',
   },
@@ -104,7 +106,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'DJ ReRe of REmixed Events is one of the best and most versatile entertainers that I have witnessed. The energy never dropped for a second.',
+      'You understood exactly what we wanted. The energy never dropped for a second and every single guest was on the dance floor.',
     name: 'Tony Terry',
     role: 'Director of Media, Universe Communications Inc.',
     date: 'Corporate',
@@ -118,38 +120,44 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'Booked last minute and it could not have turned out better. ReRe was super accommodating and read the room flawlessly all night.',
+      'Booked last minute and it could not have turned out better. Our DJ was super accommodating and read the room flawlessly all night.',
     name: 'Migdy Moya',
-    role: 'Community Event, Kendall FL',
-    date: 'Community',
+    role: 'Private Celebration, Kendall FL',
+    date: 'Private',
   },
 ];
 
 export const awards: string[] = [
-  'DJane Mag · Top 100 Female DJs',
-  'Global Wedding Awards · Best Female Wedding DJ Provider',
-  '3× National DJ Award Winner',
-  'Featured · Rolling Out Magazine',
-  'Editor’s Choice · WeddingRule',
+  'BusinessRate Top 3 DJ Service in Miami Beach',
+  'Recognized 2 Years in a Row',
+  'Global Wedding Vendor 2022',
+  'Featured on Zola',
+  'Official CHAUVET DJ Brand Partner',
+  'Award Winning DJ Team',
 ];
 
 export const eventTypes = [
-  'Brand Activation',
-  'Product Launch',
-  'Corporate Gala',
-  'Conference',
-  'Holiday Party',
-  'Luxury Wedding',
-  'VIP Soirée',
-  'Influencer Event',
-  'Wellness Retreat',
-  'Private Party',
+  'Weddings',
+  'Brand Activations',
+  'Corporate Events',
+  'Product Launches',
+  'School Events',
+  'Proms',
+  'Homecomings',
+  'Birthdays',
+  'Private Parties',
+  'Luxury Dinners',
+  'Influencer Events',
+  'Galas',
+  'Holiday Parties',
+  'Girls’ Nights',
+  'Community Events',
 ];
 
-/** Headline stats. Adjust to taste / true numbers. */
+/** Headline stats. Company recognition, not personal accolades. */
 export const stats = [
-  { value: '20+', label: 'Years on the decks' },
-  { value: '15+', label: 'Countries performed' },
-  { value: '500+', label: 'Events designed' },
-  { value: '3×', label: 'National award winner' },
+  { value: '100%', label: 'Female DJ powered' },
+  { value: '2×', label: 'BusinessRate Top 3' },
+  { value: '2022', label: 'Global Wedding Vendor' },
+  { value: '5★', label: 'Top rated on Google' },
 ];

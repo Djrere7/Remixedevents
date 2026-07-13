@@ -5,17 +5,17 @@ import Media from '../components/Media.astro';
 import { site } from '../data/site';
 
 const capabilities = [
-  { t: 'Brand activations', d: 'Pop ups, product launches and experiential builds with custom branded DJ booths and on theme sound design that pulls a crowd and holds it.' },
-  { t: 'Conferences & summits', d: 'Keynote entrances, breakout energy, networking sets and award show polish, timed to the minute and run by a dedicated lead.' },
-  { t: 'Galas & holiday parties', d: 'Black tie elegance into a peak hour dance floor, with live musician add ons and seamless transitions across the night.' },
-  { t: 'Corporate entertainment', d: 'MCs, hosts, live musicians and DJs from our all female collective, vetted, insured and rehearsed.' },
+  { t: 'Brand activations', d: 'Female DJs, branded setups, music direction and content friendly moments that help your audience connect with your brand.' },
+  { t: 'Conferences & summits', d: 'Walk up tracks, transitions, networking music, microphones and polished timing that keeps the event moving.' },
+  { t: 'Galas & holiday parties', d: 'Elegant energy early in the night, then a packed dance floor when it is time to celebrate.' },
+  { t: 'Corporate celebrations', d: 'DJs, hosts, sound, lighting and production support from one experienced team.' },
 ];
 
 const why = [
-  { t: 'Enterprise reliable', d: 'Contracts, COIs and insurance handled. We hit load in windows and deadlines without drama.' },
-  { t: 'Content ready moments', d: 'Every activation is built with your marketing team in mind, designed to be filmed, posted and remembered.' },
-  { t: 'One point of contact', d: 'A dedicated event lead from brief to breakdown. No vendor ping pong, no surprises.' },
-  { t: 'Full production', d: 'Line array sound, intelligent lighting, staging and DJ facades, scaled to your room and budget.' },
+  { t: 'We make your job easier', d: 'You are managing the client, the timeline, the vendors and probably ten last minute changes. We do not add stress.' },
+  { t: 'Clear communication', d: 'We show up prepared, communicate clearly and understand brand standards from the first email to load out.' },
+  { t: 'Right energy for the room', d: 'We keep the energy appropriate for the moment, and we know when to be background and when to turn it up.' },
+  { t: 'One experienced team', d: 'Female DJs, hosts, sound, lighting and production support from a team planners and agencies trust.' },
 ];
 
 const logos = ['Smartwater', "Raising Cane's", 'Universe Communications', 'Miami Music Week', 'We The Best', 'The Source'];
@@ -28,13 +28,13 @@ const activationImgs = [
 ];
 ---
 
-<Base title="Corporate & Brand Activations" description="REmixed Events produces brand activations, corporate galas, product launches and conferences across South Florida. Enterprise reliable, fully insured, content ready entertainment.">
+<Base title="Corporate & Brand Activations" description="Female DJs and polished production for brands. REmixed Events supports brand activations, corporate events, launches, conferences and galas across South Florida.">
   <PageHeader
-    kicker="For brands & corporate teams"
-    title="Activations that earn the"
-    emphasis="double take."
+    kicker="Corporate events & brand activations"
+    title="Female DJs for brands that want the room to feel"
+    emphasis="alive."
     emphasisClass="font-stroke"
-    lede="When your brand is on the line, you need more than a DJ. REmixed produces corporate events and brand activations from brief to breakdown, with the reliability your stakeholders expect and the energy they’ll talk about for weeks."
+    lede="For marketing agencies, event coordinators and brand teams, the entertainment cannot feel random. It has to match the audience, the message, the room and the moment. REmixed brings female DJs, polished sound, lighting and production support to activations, corporate events, launches, conferences and galas. We understand the assignment: look good, sound good, stay professional and make the brand feel unforgettable in real life."
   >
     <div class="ph-actions" data-reveal style="--reveal-delay:200ms">
       <a href="/contact" class="btn btn-primary btn-lg">Plan your activation <span class="arrow">→</span></a>
@@ -57,8 +57,8 @@ const activationImgs = [
     <div class="container wide">
       <div class="sec-head">
         <div>
-          <p class="kicker" data-reveal>Capabilities</p>
-          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Built for the corporate calendar.</h2>
+          <p class="kicker" data-reveal>What we bring</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Entertainment built for brand moments.</h2>
         </div>
       </div>
       <div class="cap-grid">
@@ -107,8 +107,8 @@ const activationImgs = [
   <section class="section section-light">
     <div class="container wide">
       <div class="why-head">
-        <p class="kicker" data-reveal>Why REmixed for business</p>
-        <h2 class="h1" data-reveal style="--reveal-delay:80ms">Polished where it counts. <span class="serif gtext">Electric where it matters.</span></h2>
+        <p class="kicker" data-reveal>Why brands book us</p>
+        <h2 class="h1" data-reveal style="--reveal-delay:80ms">We make your job <span class="font-stroke gtext">easier.</span></h2>
       </div>
       <div class="why-grid">
         {why.map((w, i) => (
@@ -126,10 +126,10 @@ const activationImgs = [
     <div class="container wide">
       <figure class="big-quote" data-reveal>
         <p class="big-quote-text serif">
-          “DJ ReRe of REmixed Events is one of the best and most versatile entertainers that I have witnessed.”
+          “You understood exactly what we wanted.”
         </p>
         <figcaption class="big-quote-cite">
-          <span class="gtext">Tony Terry</span> · Director of Media, Universe Communications Inc.
+          <span class="gtext">The compliment we hear most</span> · from the planners and brands we work with
         </figcaption>
       </figure>
     </div>
