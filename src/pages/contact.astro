@@ -38,9 +38,16 @@ const steps = [
         </ol>
 
         <div class="ct-direct" data-reveal style="--reveal-delay:260ms">
-          <p>Prefer email?</p>
           <a href={`mailto:${site.email}`} class="tlink">{site.email} <span class="arrow">→</span></a>
+          <a href={site.phoneHref} class="tlink">{site.phone} <span class="arrow">→</span></a>
         </div>
+
+        <!-- quick email capture -->
+        <form class="ct-capture" data-capture data-reveal style="--reveal-delay:300ms">
+          <label class="sr-only" for="cap-email">Your email</label>
+          <input id="cap-email" type="email" name="email" required placeholder="Your email, we’ll reach out" />
+          <button type="submit" class="btn btn-primary">Say hello <span class="arrow">→</span></button>
+        </form>
 
         <ul class="ct-badges" data-reveal style="--reveal-delay:320ms">
           {awards.slice(0, 3).map((a) => <li class="chip">✦ {a}</li>)}
@@ -62,6 +69,31 @@ const steps = [
       </div>
     </div>
   </section>
+
+  <!-- FIND US + MAP -->
+  <section class="section tight ct-map-section">
+    <div class="container wide ct-map-grid">
+      <div class="ct-map-copy">
+        <p class="kicker" data-reveal>Find us</p>
+        <h2 class="h2" data-reveal style="--reveal-delay:80ms">Based in <span class="font-stroke gtext">Miami Beach.</span></h2>
+        <p class="lede" data-reveal style="--reveal-delay:140ms">Proudly serving weddings, brands, schools and celebrations across South Florida and beyond.</p>
+        <ul class="ct-details" data-reveal style="--reveal-delay:200ms">
+          <li><span class="ct-d-k">Studio</span><span>{site.address}</span></li>
+          <li><span class="ct-d-k">Email</span><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><span class="ct-d-k">Call</span><a href={site.phoneHref}>{site.phone}</a></li>
+          <li><span class="ct-d-k">Google</span><a href={site.reviewUrl} target="_blank" rel="noopener">Rated {site.googleRating}★ — read reviews</a></li>
+        </ul>
+      </div>
+      <div class="ct-map" data-reveal style="--reveal-delay:120ms">
+        <iframe
+          title="REmixed Events location map"
+          src={`https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&output=embed`}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
 </Base>
 
 <style>
@@ -80,9 +112,33 @@ const steps = [
   .ct-step-n { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; flex-shrink: 0; min-width: 2.2rem; }
   .ct-step-t { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
   .ct-step-d { color: var(--text-dim); font-size: 0.95rem; margin-top: 0.2rem; }
-  .ct-direct { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; padding-top: 0.5rem; }
+  .ct-direct { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; padding-top: 0.5rem; }
   .ct-direct p { color: var(--text-mute); }
   .ct-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  .ct-capture { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .ct-capture input {
+    flex: 1; min-width: 220px;
+    padding: 0.95rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    background: rgba(255,255,255,0.6);
+    color: var(--text);
+    font: inherit;
+  }
+  .ct-capture input:focus { outline: none; border-color: var(--violet); background: #fff; }
+
+  /* Find us + map */
+  .ct-map-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 1rem + 4vw, 4rem); align-items: center; }
+  .ct-map-copy { display: grid; gap: 1.1rem; }
+  .ct-details { display: grid; gap: 0.9rem; margin-top: 0.4rem; }
+  .ct-details li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.8rem; align-items: baseline; font-size: 0.98rem; color: var(--text-dim); }
+  .ct-d-k { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mute); font-weight: 600; }
+  .ct-details a { color: var(--text); }
+  .ct-details a:hover { color: var(--magenta); }
+  .ct-map { border-radius: 24px; overflow: hidden; padding: 1px; background: var(--grad-soft); box-shadow: 0 30px 70px -30px rgba(123, 47, 247, 0.45); }
+  .ct-map iframe { display: block; width: 100%; height: clamp(320px, 42vh, 460px); border: 0; border-radius: 23px; filter: saturate(1.05); }
+  @media (max-width: 880px) { .ct-map-grid { grid-template-columns: 1fr; } }
 
   .ct-form-frame {
     border-radius: 24px;
@@ -106,5 +162,17 @@ const steps = [
       const frame = document.getElementById('quote-iframe') as HTMLIFrameElement | null;
       if (frame) frame.style.height = Math.max(600, e.data.height + 24) + 'px';
     }
+  });
+
+  // Quick email capture -> opens the visitor's mail client, pre-addressed to us.
+  const capture = document.querySelector('[data-capture]') as HTMLFormElement | null;
+  capture?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = capture.querySelector('input[type=email]') as HTMLInputElement | null;
+    const email = input?.value?.trim();
+    if (!email) return;
+    const subject = encodeURIComponent('New inquiry from the REmixed website');
+    const body = encodeURIComponent(`Hi REmixed team,\n\nI'd love to hear from you about my event.\nYou can reach me at: ${email}\n\nThanks!`);
+    window.location.href = `mailto:info@remixedeventsllc.com?subject=${subject}&body=${body}`;
   });
 </script>

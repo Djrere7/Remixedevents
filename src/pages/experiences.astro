@@ -27,6 +27,10 @@ const process = [
       <div class="svc-grid">
         {services.map((s, i) => <ServiceCard {...s} delay={i * 60} />)}
       </div>
+      <p class="svc-more" data-reveal>
+        Planning a brand or corporate event?
+        <a href="/corporate" class="tlink">Explore corporate &amp; brands <span class="arrow">→</span></a>
+      </p>
     </div>
   </section>
 
@@ -70,6 +74,7 @@ const process = [
   .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
   @media (max-width: 900px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .svc-grid { grid-template-columns: 1fr; } }
+  .svc-more { margin-top: 2rem; text-align: center; color: var(--text-dim); display: flex; gap: 0.6rem; justify-content: center; align-items: center; flex-wrap: wrap; }
 
   .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
   .sec-head > div { display: grid; gap: 0.9rem; }

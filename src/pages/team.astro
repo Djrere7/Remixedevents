@@ -40,11 +40,11 @@ const team = [
   />
 
   <!-- ROSTER -->
-  <section class="section tight">
+  <section class="roster-section">
     <div class="container wide roster">
       {team.map((m, i) => (
         <article class="member" data-reveal style={`--reveal-delay:${i * 90}ms`}>
-          <Media src={m.img} alt={m.alt} aspect="4/5" position="top" class="member-photo" />
+          <Media src={m.img} alt={m.alt} aspect="4/5" position="center 28%" feather={false} class="member-photo" />
           <div class="member-body">
             <h2 class="member-name">{m.name}</h2>
             <p class="member-role gtext">{m.role}</p>
@@ -58,7 +58,7 @@ const team = [
   <!-- GROUP PHOTO -->
   <section class="section tight">
     <div class="container wide group-wrap">
-      <Media src="/img/team.jpg" alt="The REmixed Events team together" aspect="16/9" feather={false} class="group-photo" />
+      <Media src="/img/team.jpg" alt="The REmixed Events team together" aspect="2/3" feather={false} position="center 20%" class="group-photo" />
       <p class="group-cap serif">One crew. Every detail handled.</p>
     </div>
   </section>
@@ -90,7 +90,7 @@ const team = [
             helping them assert their voice and take the main stage. Every REmixed event is a working
             extension of that mission.
           </p>
-          <a href="/contact" class="btn btn-primary btn-lg">Work with the collective <span class="arrow">→</span></a>
+          <a href={site.mixherUrl} target="_blank" rel="noopener" class="btn btn-primary btn-lg">Visit MixHer <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
@@ -124,7 +124,9 @@ const team = [
     .member-photo { max-width: 360px; }
   }
 
+  .roster-section { padding-block: clamp(1.5rem, 1rem + 2vw, 2.75rem) clamp(3rem, 2rem + 4vw, 5rem); }
   .group-wrap { display: grid; gap: 1rem; justify-items: center; }
+  .group-wrap :global(.group-photo) { max-width: 440px; }
   .group-cap { font-size: clamp(1.2rem, 1rem + 1vw, 1.7rem); color: var(--text-dim); text-align: center; }
 
   .about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; border-block: 1px solid var(--line); padding-block: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); }

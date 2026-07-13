@@ -1,40 +1,82 @@
 ---
 import Base from '../layouts/Base.astro';
-import PageHeader from '../components/PageHeader.astro';
-import TestimonialCard from '../components/TestimonialCard.astro';
 import Media from '../components/Media.astro';
+import Marquee from '../components/Marquee.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
 import { testimonials, site } from '../data/site';
 
-const wedGallery = [
-  { src: '/img/venue-uplights.jpg', alt: 'Ballroom transformed with custom uplighting and a monogram floor', aspect: '4/5' },
+const weddingServices = [
+  { icon: '♪', t: 'DJs & MC Hosting', d: 'DJs and confident hosts who read the room, run the timeline and keep every generation on the floor.' },
+  { icon: '✦', t: 'Photo Booths', d: 'Modern open air photo booths with custom prints and props your guests will line up for all night.' },
+  { icon: '✺', t: 'Cold Spark Machines', d: 'Safe, indoor friendly spark fountains for a jaw dropping grand entrance or first dance.' },
+  { icon: '☁', t: 'Dancing on the Clouds', d: 'A dreamy low lying cloud effect that makes your first dance float. Pure magic on camera.' },
+  { icon: '❋', t: 'Uplighting & Lighting', d: 'Custom uplighting, monogram gobos and dance floor lighting that transform any venue.' },
+  { icon: '◈', t: 'Sound & Production', d: 'Crystal clear ceremony sound, wireless microphones, DJ booths and the details that make the room feel complete.' },
+  { icon: '✎', t: 'Planning & Day of Coordination', d: 'From timeline building to day of coordination, we help keep your wedding organized and stress free.' },
+  { icon: '❤', t: 'Photo, Video & Content', d: 'Photographers, videographers and content creators within reach, so your day is captured beautifully from every angle.' },
+];
+
+const moments = [
+  { t: 'Ceremony', d: 'Clear sound, perfectly timed music, wireless microphones and a smooth flow for the moments that matter most.' },
+  { t: 'Cocktail hour', d: 'A curated soundtrack that sets the mood while guests mingle, sip and settle into the celebration.' },
+  { t: 'Reception', d: 'Introductions, first dances, dinner music, party sets and a dance floor that builds naturally all night.' },
+  { t: 'The details', d: 'Custom edits, special songs, announcements, vendor communication and full production support.' },
+];
+
+const questions = [
+  'Will the music feel like us?',
+  'Will the DJ understand the crowd?',
+  'Will the announcements be smooth?',
+  'Will people actually dance?',
+  'Will it feel fun without feeling cheesy?',
+];
+
+const gallery = [
+  { src: '/img/wed-1.jpg', alt: 'A packed wedding dance floor glowing with uplighting', aspect: '4/3' },
+  { src: '/img/venue-uplights.jpg', alt: 'Ballroom transformed with uplighting and a monogram floor', aspect: '4/5' },
   { src: '/img/production-sparks.jpg', alt: 'Cold spark fountains for a grand entrance', aspect: '4/3' },
+  { src: '/img/wed-2.jpg', alt: 'Guests celebrating on the dance floor', aspect: '4/5' },
   { src: '/img/booth-setup.jpg', alt: 'Elegant DJ booth with warm uplighting', aspect: '4/3' },
   { src: '/img/led-pool.jpg', alt: 'LED accents glowing across a waterfront reception', aspect: '4/5' },
 ];
 
-const includes = [
-  { t: 'Ceremony', d: 'Clear sound, perfectly timed music, wireless microphones and a smooth flow for the moments that matter most.' },
-  { t: 'Cocktail hour', d: 'A curated soundtrack that sets the mood while guests mingle, sip and settle into the celebration.' },
-  { t: 'Reception', d: 'Introductions, first dances, dinner music, party sets and a dance floor that builds naturally throughout the night.' },
-  { t: 'The details', d: 'Custom edits, special songs, announcements, vendor communication and production support so everything feels connected.' },
-];
-
-const wedTestimonials = testimonials.filter((t) => t.date === 'Wedding').concat(testimonials.filter((t) => t.date !== 'Wedding')).slice(0, 2);
+const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(testimonials.filter((t) => t.role !== 'Wedding')).slice(0, 2);
 ---
 
-<Base title="Weddings" description="Female DJ wedding entertainment in South Florida. REmixed Events creates ceremonies and receptions that feel personal, stylish and full of joy, from I do to last dance.">
-  <PageHeader
-    kicker="Wedding entertainment, remixed"
-    title="For the couple who wants the music to feel"
-    emphasis="like them."
-    emphasisClass="font-stroke"
-    lede="Your wedding should not sound like everyone else’s. It should sound like your love story, your culture, your people and the party you have been waiting to have. Our female DJs create a wedding experience that feels personal from ceremony to last dance. You do not need a DJ who takes over the wedding. You need one who understands it. That is REmixed."
-  >
-    <div class="ph-actions" data-reveal style="--reveal-delay:200ms">
-      <a href="/contact" class="btn btn-primary btn-lg">Check your date <span class="arrow">→</span></a>
-      <a href={`mailto:${site.email}`} class="btn btn-ghost btn-lg">Ask a question</a>
+<Base title="Weddings" description="Wedding entertainment and production in South Florida. DJs, MC hosting, photo booths, cold sparks, dancing on the clouds, uplighting, planning and day of coordination from REmixed Events.">
+  <!-- HERO -->
+  <section class="whero">
+    <div class="whero-media" aria-hidden="true">
+      <video class="whero-video" autoplay muted loop playsinline preload="metadata" poster="/video/wed-hero-poster.jpg">
+        <source src="/video/wed-hero.mp4" type="video/mp4" />
+      </video>
+      <div class="whero-scrim"></div>
     </div>
-  </PageHeader>
+    <div class="container wide whero-inner">
+      <p class="kicker whero-kicker" data-reveal>Wedding entertainment, remixed</p>
+      <h1 class="display whero-title">
+        <span class="line" data-reveal>For the couple who wants</span>
+        <span class="line" data-reveal style="--reveal-delay:120ms">it to feel like</span>
+        <span class="line whero-accent font-stroke" data-reveal style="--reveal-delay:220ms">them.</span>
+      </h1>
+      <div class="whero-actions" data-reveal style="--reveal-delay:320ms">
+        <a href="/contact" class="btn btn-primary btn-lg">Check Your Date <span class="arrow">→</span></a>
+        <a href="#everything" class="btn btn-ghost btn-lg">See everything we do</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section tight">
+    <div class="container wide wed-intro">
+      <p class="lede" data-reveal>
+        Your wedding should not sound like everyone else’s. It should sound like your love story, your culture,
+        your people and the party you have been waiting to have. We create a wedding experience that feels
+        personal from ceremony to last dance. You do not need a DJ who takes over the wedding. You need one who
+        <span class="font-stroke gtext">understands it.</span>
+      </p>
+    </div>
+  </section>
 
   <!-- AWARD BANNER -->
   <section class="section tight">
@@ -43,27 +85,26 @@ const wedTestimonials = testimonials.filter((t) => t.date === 'Wedding').concat(
         <span class="award-icon gtext" aria-hidden="true">♛</span>
         <div>
           <p class="award-title">Global Wedding Vendor 2022</p>
-          <p class="award-sub">Featured on Zola · Award winning DJ team · Trusted by couples across South Florida</p>
+          <p class="award-sub">Featured on Zola · Rated 5.0★ on Google · Trusted by couples across South Florida</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT'S INCLUDED -->
-  <section class="section">
+  <!-- EVERYTHING WE DO -->
+  <section class="section" id="everything">
     <div class="container wide">
-      <div class="sec-head">
-        <div>
-          <p class="kicker" data-reveal>Wedding moments</p>
-          <h2 class="h2" data-reveal style="--reveal-delay:80ms">From “I do” to <span class="font-stroke gtext">last dance.</span></h2>
-        </div>
+      <div class="sec-head center-head">
+        <p class="kicker mx-auto" data-reveal style="display:flex;justify-content:center">Everything under one roof</p>
+        <h2 class="h2" data-reveal style="--reveal-delay:80ms">More than a DJ. Your whole <span class="font-stroke gtext">wedding vibe.</span></h2>
+        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">From the first note to the last spark, we bring the pieces that make a wedding feel elevated, personal and full of life.</p>
       </div>
-      <div class="inc-grid">
-        {includes.map((c, i) => (
-          <article class="card card-glow inc" data-reveal style={`--reveal-delay:${i * 70}ms`}>
-            <span class="inc-n gtext">{String(i + 1).padStart(2, '0')}</span>
-            <h3 class="h3">{c.t}</h3>
-            <p>{c.d}</p>
+      <div class="wsvc-grid">
+        {weddingServices.map((s, i) => (
+          <article class="card card-glow wsvc" data-reveal style={`--reveal-delay:${(i % 4) * 70}ms`}>
+            <span class="wsvc-icon gtext" aria-hidden="true">{s.icon}</span>
+            <h3 class="wsvc-t">{s.t}</h3>
+            <p class="wsvc-d">{s.d}</p>
           </article>
         ))}
       </div>
@@ -80,10 +121,58 @@ const wedTestimonials = testimonials.filter((t) => t.date === 'Wedding').concat(
         </div>
       </div>
       <div class="wed-gallery">
-        {wedGallery.map((g) => (
-          <Media src={g.src} alt={g.alt} aspect={g.aspect} />
+        {gallery.map((g) => <Media src={g.src} alt={g.alt} aspect={g.aspect} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- MOMENTS -->
+  <section class="section section-light">
+    <div class="container wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker" data-reveal>Wedding moments</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">From “I do” to last dance.</h2>
+        </div>
+      </div>
+      <div class="inc-grid">
+        {moments.map((c, i) => (
+          <article class="card card-glow inc" data-reveal style={`--reveal-delay:${i * 70}ms`}>
+            <span class="inc-n gtext">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="h3">{c.t}</h3>
+            <p>{c.d}</p>
+          </article>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- PLANNING HELP -->
+  <section class="section">
+    <div class="container wide plan-card card on-grad" data-reveal>
+      <div class="plan-glow glow" aria-hidden="true"></div>
+      <div class="plan-inner">
+        <p class="kicker">We make it easy</p>
+        <h2 class="h1">We can help you <span class="font-stroke">plan it, too.</span></h2>
+        <p class="lede">Not sure where to start? From building your timeline to full day of coordination, plus photographers, videographers and content creators within reach, we help pull the whole day together so you can actually enjoy it.</p>
+        <a href="/contact" class="btn btn-primary btn-lg">Start planning with us <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REASSURANCE Q&A -->
+  <section class="section tight">
+    <div class="container wide qa-wrap">
+      <div class="qa-head">
+        <p class="kicker" data-reveal>We know what you are thinking</p>
+        <h2 class="h2" data-reveal style="--reveal-delay:80ms">Yes, yes, yes, yes and <span class="font-stroke gtext">yes.</span></h2>
+      </div>
+      <ul class="qa-list" data-reveal style="--reveal-delay:140ms">
+        {questions.map((q) => (
+          <li class="qa-item"><span class="qa-check gtext" aria-hidden="true">✓</span>{q}</li>
+        ))}
+      </ul>
+      <p class="qa-note" data-reveal style="--reveal-delay:200ms">We help you create a wedding that feels stylish, personal and full of energy from start to finish.</p>
     </div>
   </section>
 
@@ -104,31 +193,63 @@ const wedTestimonials = testimonials.filter((t) => t.date === 'Wedding').concat(
 </Base>
 
 <style>
-  .ph-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 2rem; }
+  /* HERO */
+  .whero { position: relative; min-height: 92svh; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 120px; padding-bottom: clamp(2.5rem, 1.5rem + 4vw, 5rem); overflow: hidden; isolation: isolate; }
+  .whero-media { position: absolute; inset: 0; z-index: 0; }
+  .whero-video { width: 100%; height: 100%; object-fit: cover; }
+  .whero-scrim { position: absolute; inset: 0; background:
+    linear-gradient(180deg, rgba(8,4,15,0.4) 0%, rgba(8,4,15,0.12) 26%, rgba(8,4,15,0.22) 55%, rgba(8,4,15,0.85) 100%),
+    linear-gradient(90deg, rgba(8,4,15,0.5) 0%, rgba(8,4,15,0.06) 60%, transparent 100%); }
+  .whero-inner { position: relative; z-index: 2; }
+  .whero-kicker { color: #fff; margin-bottom: 1.4rem; }
+  .whero-title { color: #fff; margin-bottom: clamp(1.6rem, 1rem + 3vw, 2.6rem); text-shadow: 0 2px 30px rgba(0,0,0,0.35); font-size: clamp(2.6rem, 1.5rem + 5.5vw, 6.5rem); }
+  .whero-title .line { display: block; }
+  .whero-accent { background: linear-gradient(110deg, #ffffff 0%, #ffd8f6 45%, #cdb6ff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .whero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
-  .award-banner {
-    display: flex; align-items: center; gap: 1.4rem;
-    padding: clamp(1.4rem, 1rem + 1.5vw, 2.2rem);
-    background: linear-gradient(120deg, var(--surface-2), var(--ink-2));
-    border-color: var(--line-strong);
-  }
+  .wed-intro .lede { font-size: clamp(1.3rem, 1.05rem + 1.1vw, 2rem); line-height: 1.4; color: var(--text); max-width: 26ch; }
+  .wed-intro { display: flex; }
+  .wed-intro .lede { max-width: 40ch; }
+
+  .award-banner { display: flex; align-items: center; gap: 1.4rem; padding: clamp(1.4rem, 1rem + 1.5vw, 2.2rem); background: linear-gradient(120deg, var(--surface-2), #fff); border-color: var(--line-strong); }
   .award-icon { font-size: 2.6rem; line-height: 1; }
   .award-title { font-family: var(--font-display); font-size: clamp(1.2rem, 1rem + 1vw, 1.7rem); font-weight: 600; letter-spacing: -0.01em; }
   .award-sub { color: var(--text-dim); font-size: 0.92rem; margin-top: 0.3rem; }
 
   .sec-head { margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
   .sec-head > div { display: grid; gap: 0.9rem; }
+  .center-head { display: grid; gap: 0.9rem; justify-items: center; text-align: center; max-width: 40ch; margin: 0 auto clamp(2rem, 1.5rem + 2vw, 3rem); }
+
+  .wsvc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+  .wsvc { padding: clamp(1.5rem, 1.1rem + 1vw, 2rem); display: grid; gap: 0.6rem; align-content: start; }
+  .wsvc-icon { font-size: 1.7rem; line-height: 1; }
+  .wsvc-t { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; }
+  .wsvc-d { color: var(--text-dim); font-size: 0.93rem; }
+  @media (max-width: 900px) { .wsvc-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .wsvc-grid { grid-template-columns: 1fr; } }
+
+  .wed-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; align-items: start; }
+  @media (max-width: 820px) { .wed-gallery { grid-template-columns: 1fr 1fr; } }
 
   .inc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
   .inc { padding: 1.8rem 1.5rem; display: grid; gap: 0.7rem; align-content: start; }
   .inc-n { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; letter-spacing: -0.02em; }
-  .inc p { color: var(--text-dim); font-size: 0.94rem; }
+  .inc p { color: var(--cream-dim); font-size: 0.94rem; }
   @media (max-width: 860px) { .inc-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 480px) { .inc-grid { grid-template-columns: 1fr; } }
 
+  .plan-card { padding: clamp(2.2rem, 1.5rem + 4vw, 4.5rem); border: 0; overflow: hidden; box-shadow: 0 40px 80px -36px rgba(123, 47, 247, 0.55); }
+  .plan-glow { width: 55%; height: 130%; top: -15%; right: -8%; background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 65%); opacity: 0.55; filter: blur(60px); }
+  .plan-inner { position: relative; z-index: 1; display: grid; gap: 1.3rem; max-width: 640px; }
+  .plan-inner .h1 { max-width: 16ch; }
+
+  .qa-wrap { max-width: 780px; margin: 0 auto; text-align: center; display: grid; gap: 1.4rem; justify-items: center; }
+  .qa-head { display: grid; gap: 0.9rem; justify-items: center; }
+  .qa-list { display: grid; gap: 0.7rem; justify-items: center; }
+  .qa-item { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--font-serif); font-style: italic; font-size: clamp(1.15rem, 1rem + 0.7vw, 1.6rem); color: var(--text); }
+  .qa-check { font-style: normal; font-weight: 700; }
+  .qa-note { color: var(--text-dim); max-width: 46ch; }
+
   .wed-quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
   @media (max-width: 760px) { .wed-quotes { grid-template-columns: 1fr; max-width: 560px; } }
-
-  .wed-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; align-items: start; }
-  @media (max-width: 820px) { .wed-gallery { grid-template-columns: 1fr 1fr; } }
 </style>

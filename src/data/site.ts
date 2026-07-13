@@ -10,8 +10,15 @@ export const site = {
   category: 'South Florida’s Female DJ Entertainment Company',
   slogan:
     'REmixed Events specializes in female DJs, polished production, and stylish entertainment experiences for weddings, brands, schools, corporate events, and private celebrations across South Florida and beyond.',
-  location: 'Miami · South Florida',
+  location: 'Miami Beach · South Florida',
   email: 'info@remixedeventsllc.com',
+  phone: '(305) 306-2858',
+  phoneHref: 'tel:+13053062858',
+  address: '1000 5th St, Suite 200-Y8, Miami Beach, FL 33139',
+  mapQuery: 'REmixed Events, 1000 5th St, Miami Beach, FL 33139',
+  googleRating: '5.0',
+  reviewUrl: 'https://g.page/r/CcgSr28MvgQsEBE/review',
+  mixherUrl: 'https://www.themixher.org',
   // DJ Event Planner lead pipeline
   djid: '25716',
   quoteAction: 'https://remixedent.com/request_information.asp',
@@ -25,9 +32,9 @@ export const site = {
 
 export const nav = [
   { label: 'Experiences', href: '/experiences' },
-  { label: 'Corporate & Brands', href: '/corporate' },
   { label: 'Weddings', href: '/weddings' },
   { label: 'Meet The Team', href: '/team' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export type Service = {
@@ -42,24 +49,6 @@ export type Service = {
 export const services: Service[] = [
   {
     tag: '01',
-    title: 'Female DJ Experiences',
-    blurb:
-      'This is what we are known for. Our female DJs bring presence, personality and a fresh kind of energy, with the soundtrack curated around your crowd and the feeling you want your guests to remember.',
-    points: ['Female DJ talent', 'Open format music', 'Custom music direction', 'MC & hosting options'],
-    image: '/img/activation-aero.jpg',
-    alt: 'A REmixed female DJ on the decks at an event',
-  },
-  {
-    tag: '02',
-    title: 'Brand & Corporate',
-    blurb:
-      'For the agency, planner or brand team that needs the room to feel on brand from the first beat. Launches, pop ups, conferences, galas and celebrations with female DJs, sound, lighting and polished production.',
-    points: ['Female DJs', 'Brand friendly music direction', 'Sound & lighting', 'Content friendly moments'],
-    image: '/img/corporate-acc.jpg',
-    alt: 'REmixed Events branded booth at a corporate activation',
-  },
-  {
-    tag: '03',
     title: 'Weddings',
     blurb:
       'For the couple who wants their wedding to feel like them. From ceremony sound to the final party set, a soundtrack that feels personal, polished and full of joy.',
@@ -68,25 +57,34 @@ export const services: Service[] = [
     alt: 'Elegant ballroom with custom uplighting and a monogram dance floor',
   },
   {
-    tag: '04',
+    tag: '02',
+    title: 'Brand & Corporate',
+    blurb:
+      'For the agency, planner or brand team that needs the room to feel on brand from the first beat. Launches, pop ups, conferences, galas and celebrations with polished DJs, sound, lighting and production.',
+    points: ['On brand music direction', 'Sound & lighting', 'Content friendly moments', 'One experienced team'],
+    image: '/img/corporate-acc.jpg',
+    alt: 'REmixed Events branded booth at a corporate activation',
+  },
+  {
+    tag: '03',
     title: 'Schools',
     blurb:
       'For teachers, administrators and school teams who want students to have fun without the chaos. Clean music, high energy DJs and an organized, age appropriate team.',
     points: ['Clean music', 'Proms & homecomings', 'Graduations & pep rallies', 'Professional sound & lighting'],
-    image: '/img/team.jpg',
-    alt: 'The all female REmixed Events team',
+    image: '/img/dj-outdoor.jpg',
+    alt: 'A REmixed DJ bringing high energy to an outdoor crowd',
   },
   {
-    tag: '05',
+    tag: '04',
     title: 'Birthdays & Private',
     blurb:
       'For the birthday girl, host or friend group that wants the night to feel cute, fun and unforgettable. We curate the music and energy around the guest of honor.',
     points: ['Birthday parties', 'Private celebrations', 'Luxury dinners', 'Custom party vibe'],
-    image: '/img/rere-khaled.jpg',
-    alt: 'REmixed at a high profile private celebration',
+    image: '/img/rere-disco.jpg',
+    alt: 'DJ ReRe bringing the party energy with a disco ball',
   },
   {
-    tag: '06',
+    tag: '05',
     title: 'Production & Lighting',
     blurb:
       'The right production changes the room before the first song even plays. Sound, lighting, microphones and DJ booths that make your event look and feel complete.',
@@ -106,24 +104,24 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'You understood exactly what we wanted. The energy never dropped for a second and every single guest was on the dance floor.',
-    name: 'Tony Terry',
-    role: 'Director of Media, Universe Communications Inc.',
-    date: 'Corporate',
+      'ReRe exceeded every expectation we had. The dance floor was packed the entire night and every guest was blown away by the seamless transitions.',
+    name: 'Verified Google review',
+    role: 'Wedding',
+    date: '5.0★',
   },
   {
     quote:
-      'You’ve nailed it. Thank you so much for making our wedding absolutely perfect. Every single detail was exactly what we dreamed of.',
-    name: 'Austin Peterson',
-    role: 'CEO, Bella Wear',
-    date: 'Wedding',
+      'Super accommodating from start to finish. The DJ they sent was excellent, courteous and professional. We highly recommend REmixed.',
+    name: 'Verified Google review',
+    role: 'Private celebration',
+    date: '5.0★',
   },
   {
     quote:
-      'Booked last minute and it could not have turned out better. Our DJ was super accommodating and read the room flawlessly all night.',
-    name: 'Migdy Moya',
-    role: 'Private Celebration, Kendall FL',
-    date: 'Private',
+      'You understood exactly what we wanted. The energy never dropped for a second and everyone was on the dance floor all night.',
+    name: 'Verified Google review',
+    role: 'Corporate event',
+    date: '5.0★',
   },
 ];
 
@@ -156,8 +154,8 @@ export const eventTypes = [
 
 /** Headline stats. Company recognition, not personal accolades. */
 export const stats = [
-  { value: '100%', label: 'Female DJ powered' },
+  { value: '5★', label: 'Rated on Google' },
   { value: '2×', label: 'BusinessRate Top 3' },
   { value: '2022', label: 'Global Wedding Vendor' },
-  { value: '5★', label: 'Top rated on Google' },
+  { value: '100%', label: 'Female DJ powered' },
 ];

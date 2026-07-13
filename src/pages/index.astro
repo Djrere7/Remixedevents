@@ -7,12 +7,12 @@ import Media from '../components/Media.astro';
 import { services, testimonials, awards, stats, site } from '../data/site';
 
 const gallery = [
-  { src: '/img/rere-decks.jpg', alt: 'DJ ReRe on the decks in a REmixed Events tee', aspect: '4/5' },
-  { src: '/img/dj-outdoor.jpg', alt: 'DJ ReRe bringing the energy at an outdoor activation', aspect: '4/3' },
-  { src: '/img/venue-uplights.jpg', alt: 'Uplit ballroom with a monogram dance floor', aspect: '4/3' },
-  { src: '/img/production-sparks.jpg', alt: 'Cold spark fountains lighting up a grand entrance', aspect: '4/5' },
-  { src: '/img/rere-disco.jpg', alt: 'DJ ReRe with a disco ball', aspect: '4/3' },
-  { src: '/img/corporate-acc.jpg', alt: 'Branded booth at a corporate activation', aspect: '4/5' },
+  { src: '/img/rere-decks.jpg', label: 'On the decks', alt: 'DJ ReRe on the decks in a REmixed Events tee', aspect: '4/5' },
+  { src: '/img/wed-1.jpg', label: 'Wedding receptions', alt: 'A packed wedding dance floor with custom uplighting', aspect: '4/3' },
+  { src: '/img/activation-aero.jpg', label: 'Brand activations', alt: 'A REmixed brand activation booth', aspect: '4/3' },
+  { src: '/img/production-sparks.jpg', label: 'Cold sparks', alt: 'Cold spark fountains lighting up a grand entrance', aspect: '4/5' },
+  { src: '/img/dj-outdoor.jpg', label: 'High energy crowds', alt: 'A REmixed DJ energizing an outdoor crowd', aspect: '4/3' },
+  { src: '/img/venue-uplights.jpg', label: 'Lighting & production', alt: 'Uplit ballroom with a monogram dance floor', aspect: '4/5' },
 ];
 ---
 
@@ -106,41 +106,13 @@ const gallery = [
     </div>
   </section>
 
-  <!-- ============ CORPORATE BAND ============ -->
-  <section class="section corp">
-    <div class="container wide card corp-card on-grad">
-      <div class="corp-glow glow" aria-hidden="true"></div>
-      <div class="corp-inner">
-        <div class="corp-copy">
-          <p class="kicker" data-reveal>For brands & corporate teams</p>
-          <h2 class="h1" data-reveal style="--reveal-delay:80ms">
-            Female DJs for brands that feel <span class="font-stroke gtext">alive.</span>
-          </h2>
-          <p class="lede" data-reveal style="--reveal-delay:140ms">
-            For marketing teams and agencies that want the room to match the audience, the message and the moment.
-            Female DJs, polished sound, lighting and production support, minus the stress.
-          </p>
-          <ul class="corp-list" data-reveal style="--reveal-delay:200ms">
-            <li>Female DJs & brand friendly music direction</li>
-            <li>Sound, lighting & polished production support</li>
-            <li>Clear communication and on time setup</li>
-            <li>Content friendly moments made for the feed</li>
-          </ul>
-          <div data-reveal style="--reveal-delay:260ms">
-            <a href="/corporate" class="btn btn-primary btn-lg">Explore corporate & brands <span class="arrow">→</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ SHOWREEL ============ -->
   <section class="section reel">
     <div class="container wide">
       <div class="reel-head">
         <p class="kicker" data-reveal>Press play</p>
         <h2 class="h2" data-reveal style="--reveal-delay:80ms">See the <span class="font-stroke gtext">energy</span> in motion.</h2>
-        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A quick taste of what a REmixed night feels like. The drops, the crowd, the moments.</p>
+        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A quick taste of the REmixed vibe, from weddings and brand events to the celebrations in between.</p>
       </div>
       <Media type="video" src="/video/reel.mp4" poster="/video/reel-poster.jpg" aspect="16/9" feather={false} class="reel-frame" />
     </div>
@@ -151,14 +123,17 @@ const gallery = [
     <div class="container wide">
       <div class="sec-head">
         <div>
-          <p class="kicker" data-reveal>The REmixed lookbook</p>
-          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Moments worth reliving.</h2>
+          <p class="kicker" data-reveal>The gallery</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Remixed Moments.</h2>
         </div>
         <a href="/contact" class="tlink sec-head-link" data-reveal>Book your moment <span class="arrow">→</span></a>
       </div>
       <div class="gallery">
         {gallery.map((g) => (
-          <Media src={g.src} alt={g.alt} aspect={g.aspect} class="gallery-item" />
+          <figure class="gallery-item gcap" data-reveal>
+            <Media src={g.src} alt={g.alt} aspect={g.aspect} feather={false} />
+            <figcaption class="gcap-label">{g.label}</figcaption>
+          </figure>
         ))}
       </div>
     </div>
@@ -169,8 +144,8 @@ const gallery = [
     <div class="container wide">
       <div class="sec-head">
         <div>
-          <p class="kicker" data-reveal>Word on the dance floor</p>
-          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Loved by clients across South Florida.</h2>
+          <p class="kicker" data-reveal>Straight from Google</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Rated <span class="font-stroke gtext">5.0</span> by clients across South Florida.</h2>
         </div>
       </div>
       <div class="quote-grid">
@@ -342,7 +317,27 @@ const gallery = [
 
   /* ---------- GALLERY (masonry) ---------- */
   .gallery { columns: 3 240px; column-gap: 1.1rem; }
-  .gallery :global(.gallery-item) { margin-bottom: 1.1rem; break-inside: avoid; }
+  .gallery-item {
+    margin: 0 0 1.1rem;
+    break-inside: avoid;
+    position: relative;
+    border-radius: calc(var(--radius) + 4px);
+    overflow: hidden;
+    box-shadow: 0 22px 48px -30px rgba(40, 16, 80, 0.4);
+  }
+  .gcap-label {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    z-index: 2;
+    padding: 2rem 1.15rem 1rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    color: #fff;
+    background: linear-gradient(to top, rgba(8, 4, 15, 0.78), rgba(8, 4, 15, 0.2) 55%, transparent);
+    pointer-events: none;
+  }
   @media (max-width: 560px) { .gallery { columns: 2 150px; } }
 
   /* ---------- TESTIMONIALS GRID ---------- */

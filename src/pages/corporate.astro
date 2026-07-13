@@ -2,20 +2,25 @@
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import Media from '../components/Media.astro';
+import Marquee from '../components/Marquee.astro';
 import { site } from '../data/site';
 
 const capabilities = [
-  { t: 'Brand activations', d: 'Female DJs, branded setups, music direction and content friendly moments that help your audience connect with your brand.' },
+  { t: 'Brand activations', d: 'DJs, branded setups, music direction and content friendly moments that help your audience connect with your brand.' },
   { t: 'Conferences & summits', d: 'Walk up tracks, transitions, networking music, microphones and polished timing that keeps the event moving.' },
   { t: 'Galas & holiday parties', d: 'Elegant energy early in the night, then a packed dance floor when it is time to celebrate.' },
   { t: 'Corporate celebrations', d: 'DJs, hosts, sound, lighting and production support from one experienced team.' },
 ];
 
-const why = [
-  { t: 'We make your job easier', d: 'You are managing the client, the timeline, the vendors and probably ten last minute changes. We do not add stress.' },
-  { t: 'Clear communication', d: 'We show up prepared, communicate clearly and understand brand standards from the first email to load out.' },
-  { t: 'Right energy for the room', d: 'We keep the energy appropriate for the moment, and we know when to be background and when to turn it up.' },
-  { t: 'One experienced team', d: 'Female DJs, hosts, sound, lighting and production support from a team planners and agencies trust.' },
+const whyItems = [
+  'We make your job easier',
+  'Clear communication',
+  'Prepared & on time',
+  'The right energy for the room',
+  'Brand standards understood',
+  'Insured & professional',
+  'One experienced team',
+  'Planners & agencies trust us',
 ];
 
 const logos = ['Smartwater', "Raising Cane's", 'Universe Communications', 'Miami Music Week', 'We The Best', 'The Source'];
@@ -23,18 +28,20 @@ const logos = ['Smartwater', "Raising Cane's", 'Universe Communications', 'Miami
 const activationImgs = [
   { src: '/img/activation-aero.jpg', alt: 'Aeropostale and Cheetos brand activation booth', aspect: '3/4' },
   { src: '/img/corporate-acc.jpg', alt: 'ACC branded activation tent', aspect: '3/4' },
-  { src: '/img/dj-outdoor.jpg', alt: 'DJ ReRe energizing an outdoor corporate crowd', aspect: '3/4' },
+  { src: '/img/dj-outdoor.jpg', alt: 'A REmixed DJ energizing an outdoor corporate crowd', aspect: '3/4' },
   { src: '/img/venue-uplights.jpg', alt: 'Uplit corporate gala stage', aspect: '3/4' },
+  { src: '/img/rere-khaled.jpg', alt: 'REmixed at a high profile brand event', aspect: '3/4' },
+  { src: '/img/booth-setup.jpg', alt: 'Custom branded DJ booth with uplighting', aspect: '3/4' },
 ];
 ---
 
-<Base title="Corporate & Brand Activations" description="Female DJs and polished production for brands. REmixed Events supports brand activations, corporate events, launches, conferences and galas across South Florida.">
+<Base title="Corporate & Brand Activations" description="Polished DJ entertainment and production for brands. REmixed Events supports brand activations, corporate events, launches, conferences and galas across South Florida.">
   <PageHeader
     kicker="Corporate events & brand activations"
-    title="Female DJs for brands that want the room to feel"
-    emphasis="alive."
+    title="Entertainment built for luxe brands &"
+    emphasis="corporate events."
     emphasisClass="font-stroke"
-    lede="For marketing agencies, event coordinators and brand teams, the entertainment cannot feel random. It has to match the audience, the message, the room and the moment. REmixed brings female DJs, polished sound, lighting and production support to activations, corporate events, launches, conferences and galas. We understand the assignment: look good, sound good, stay professional and make the brand feel unforgettable in real life."
+    lede="For marketing agencies, event coordinators and brand teams, the entertainment cannot feel random. It has to match the audience, the message, the room and the moment. REmixed brings polished DJs, sound, lighting and production support to activations, corporate events, launches, conferences and galas. We understand the assignment: look good, sound good, stay professional and make the brand unforgettable in real life."
   >
     <div class="ph-actions" data-reveal style="--reveal-delay:200ms">
       <a href="/contact" class="btn btn-primary btn-lg">Plan your activation <span class="arrow">→</span></a>
@@ -91,8 +98,8 @@ const activationImgs = [
     <div class="container wide">
       <div class="sec-head">
         <div>
-          <p class="kicker" data-reveal>From the field</p>
-          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Activations in the wild.</h2>
+          <p class="kicker" data-reveal>A little look around</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Caught in the moment.</h2>
         </div>
       </div>
       <div class="act-gallery">
@@ -103,35 +110,28 @@ const activationImgs = [
     </div>
   </section>
 
-  <!-- WHY -->
-  <section class="section section-light">
+  <!-- WHY (scrolling marquee) -->
+  <section class="section tight section-light">
     <div class="container wide">
       <div class="why-head">
         <p class="kicker" data-reveal>Why brands book us</p>
         <h2 class="h1" data-reveal style="--reveal-delay:80ms">We make your job <span class="font-stroke gtext">easier.</span></h2>
       </div>
-      <div class="why-grid">
-        {why.map((w, i) => (
-          <div class="why card" data-reveal style={`--reveal-delay:${i * 70}ms`}>
-            <h3 class="why-t">{w.t}</h3>
-            <p class="why-d">{w.d}</p>
-          </div>
-        ))}
-      </div>
     </div>
+    <Marquee items={whyItems} speed={34} />
   </section>
 
-  <!-- QUOTE -->
-  <section class="section">
-    <div class="container wide">
-      <figure class="big-quote" data-reveal>
-        <p class="big-quote-text serif">
-          “You understood exactly what we wanted.”
-        </p>
-        <figcaption class="big-quote-cite">
-          <span class="gtext">The compliment we hear most</span> · from the planners and brands we work with
-        </figcaption>
-      </figure>
+  <!-- VIDEO QUOTE -->
+  <section class="quote-video">
+    <div class="qv-media" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" poster="/video/reel-poster.jpg">
+        <source src="/video/reel.mp4" type="video/mp4" />
+      </video>
+      <div class="qv-scrim"></div>
+    </div>
+    <div class="container wide qv-inner">
+      <p class="qv-quote font-stroke" data-reveal>“You understood exactly what we wanted.”</p>
+      <p class="qv-cite" data-reveal style="--reveal-delay:120ms">The compliment we hear most, from the planners and brands we work with.</p>
     </div>
   </section>
 </Base>
@@ -171,6 +171,15 @@ const activationImgs = [
   .cs-copy { display: grid; gap: 1.2rem; justify-items: start; }
   @media (max-width: 820px) { .cs-grid { grid-template-columns: 1fr; } }
 
-  .act-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+  .act-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
   @media (max-width: 820px) { .act-gallery { grid-template-columns: 1fr 1fr; } }
+
+  /* Video-backed quote */
+  .quote-video { position: relative; min-height: clamp(360px, 55vh, 560px); display: flex; align-items: center; overflow: hidden; isolation: isolate; }
+  .qv-media { position: absolute; inset: 0; z-index: 0; }
+  .qv-media video { width: 100%; height: 100%; object-fit: cover; }
+  .qv-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,4,15,0.55), rgba(8,4,15,0.42) 45%, rgba(8,4,15,0.7)); }
+  .qv-inner { position: relative; z-index: 1; text-align: center; display: grid; gap: 1rem; justify-items: center; padding-block: clamp(3rem, 2rem + 4vw, 5rem); }
+  .qv-quote { color: #fff; font-size: clamp(2rem, 1.3rem + 4vw, 4.4rem); line-height: 1.15; max-width: 20ch; text-shadow: 0 2px 24px rgba(0,0,0,0.4); }
+  .qv-cite { color: rgba(255,255,255,0.85); font-size: 0.95rem; letter-spacing: 0.02em; }
 </style>
