@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Media from '../components/Media.astro';
 import Marquee from '../components/Marquee.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
+import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 import { testimonials, site } from '../data/site';
 
 const weddingServices = [
@@ -125,6 +126,17 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
       <div class="wed-gallery">
         {gallery.map((g) => <Media src={g.src} alt={g.alt} aspect={g.aspect} />)}
       </div>
+    </div>
+  </section>
+
+  <!-- WEDDING VIDEO -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="center-head">
+        <p class="kicker" data-reveal style="display:flex;justify-content:center">Press play</p>
+        <h2 class="h2" data-reveal style="--reveal-delay:80ms">See a REmixed wedding <span class="font-stroke gtext">in motion.</span></h2>
+      </div>
+      <YouTubeEmbed id="WT9iUCJFfUQ" title="A REmixed Events wedding" />
     </div>
   </section>
 

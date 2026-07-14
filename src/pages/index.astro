@@ -4,6 +4,7 @@ import Marquee from '../components/Marquee.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import Media from '../components/Media.astro';
+import YouTubeEmbed from '../components/YouTubeEmbed.astro';
 import { services, testimonials, awards, stats, site, eventTypes } from '../data/site';
 
 const gallery = [
@@ -118,7 +119,7 @@ const gallery = [
         <h2 class="h2" data-reveal style="--reveal-delay:80ms">See the <span class="font-stroke gtext">energy</span> in motion.</h2>
         <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A quick taste of the REmixed vibe, from weddings and brand events to the celebrations in between.</p>
       </div>
-      <Media type="video" src="/video/reel.mp4" poster="/video/reel-poster.jpg" aspect="16/9" feather={false} class="reel-frame" />
+      <YouTubeEmbed id="JbOwx8k0od4" title="REmixed Events showreel" class="reel-frame" />
     </div>
   </section>
 

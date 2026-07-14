@@ -75,8 +75,8 @@ export const services: Service[] = [
     blurb:
       'Yacht parties, boat parties, milestone celebrations, private events, luxury dinners, proms, galas and social events that need personality, music and a team that knows how to read the room.',
     points: ['Yacht & boat parties', 'Milestones & private events', 'Proms & galas', 'Community events'],
-    image: '/img/team.jpg',
-    alt: 'The REmixed team bringing the energy to a special event',
+    image: '/img/special.jpg',
+    alt: 'A packed gala ballroom at a REmixed special event',
     href: '/experiences',
   },
   {
@@ -85,8 +85,8 @@ export const services: Service[] = [
     blurb:
       'Sound, lighting, microphones, DJ booths, photo booths, cold sparks, dancing on the clouds and the details that make the room feel complete.',
     points: ['Sound & lighting', 'Photo booths', 'Cold sparks', 'Dancing on clouds'],
-    image: '/img/venue-uplights.jpg',
-    alt: 'Custom uplighting and production transforming a venue',
+    image: '/img/cold-sparks.jpg',
+    alt: 'Cold spark fountains lighting up an event',
     href: '/experiences',
   },
 ];
