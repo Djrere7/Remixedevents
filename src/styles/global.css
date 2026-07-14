@@ -107,7 +107,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: clamp(1rem, 0.96rem + 0.2vw, 1.08rem);
   letter-spacing: 0.005em;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img, picture, svg, video { display: block; max-width: 100%; }

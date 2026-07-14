@@ -23,6 +23,12 @@ assets_src/
 /*.wav
 /*.heic
 /*.HEIC
+/*.png
+/*.PNG
+/*.jpg
+/*.jpeg
+/*.JPG
+/*.webp
 
 # raw source videos are huge; only the optimized web-ready clips are committed
 public/video/*
