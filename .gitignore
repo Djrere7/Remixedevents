@@ -29,6 +29,8 @@ assets_src/
 /*.jpeg
 /*.JPG
 /*.webp
+# stray media folders dropped in the project root
+/Prom 2026/
 
 # raw source videos are huge; only the optimized web-ready clips are committed
 public/video/*

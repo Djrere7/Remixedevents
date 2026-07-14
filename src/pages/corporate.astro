@@ -28,6 +28,12 @@ const logos = [
   'Guess', 'Adidas', 'Carnival Cruise', 'Rolling Loud', 'ACC × ESPN', "Raising Cane's",
 ];
 
+const brandLogos = [
+  '/img/logos/fenty.png', '/img/logos/acc.png', '/img/logos/aeropostale.png',
+  '/img/logos/cheetos.png', '/img/logos/shein.png', '/img/logos/canes.svg',
+];
+const brandLoop = [...brandLogos, ...brandLogos];
+
 const activationImgs = [
   { src: '/img/brand-fenty.jpg', alt: 'Savage X Fenty brand activation with REmixed', aspect: '3/4' },
   { src: '/img/brand-lids.jpg', alt: 'LIDS brand activation with a custom DJ booth', aspect: '3/4' },
@@ -58,6 +64,13 @@ const activationImgs = [
       <p class="clients-label">Brands we’ve moved the room for</p>
       <div class="clients-row" data-reveal>
         {logos.map((l) => <span class="client-name">{l}</span>)}
+      </div>
+    </div>
+    <div class="logo-marquee" aria-hidden="true">
+      <div class="logo-track">
+        {brandLoop.map((src) => (
+          <span class="logo-item"><img src={src} alt="" loading="eager" decoding="async" /></span>
+        ))}
       </div>
     </div>
   </section>
@@ -146,6 +159,20 @@ const activationImgs = [
   .clients-label { text-align: center; font-size: 0.74rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 1.4rem; }
   .clients-row { display: flex; flex-wrap: wrap; gap: 1.2rem 2.4rem; justify-content: center; }
   .client-name { font-family: var(--font-display); font-weight: 500; font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem); color: var(--text-dim); opacity: 0.85; }
+
+  .logo-marquee {
+    margin-top: 2.2rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .logo-track { display: flex; width: max-content; align-items: center; gap: 4rem; animation: logoscroll 32s linear infinite; }
+  .logo-marquee:hover .logo-track { animation-play-state: paused; }
+  .logo-item { flex: none; display: flex; align-items: center; }
+  .logo-item img { height: 30px; width: auto; filter: brightness(0); opacity: 0.42; transition: opacity 0.3s var(--ease); }
+  .logo-item img:hover { opacity: 0.85; }
+  @keyframes logoscroll { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .logo-track { animation: none; } }
 
   .sec-head { margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
   .sec-head > div { display: grid; gap: 0.9rem; }

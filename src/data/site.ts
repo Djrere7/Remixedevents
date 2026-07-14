@@ -75,8 +75,8 @@ export const services: Service[] = [
     blurb:
       'Yacht parties, boat parties, milestone celebrations, private events, luxury dinners, proms, galas and social events that need personality, music and a team that knows how to read the room.',
     points: ['Yacht & boat parties', 'Milestones & private events', 'Proms & galas', 'Community events'],
-    image: '/img/special-prom.jpg',
-    alt: 'REmixed lighting up a prom and special event',
+    image: '/img/team.jpg',
+    alt: 'The REmixed team bringing the energy to a special event',
     href: '/experiences',
   },
   {
@@ -85,8 +85,8 @@ export const services: Service[] = [
     blurb:
       'Sound, lighting, microphones, DJ booths, photo booths, cold sparks, dancing on the clouds and the details that make the room feel complete.',
     points: ['Sound & lighting', 'Photo booths', 'Cold sparks', 'Dancing on clouds'],
-    image: '/img/production.jpg',
-    alt: 'Professional sound and speaker production setup',
+    image: '/img/venue-uplights.jpg',
+    alt: 'Custom uplighting and production transforming a venue',
     href: '/experiences',
   },
 ];
@@ -149,7 +149,7 @@ export const eventTypes = [
 /** Headline stats. Company recognition, not personal accolades. */
 export const stats = [
   { value: '5★', label: 'Rated on Google' },
-  { value: '2×', label: 'BusinessRate Top 3' },
+  { value: '2×', label: 'BusinessRate Top 3 in Miami Beach' },
   { value: '2022', label: 'Global Wedding Vendor' },
   { value: '100%', label: 'Woman owned' },
 ];
