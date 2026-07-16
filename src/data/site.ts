@@ -65,7 +65,7 @@ export const services: Service[] = [
     tag: '02',
     title: 'Brand & Influencer Events',
     blurb:
-      'Miami female DJs, hosts, sound, lighting, and content minded energy for launches, pop ups, brand dinners, influencer events, and corporate moments.',
+      'Miami female DJs, hosts, sound, lighting, and content-minded energy for launches, pop-ups, brand dinners, influencer events, and corporate moments.',
     points: ['Female DJs & hosting', 'Sound & lighting', 'Content ready moments', 'On brand curation'],
     image: '/img/activation-aero.jpg',
     alt: 'REmixed Events female DJ entertaining guests at a Miami brand event',
@@ -130,7 +130,7 @@ export const awards: string[] = [
   'Global Wedding Vendor 2022',
   'Featured on Zola',
   'Official CHAUVET DJ Brand Partner',
-  'Award Winning DJ Team',
+  'Award-Winning DJ Team',
 ];
 
 export const eventTypes = [

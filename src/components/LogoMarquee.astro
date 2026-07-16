@@ -1,0 +1,37 @@
+---
+/**
+ * Scrolling brand-logo strip. Logos normalized to one tone for a clean wall.
+ */
+const logos = [
+  '/img/logos/fenty.png',
+  '/img/logos/acc.png',
+  '/img/logos/aeropostale.png',
+  '/img/logos/cheetos.png',
+  '/img/logos/shein.png',
+  '/img/logos/canes.svg',
+];
+const loop = [...logos, ...logos];
+---
+
+<div class="logo-marquee" aria-hidden="true">
+  <div class="logo-track">
+    {loop.map((src) => (
+      <span class="logo-item"><img src={src} alt="" loading="eager" decoding="async" /></span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .logo-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .logo-track { display: flex; width: max-content; align-items: center; gap: 4rem; animation: logoscroll 32s linear infinite; }
+  .logo-marquee:hover .logo-track { animation-play-state: paused; }
+  .logo-item { flex: none; display: flex; align-items: center; }
+  .logo-item img { height: 30px; width: auto; filter: brightness(0); opacity: 0.42; transition: opacity 0.3s var(--ease); }
+  .logo-item img:hover { opacity: 0.85; }
+  @keyframes logoscroll { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .logo-track { animation: none; } }
+</style>
