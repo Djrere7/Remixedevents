@@ -9,6 +9,7 @@ interface Props {
   fullTitle?: string;
   description?: string;
   image?: string;
+  heroTheme?: 'dark' | 'light';
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   fullTitle,
   description = 'REmixed Events is South Florida’s female DJ entertainment company for luxe weddings, brand and influencer events, yacht parties, and special events in Miami.',
   image = '/og.jpg',
+  heroTheme = 'light',
 } = Astro.props;
 
 const pageTitle = fullTitle ?? (title ? `${title} · ${site.name}` : 'Miami Female DJs & Event Entertainment | REmixed Events');
@@ -85,7 +87,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://remixedeven
     <div class="grain" aria-hidden="true"></div>
     <div class="spotlight" aria-hidden="true" data-spotlight></div>
     <a href="#main" class="sr-only">Skip to content</a>
-    <Nav />
+    <Nav dark={heroTheme === 'dark'} />
     <main id="main">
       <slot />
     </main>

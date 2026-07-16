@@ -3,9 +3,10 @@ import Logo from './Logo.astro';
 import { nav, site } from '../data/site';
 const path = Astro.url.pathname;
 const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+const { dark = false } = Astro.props;
 ---
 
-<header class="nav" data-nav>
+<header class="nav" data-nav data-hero={dark ? 'dark' : undefined}>
   <div class="container wide nav-inner">
     <a href="/" class="nav-brand" aria-label="REmixed Events — home">
       <Logo />
@@ -55,6 +56,22 @@ const isActive = (href: string) => path === href || (href !== '/' && path.starts
     border-bottom-color: var(--line);
     box-shadow: 0 8px 30px -22px rgba(40, 16, 80, 0.4);
   }
+
+  /* Dark-hero pages: keep the nav readable over the video before it becomes a
+     solid bar on scroll. A soft top scrim + white text guarantees contrast. */
+  .nav[data-hero='dark']:not([data-scrolled])::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 4, 15, 0.55) 0%, rgba(8, 4, 15, 0.12) 70%, transparent 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .nav[data-hero='dark']:not([data-scrolled]) .nav-link { color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35); }
+  .nav[data-hero='dark']:not([data-scrolled]) .nav-link:hover { color: #fff; background: rgba(255, 255, 255, 0.16); }
+  .nav[data-hero='dark']:not([data-scrolled]) .nav-link.active { color: #fff; }
+  .nav[data-hero='dark']:not([data-scrolled]) .nav-burger { background: rgba(255, 255, 255, 0.14); border-color: rgba(255, 255, 255, 0.4); }
+  .nav[data-hero='dark']:not([data-scrolled]) .nav-burger span { background: #fff; }
   .nav-inner {
     display: flex;
     align-items: center;

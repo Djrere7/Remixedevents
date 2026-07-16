@@ -56,6 +56,7 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
 <Base
   fullTitle="Miami Female Wedding DJs | Wedding DJ, MC & Enhancements"
   description="Book Miami female wedding DJs for ceremony sound, reception entertainment, hosting, lighting, photo booths, cold sparks, and dancing on clouds."
+  heroTheme="dark"
 >
   <!-- HERO -->
   <section class="whero">
@@ -79,15 +80,22 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
     </div>
   </section>
 
-  <!-- INTRO -->
+  <!-- INTRO (immersive band) -->
   <section class="section tight">
-    <div class="container wide wed-intro">
-      <p class="lede" data-reveal>
-        Your wedding deserves more than a DJ and a speaker. REmixed Events brings female wedding DJs, hosting,
-        ceremony sound, lighting, photo booths, dancing on clouds, cold sparks and the right team to keep the
-        celebration flowing beautifully. From ceremony sound to the final song, we help create a wedding day
-        that feels personal, polished and <span class="font-stroke gtext">full of life.</span>
-      </p>
+    <div class="container wide">
+      <div class="wed-intro-band" data-reveal>
+        <div class="wed-intro-bg" aria-hidden="true"></div>
+        <div class="wed-intro-scrim" aria-hidden="true"></div>
+        <div class="wed-intro-inner">
+          <p class="kicker wed-intro-kicker">More than a DJ</p>
+          <p class="wed-intro-lede">
+            Your wedding deserves more than a DJ and a speaker. REmixed Events brings female wedding DJs, hosting,
+            ceremony sound, lighting, photo booths, dancing on clouds, cold sparks, and the right team to keep the
+            celebration flowing beautifully. From ceremony sound to the final song, we help create a wedding day
+            that feels personal, polished, and <span class="font-stroke wed-intro-accent">full of life.</span>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -139,14 +147,18 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
     </div>
   </section>
 
-  <!-- WEDDING VIDEO -->
+  <!-- WEDDING VIDEO (split layout) -->
   <section class="section tight">
-    <div class="container wide">
-      <div class="center-head">
-        <p class="kicker" data-reveal style="display:flex;justify-content:center">Press play</p>
+    <div class="container wide wed-video-grid">
+      <div class="wed-video-copy">
+        <p class="kicker" data-reveal>Press play</p>
         <h2 class="h2" data-reveal style="--reveal-delay:80ms">See a REmixed wedding <span class="font-stroke gtext">in motion.</span></h2>
+        <p class="lede" data-reveal style="--reveal-delay:140ms">From the grand entrance to the last dance, this is how a REmixed Events wedding actually feels on the floor.</p>
+        <a href="/contact" class="btn btn-primary btn-lg" data-reveal style="--reveal-delay:200ms">Check Your Date <span class="arrow">→</span></a>
       </div>
-      <YouTubeEmbed id="WT9iUCJFfUQ" title="A REmixed Events wedding" />
+      <div class="wed-video-frame" data-reveal style="--reveal-delay:120ms">
+        <YouTubeEmbed id="WT9iUCJFfUQ" title="A REmixed Events wedding" />
+      </div>
     </div>
   </section>
 
@@ -244,9 +256,41 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
   .whero-accent { background: linear-gradient(110deg, #ffffff 0%, #ffd8f6 45%, #cdb6ff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   .whero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
-  .wed-intro .lede { font-size: clamp(1.3rem, 1.05rem + 1.1vw, 2rem); line-height: 1.4; color: var(--text); max-width: 26ch; }
-  .wed-intro { display: flex; }
-  .wed-intro .lede { max-width: 40ch; }
+  /* Immersive intro band */
+  .wed-intro-band {
+    position: relative;
+    border-radius: calc(var(--radius) + 8px);
+    overflow: hidden;
+    isolation: isolate;
+    padding: clamp(2.4rem, 1.6rem + 5vw, 5.5rem) clamp(1.6rem, 1rem + 4vw, 4.5rem);
+    box-shadow: 0 40px 80px -40px rgba(40, 16, 80, 0.5);
+  }
+  .wed-intro-bg {
+    position: absolute; inset: 0; z-index: -2;
+    background: url('/img/venue-uplights.jpg') center / cover no-repeat;
+    transform: scale(1.05);
+  }
+  .wed-intro-scrim {
+    position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(120deg, rgba(8,4,15,0.84) 0%, rgba(8,4,15,0.55) 58%, rgba(123,47,247,0.36) 100%);
+  }
+  .wed-intro-inner { position: relative; max-width: 42ch; display: grid; gap: 1rem; }
+  .wed-intro-kicker { color: #fff; }
+  .wed-intro-lede {
+    color: #fff;
+    font-size: clamp(1.25rem, 1.05rem + 1.1vw, 2rem);
+    line-height: 1.4;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+  }
+  .wed-intro-accent {
+    background: linear-gradient(110deg, #ffffff 0%, #ffd8f6 45%, #cdb6ff 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  /* Wedding video split */
+  .wed-video-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(1.5rem, 1rem + 3vw, 3.5rem); align-items: center; }
+  .wed-video-copy { display: grid; gap: 1.2rem; justify-items: start; }
+  @media (max-width: 820px) { .wed-video-grid { grid-template-columns: 1fr; } }
 
   .award-banner { display: flex; align-items: center; gap: 1.4rem; padding: clamp(1.4rem, 1rem + 1.5vw, 2.2rem); background: linear-gradient(120deg, var(--surface-2), #fff); border-color: var(--line-strong); }
   .award-icon { font-size: 2.6rem; line-height: 1; }

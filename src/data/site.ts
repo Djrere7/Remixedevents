@@ -66,7 +66,7 @@ export const services: Service[] = [
     title: 'Brand & Influencer Events',
     blurb:
       'Miami female DJs, hosts, sound, lighting, and content-minded energy for launches, pop-ups, brand dinners, influencer events, and corporate moments.',
-    points: ['Female DJs & hosting', 'Sound & lighting', 'Content ready moments', 'On brand curation'],
+    points: ['Female DJs & hosting', 'Sound & lighting', 'Content-ready moments', 'On-brand curation'],
     image: '/img/activation-aero.jpg',
     alt: 'REmixed Events female DJ entertaining guests at a Miami brand event',
     href: '/corporate',
@@ -77,8 +77,8 @@ export const services: Service[] = [
     blurb:
       'Female DJs for yacht parties, boat parties, milestone celebrations, private events, luxury dinners, proms, galas, and social events that need personality.',
     points: ['Yacht & boat parties', 'Private celebrations', 'Proms & galas', 'Luxury dinners'],
-    image: '/img/special.jpg',
-    alt: 'Female DJ entertainment at a South Florida special event by REmixed Events',
+    image: '/img/led-pool.jpg',
+    alt: 'Poolside Miami special event lit by REmixed Events at night',
     href: '/experiences',
   },
   {
