@@ -1,9 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
 import { site, awards } from '../data/site';
+
+const contactFaqs = [
+  { q: 'How do I book a consultation?', a: 'Use the Schedule Your Free Consultation button to book a call with REmixed Events.' },
+  { q: 'Do you travel for events?', a: 'Yes. REmixed Events is based in Miami Beach and serves South Florida, destination events, and celebrations beyond.' },
+  { q: 'What types of events do you service?', a: 'REmixed Events services luxe weddings, brand and influencer events, yacht parties, boat parties, private celebrations, corporate moments, proms, galas, and special events.' },
+];
 ---
 
-<Base title="Contact" description="Schedule a free consultation with REmixed Events, South Florida’s DJ entertainment brand for luxe weddings, brand and influencer events, and special events.">
+<Base
+  fullTitle="Book a Miami Female DJ | Schedule a Free Consultation"
+  description="Schedule a free consultation with REmixed Events for Miami female DJs, wedding entertainment, brand events, influencer events, and special celebrations."
+>
   <section class="ct-hero">
     <div class="ct-glow glow" aria-hidden="true"></div>
     <div class="container wide ct-grid">
@@ -14,9 +24,9 @@ import { site, awards } from '../data/site';
         </h1>
         <p class="ct-sub" data-reveal style="--reveal-delay:120ms">Schedule a free consultation today.</p>
         <p class="lede" data-reveal style="--reveal-delay:160ms">
-          Ready to talk through your event? Book a free consultation call with our team and let’s see how REmixed
-          can bring the music, style and energy to your celebration. We reply quickly, keep the process simple and
-          help you figure out exactly what you need.
+          Ready to talk through your event? Book a free consultation with REmixed Events and let’s see how our
+          female DJ entertainment team can bring the music, style and energy to your celebration. We reply quickly,
+          keep the process simple and help you figure out exactly what you need.
         </p>
 
         <div class="ct-cta" data-reveal style="--reveal-delay:220ms">
@@ -74,6 +84,9 @@ import { site, awards } from '../data/site';
       </div>
     </div>
   </section>
+
+  <!-- FAQ -->
+  <Faq items={contactFaqs} kicker="Before you book" heading="Quick questions, answered." />
 </Base>
 
 <style>

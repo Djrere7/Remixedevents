@@ -5,19 +5,29 @@ import ServiceCard from '../components/ServiceCard.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import Media from '../components/Media.astro';
 import YouTubeEmbed from '../components/YouTubeEmbed.astro';
+import Faq from '../components/Faq.astro';
 import { services, testimonials, awards, stats, site, eventTypes } from '../data/site';
 
+const faqs = [
+  { q: 'Do you offer female DJs in Miami?', a: 'Yes. REmixed Events specializes in female DJ entertainment for weddings, brand events, influencer events, yacht parties, private celebrations, and special events across Miami and South Florida.' },
+  { q: 'What makes REmixed Events different from other DJ companies?', a: 'REmixed Events is a female-led DJ entertainment company known for stylish DJs, polished production, warm communication, and events that feel personal instead of cookie-cutter.' },
+  { q: 'Do you only serve Miami?', a: 'REmixed Events is based in Miami Beach and serves Miami, South Florida, destination events, and celebrations beyond.' },
+];
+
 const gallery = [
-  { src: '/img/wed-clouds.jpg', label: 'Dancing on the clouds', alt: 'A couple’s first dance on the clouds with cold sparks', aspect: '4/3' },
-  { src: '/img/brand-fenty.jpg', label: 'Brand activations', alt: 'Savage X Fenty brand activation with REmixed', aspect: '4/5' },
-  { src: '/img/cold-sparks.jpg', label: 'Cold sparks', alt: 'Cold spark fountains lighting up a grand entrance', aspect: '4/3' },
-  { src: '/img/wed-reception.jpg', label: 'Wedding receptions', alt: 'A packed wedding dance floor glowing with uplighting', aspect: '4/5' },
-  { src: '/img/photobooth.jpg', label: 'Photo booths', alt: 'A photo booth setup with a custom backdrop', aspect: '4/3' },
-  { src: '/img/venue-uplights.jpg', label: 'Lighting & production', alt: 'Uplit ballroom with a monogram dance floor', aspect: '4/5' },
+  { src: '/img/wed-clouds.jpg', label: 'Miami Wedding Energy', caption: 'Female wedding DJs, full dance floors, and moments that feel like the couple.', alt: 'Cold sparks and dancing on clouds for a Miami wedding by REmixed Events', aspect: '4/3' },
+  { src: '/img/brand-fenty.jpg', label: 'Brand Event Energy', caption: 'Female DJ entertainment for brands that want the room to feel intentional and camera ready.', alt: 'REmixed Events female DJ at a Savage X Fenty brand event in Miami', aspect: '4/5' },
+  { src: '/img/cold-sparks.jpg', label: 'Cold Spark Moments', caption: 'Grand entrances and first dances lit up by cold sparks.', alt: 'Cold sparks for a Miami wedding by REmixed Events', aspect: '4/3' },
+  { src: '/img/wed-reception.jpg', label: 'Dance Floor Moments', caption: 'The part of the night everyone keeps talking about.', alt: 'A packed Miami wedding reception dance floor by REmixed Events', aspect: '4/5' },
+  { src: '/img/photobooth.jpg', label: 'Pretty Little Details', caption: 'Photo booths, lighting, and production that make the room feel complete.', alt: 'REmixed Events photo booth setup for a Miami wedding', aspect: '4/3' },
+  { src: '/img/venue-uplights.jpg', label: 'Lit Just Right', caption: 'Custom uplighting that transforms any venue.', alt: 'Custom uplighting at a South Florida wedding by REmixed Events', aspect: '4/5' },
 ];
 ---
 
-<Base>
+<Base
+  fullTitle="Miami Female DJs & Event Entertainment | REmixed Events"
+  description="REmixed Events is South Florida’s female DJ entertainment company for luxe weddings, brand and influencer events, yacht parties, and special events in Miami."
+>
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-media" aria-hidden="true">
@@ -28,7 +38,7 @@ const gallery = [
     </div>
 
     <div class="container wide hero-inner">
-      <p class="kicker hero-kicker" data-reveal>South Florida’s DJ Entertainment Brand</p>
+      <p class="kicker hero-kicker" data-reveal>South Florida’s Female DJ Entertainment Company</p>
 
       <h1 class="display hero-title">
         <span class="line" data-reveal style="--reveal-delay:60ms">Not Your Ordinary</span>
@@ -37,8 +47,8 @@ const gallery = [
 
       <div class="hero-foot">
         <p class="lede hero-lede" data-reveal style="--reveal-delay:300ms">
-          REmixed Events brings stylish DJ entertainment, polished production and unforgettable energy to luxe
-          weddings, brand and influencer events, and special events across South Florida and beyond.
+          REmixed Events brings stylish female DJs, polished production and unforgettable energy to luxe weddings,
+          brand and influencer events, yacht parties and special events across Miami, South Florida and beyond.
         </p>
         <div class="hero-actions" data-reveal style="--reveal-delay:360ms">
           <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-primary btn-lg">Schedule a Free Consultation <span class="arrow">→</span></a>
@@ -64,17 +74,17 @@ const gallery = [
   <section class="section" id="intro">
     <div class="container wide intro-grid">
       <div class="intro-copy">
-        <p class="kicker" data-reveal>The REmixed difference</p>
+        <p class="kicker" data-reveal>The REmixed Events difference</p>
         <h2 class="h1" data-reveal style="--reveal-delay:80ms">
-          The <span class="font-stroke gtext">rare find</span>, now a whole DJ company.
+          What once felt like a <span class="font-stroke gtext">rare find</span> is now a complete female DJ company.
         </h2>
         <p class="lede" data-reveal style="--reveal-delay:140ms">
-          For years, DJ ReRe was the DJ people were always hoping to find. Professional, stylish, easy to work
-          with and completely in tune with the room. That became the heartbeat of REmixed Events, a DJ
-          entertainment brand built for people who want the party to feel personal, polished and anything but ordinary.
+          For years, DJ ReRe was the Miami female DJ people were always hoping to find. Professional. Stylish. Easy
+          to work with. Completely in tune with the room. That became the heartbeat of REmixed Events, a female led
+          DJ entertainment company built for people who care about the music, the look, the flow and the feeling of the entire event.
         </p>
         <div class="intro-cta" data-reveal style="--reveal-delay:200ms">
-          <a href="/team" class="tlink">Meet the REmixed team <span class="arrow">→</span></a>
+          <a href="/team" class="tlink">Meet the women behind REmixed Events <span class="arrow">→</span></a>
         </div>
       </div>
 
@@ -95,14 +105,14 @@ const gallery = [
       <div class="sec-head">
         <div>
           <p class="kicker" data-reveal>Who we are</p>
-          <h2 class="h2" data-reveal style="--reveal-delay:80ms">More than a DJ. The whole <span class="font-stroke gtext">vibe.</span></h2>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">Meet the women behind <span class="font-stroke gtext">REmixed Events.</span></h2>
           <p class="lede" data-reveal style="--reveal-delay:140ms">
-            REmixed is the team you book when you want the people behind the booth to feel just as intentional
-            as the music. Stylish, organized, warm, high energy and fully in tune with the room. Yes, we DJ.
-            But more than that, we help make the whole event feel like <span class="font-stroke gtext">you.</span>
+            We are a female led team of DJs, hosts, creators and event pros who know how to bring the room to life.
+            Whether you are booking a Miami female DJ for a wedding, brand event, influencer event, yacht party or
+            private celebration, our team brings style, skill and real crowd reading energy.
           </p>
         </div>
-        <a href="/experiences" class="tlink sec-head-link" data-reveal>All experiences <span class="arrow">→</span></a>
+        <a href="/experiences" class="tlink sec-head-link" data-reveal>Explore female DJ entertainment in Miami <span class="arrow">→</span></a>
       </div>
 
       <div class="svc-grid">
@@ -117,7 +127,7 @@ const gallery = [
       <div class="reel-head">
         <p class="kicker" data-reveal>Press play</p>
         <h2 class="h2" data-reveal style="--reveal-delay:80ms">See the <span class="font-stroke gtext">energy</span> in motion.</h2>
-        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A quick taste of the REmixed vibe, from weddings and brand events to the celebrations in between.</p>
+        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">From weddings and brand events to the celebrations in between, this is REmixed Events in the room.</p>
       </div>
       <YouTubeEmbed id="JbOwx8k0od4" title="REmixed Events showreel" class="reel-frame" />
     </div>
@@ -129,7 +139,7 @@ const gallery = [
       <div class="center-head-x">
         <p class="kicker mx-auto" data-reveal style="display:flex;justify-content:center">Events we love</p>
         <h2 class="h2" data-reveal style="--reveal-delay:80ms">The rooms and moments we love <span class="font-stroke gtext">bringing to life.</span></h2>
-        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A look at the weddings, brands, celebrations and moments REmixed brings to life across South Florida.</p>
+        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">A look at the rooms, brands, celebrations and moments we love bringing to life across Miami and South Florida.</p>
       </div>
       <div class="evt-chips" data-reveal style="--reveal-delay:180ms">
         {eventTypes.map((t) => <span class="chip evt-chip">{t}</span>)}
@@ -143,16 +153,19 @@ const gallery = [
       <div class="sec-head">
         <div>
           <p class="kicker" data-reveal>The gallery</p>
-          <h2 class="h2" data-reveal style="--reveal-delay:80ms">REmixed Moments.</h2>
-          <p class="lede" data-reveal style="--reveal-delay:120ms">Real events. Real dance floors. Real moments brought to life by REmixed.</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">REmixed Events Moments.</h2>
+          <p class="lede" data-reveal style="--reveal-delay:120ms">Real events. Real dance floors. Real moments brought to life by REmixed Events.</p>
         </div>
-        <a href="/contact" class="tlink sec-head-link" data-reveal>Book your moment <span class="arrow">→</span></a>
+        <a href="/contact" class="tlink sec-head-link" data-reveal>Book a Miami female DJ <span class="arrow">→</span></a>
       </div>
       <div class="gallery">
         {gallery.map((g) => (
           <figure class="gallery-item gcap" data-reveal>
             <Media src={g.src} alt={g.alt} aspect={g.aspect} feather={false} />
-            <figcaption class="gcap-label">{g.label}</figcaption>
+            <figcaption class="gcap-label">
+              <span class="gcap-k">{g.label}</span>
+              {g.caption && <span class="gcap-c">{g.caption}</span>}
+            </figcaption>
           </figure>
         ))}
       </div>
@@ -173,6 +186,9 @@ const gallery = [
       </div>
     </div>
   </section>
+
+  <!-- ============ FAQ ============ -->
+  <Faq items={faqs} kicker="Miami female DJ FAQ" heading="Your questions, answered." />
 </Base>
 
 <style>
@@ -354,15 +370,14 @@ const gallery = [
     position: absolute;
     left: 0; right: 0; bottom: 0;
     z-index: 2;
-    padding: 2rem 1.15rem 1rem;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 1.05rem;
-    letter-spacing: -0.01em;
-    color: #fff;
-    background: linear-gradient(to top, rgba(8, 4, 15, 0.78), rgba(8, 4, 15, 0.2) 55%, transparent);
+    display: grid;
+    gap: 0.3rem;
+    padding: 2.6rem 1.15rem 1.1rem;
+    background: linear-gradient(to top, rgba(8, 4, 15, 0.85), rgba(8, 4, 15, 0.25) 55%, transparent);
     pointer-events: none;
   }
+  .gcap-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; }
+  .gcap-c { font-family: var(--font-serif); font-style: italic; font-size: 0.95rem; line-height: 1.35; color: rgba(255,255,255,0.92); }
   @media (max-width: 560px) { .gallery { columns: 2 150px; } }
 
   /* ---------- TESTIMONIALS GRID ---------- */

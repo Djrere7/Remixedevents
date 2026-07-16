@@ -6,17 +6,19 @@ import { site } from '../data/site';
 
 interface Props {
   title?: string;
+  fullTitle?: string;
   description?: string;
   image?: string;
 }
 
 const {
   title,
-  description = 'REmixed Events is South Florida’s DJ entertainment brand, bringing stylish DJ entertainment, polished production and unforgettable energy to luxe weddings, brand and influencer events, and special events. Not your ordinary DJ company.',
+  fullTitle,
+  description = 'REmixed Events is South Florida’s female DJ entertainment company for luxe weddings, brand and influencer events, yacht parties, and special events in Miami.',
   image = '/og.jpg',
 } = Astro.props;
 
-const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · South Florida’s DJ Entertainment Brand`;
+const pageTitle = fullTitle ?? (title ? `${title} · ${site.name}` : 'Miami Female DJs & Event Entertainment | REmixed Events');
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://remixedeventsllc.com').href;
 ---
 
@@ -26,11 +28,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://remixedeven
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" href="/favicon-180.png" />
+    <link rel="icon" type="image/png" sizes="180x180" href="/favicon-180.png" />
     <link rel="apple-touch-icon" href="/favicon-180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content="REmixed Events" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="Miami female DJ, Miami female DJs, South Florida female DJs, female DJ entertainment, female DJ company in Miami, Miami female wedding DJ, female wedding DJs in Miami, female DJ for brand events, influencer event DJ Miami, yacht party DJ Miami, Miami entertainment company" />
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#fbf9ff" />
 
@@ -53,15 +57,28 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://remixedeven
     <!-- Local business structured data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'EntertainmentBusiness',
-      name: site.legalName,
-      description,
-      email: site.email,
-      url: 'https://remixedeventsllc.com',
-      areaServed: 'South Florida',
-      address: { '@type': 'PostalAddress', addressRegion: 'FL', addressCountry: 'US', addressLocality: 'Miami' },
+      '@type': 'LocalBusiness',
+      name: 'REmixed Events',
+      description: 'South Florida’s female DJ entertainment company for luxe weddings, brand and influencer events, yacht parties, and special events.',
+      url: 'https://www.remixedeventsllc.com',
+      telephone: '+1-786-910-2799',
+      email: 'info@remixedeventsllc.com',
+      image: new URL('/logo.png', Astro.site ?? 'https://remixedeventsllc.com').href,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '1000 5th Street',
+        addressLocality: 'Miami Beach',
+        addressRegion: 'FL',
+        postalCode: '33139',
+        addressCountry: 'US',
+      },
+      areaServed: ['Miami', 'Miami Beach', 'South Florida', 'Fort Lauderdale', 'Palm Beach', 'Key Largo'],
+      keywords: [
+        'Miami female DJ', 'Miami female DJs', 'female wedding DJ Miami', 'female DJ entertainment',
+        'South Florida female DJs', 'Miami wedding DJ', 'brand event DJ Miami', 'influencer event DJ Miami', 'yacht party DJ Miami',
+      ],
       sameAs: Object.values(site.socials),
-      slogan: site.tagline,
+      slogan: 'Not Your Ordinary DJ Company',
     })} />
   </head>
   <body>

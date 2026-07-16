@@ -1,0 +1,12 @@
+{
+  "name": "REmixed Events",
+  "short_name": "REmixed Events",
+  "description": "South Florida's female DJ entertainment company for luxe weddings, brand and influencer events, yacht parties, and special events.",
+  "icons": [
+    { "src": "/favicon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#7b2ff7",
+  "background_color": "#fbf9ff",
+  "display": "standalone"
+}

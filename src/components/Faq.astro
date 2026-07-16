@@ -1,0 +1,81 @@
+---
+/**
+ * Stylish accordion FAQ with FAQPage structured data for SEO.
+ */
+interface Props {
+  items: { q: string; a: string }[];
+  kicker?: string;
+  heading?: string;
+}
+const { items, kicker = 'Good to know', heading = 'Frequently asked questions' } = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((it) => ({
+    '@type': 'Question',
+    name: it.q,
+    acceptedAnswer: { '@type': 'Answer', text: it.a },
+  })),
+};
+---
+
+<section class="section faq">
+  <div class="container faq-inner">
+    <div class="faq-head">
+      <p class="kicker" data-reveal>{kicker}</p>
+      <h2 class="h2" data-reveal style="--reveal-delay:80ms">{heading}</h2>
+    </div>
+    <div class="faq-list">
+      {items.map((it, i) => (
+        <details class="faq-item" data-reveal style={`--reveal-delay:${i * 60}ms`}>
+          <summary>
+            <span>{it.q}</span>
+            <span class="faq-plus" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-a">{it.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</section>
+
+<style>
+  .faq-inner { max-width: 840px; }
+  .faq-head { display: grid; gap: 0.9rem; margin-bottom: clamp(1.6rem, 1rem + 2vw, 2.6rem); }
+  .faq-list { display: grid; gap: 0.8rem; }
+  .faq-item {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    padding: 0.4rem 1.3rem;
+    box-shadow: 0 14px 34px -28px rgba(40, 16, 80, 0.28);
+    transition: border-color 0.3s var(--ease);
+  }
+  .faq-item[open] { border-color: color-mix(in srgb, var(--violet) 40%, transparent); }
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    list-style: none;
+    padding: 0.95rem 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-plus { position: relative; width: 16px; height: 16px; flex: none; }
+  .faq-plus::before, .faq-plus::after {
+    content: ""; position: absolute; inset: 0; margin: auto;
+    background: var(--violet); border-radius: 2px;
+  }
+  .faq-plus::before { width: 16px; height: 2px; }
+  .faq-plus::after { width: 2px; height: 16px; transition: transform 0.3s var(--ease); }
+  .faq-item[open] .faq-plus::after { transform: rotate(90deg); opacity: 0; }
+  .faq-a { color: var(--text-dim); padding: 0 0 1rem; font-size: 1rem; line-height: 1.55; max-width: 68ch; }
+</style>

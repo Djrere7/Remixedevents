@@ -8,35 +8,38 @@ import { awards, stats, site } from '../data/site';
 const team = [
   {
     name: 'DJ ReRe',
-    role: 'Founder & Managing Director',
+    role: 'Founder, DJ, and Creative Director',
     img: '/img/team-rere.jpg',
-    alt: 'DJ ReRe, founder of REmixed Events',
-    bio: 'The heartbeat of the brand and a powerhouse in entertainment. An international award winning DJ and host, she has rocked stages from Miami across the globe for celebrities, luxury brands and countless weddings. The vision, style and gold standard behind every REmixed celebration.',
+    alt: 'Miami female DJ and founder of REmixed Events, DJ ReRe',
+    bio: 'The rare find who started it all. DJ ReRe is known for reading the room, leading with confidence, and creating celebrations that feel stylish, smooth, and full of life. She sets the standard for the REmixed Events sound, service, and energy.',
   },
   {
     name: 'DJ Pynk Honey',
-    role: 'Rockstar DJ & Creative Media Director',
+    role: 'DJ, Creative Media Director, and Content Creator',
     img: '/img/team-pynk.jpg',
-    alt: 'DJ Pynk Honey, DJ and creative media director',
-    bio: 'More than a vibe, she is a full visual and party experience. Serious energy on the decks, plus a licensed drone pilot and content creator capturing every unforgettable moment. From beats to bird’s eye views, she is the heartbeat behind our storytelling.',
+    alt: 'Miami female DJ and content creator DJ Pynk Honey of REmixed Events',
+    bio: 'A DJ with main-character energy and a creative eye. Pynk Honey brings music, visuals, and storytelling together with serious presence behind the booth and behind the camera.',
   },
   {
     name: 'DJ Ibe',
-    role: 'DJ · Host · Breakdancer · Hype Lead',
+    role: 'DJ, Host, Breakdancer, and Hype Lead',
     img: '/img/team-ibe.jpg',
-    alt: 'DJ Ibe, DJ, host and breakdancer',
-    bio: 'DJ Ibe brings charisma, movement and mic confidence to every event. As a breakdancer, performer and versatile open format DJ, she knows how to read the room, keep the crowd engaged and bring the energy when it matters most. She is professional, fun, timeline aware and always ready to rock your event.',
+    alt: 'Miami female DJ, host, and breakdancer DJ Ibe of REmixed Events',
+    bio: 'DJ Ibe brings charisma, movement, and mic confidence to every event. As a breakdancer, performer, and versatile open-format DJ, she knows how to read the room, keep the crowd engaged, and bring the energy when it matters most. She is professional, fun, timeline-aware, and always ready to rock your event.',
   },
 ];
 ---
 
-<Base title="Meet The Team" description="Meet the all female collective behind REmixed Events: DJ ReRe, DJ Pynk Honey and DJ Ibe. Award winning DJs, hosts and producers designing South Florida’s most unforgettable events.">
+<Base
+  fullTitle="Meet the Female DJs Behind REmixed Events | Miami DJ Team"
+  description="Meet the female DJs, hosts, creators, and event pros behind REmixed Events, South Florida’s female DJ entertainment company."
+>
   <PageHeader
     kicker="The collective"
-    title="Meet the women of"
-    emphasis="REmixed."
+    title="Meet the women behind"
+    emphasis="REmixed Events."
     emphasisClass="font-stroke"
-    lede="We are an all female collective of DJs, hosts, producers and creatives who live to design experiences that move people. Different strengths, one standard: anything but ordinary."
+    lede="REmixed Events is powered by female DJs, hosts, creators, and event pros who bring style, skill, and unforgettable energy to every room. Different styles. Same standard. Good music. Pretty setups. Smooth energy. No awkward moments."
   />
 
   <!-- ROSTER -->
@@ -58,8 +61,11 @@ const team = [
   <!-- GROUP PHOTO -->
   <section class="section tight">
     <div class="container wide group-wrap">
-      <Media src="/img/team.jpg" alt="The REmixed Events team together" aspect="2/3" feather={false} position="center 20%" class="group-photo" />
-      <p class="group-cap serif">One crew. Every detail handled.</p>
+      <Media src="/img/team.jpg" alt="The female DJ team behind REmixed Events at a South Florida event" aspect="2/3" feather={false} position="center 20%" class="group-photo" />
+      <div class="group-cap-block">
+        <p class="group-cap serif">We’ve got your back.</p>
+        <p class="group-cap-copy">From setup to last song, our team brings white glove support, calm communication, and the kind of energy that keeps everything flowing.</p>
+      </div>
     </div>
   </section>
 
@@ -127,7 +133,9 @@ const team = [
   .roster-section { padding-block: clamp(1.5rem, 1rem + 2vw, 2.75rem) clamp(3rem, 2rem + 4vw, 5rem); }
   .group-wrap { display: grid; gap: 1rem; justify-items: center; }
   .group-wrap :global(.group-photo) { max-width: 440px; }
-  .group-cap { font-size: clamp(1.2rem, 1rem + 1vw, 1.7rem); color: var(--text-dim); text-align: center; }
+  .group-cap-block { display: grid; gap: 0.6rem; justify-items: center; text-align: center; max-width: 48ch; }
+  .group-cap { font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem); color: var(--text); text-align: center; }
+  .group-cap-copy { color: var(--text-dim); font-size: 1rem; }
 
   .about-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; border-block: 1px solid var(--line); padding-block: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); }
   .astat { display: grid; gap: 0.3rem; text-align: center; }

@@ -4,7 +4,14 @@ import Media from '../components/Media.astro';
 import Marquee from '../components/Marquee.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import YouTubeEmbed from '../components/YouTubeEmbed.astro';
+import Faq from '../components/Faq.astro';
 import { testimonials, site } from '../data/site';
+
+const wedFaqs = [
+  { q: 'Can we book a female wedding DJ in Miami?', a: 'Yes. REmixed Events offers Miami female wedding DJs for ceremony sound, cocktail hour, reception entertainment, hosting, lighting, and wedding enhancements.' },
+  { q: 'Do you offer photo booths, cold sparks, and dancing on clouds?', a: 'Yes. REmixed Events offers photo booths, cold spark machines, dancing on clouds, uplighting, sound, microphones, and production support for weddings.' },
+  { q: 'Can you help with wedding planning support?', a: 'Yes. REmixed Events can support with entertainment timelines, vendor communication, day-of coordination, and creative vendor connections.' },
+];
 
 const weddingServices = [
   { icon: '♪', t: 'Wedding DJ & MC', d: 'A DJ and confident MC who reads the room, runs the timeline and keeps every generation on the floor.' },
@@ -46,7 +53,10 @@ const gallery = [
 const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(testimonials.filter((t) => t.role !== 'Wedding')).slice(0, 2);
 ---
 
-<Base title="Weddings" description="Wedding entertainment and production in South Florida. DJs, MC hosting, photo booths, cold sparks, dancing on the clouds, uplighting, planning and day of coordination from REmixed Events.">
+<Base
+  fullTitle="Miami Female Wedding DJs | Wedding DJ, MC & Enhancements"
+  description="Book Miami female wedding DJs for ceremony sound, reception entertainment, hosting, lighting, photo booths, cold sparks, and dancing on clouds."
+>
   <!-- HERO -->
   <section class="whero">
     <div class="whero-media" aria-hidden="true">
@@ -56,7 +66,7 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
       <div class="whero-scrim"></div>
     </div>
     <div class="container wide whero-inner">
-      <p class="kicker whero-kicker" data-reveal>Wedding entertainment, remixed</p>
+      <p class="kicker whero-kicker" data-reveal>Miami Female Wedding DJs</p>
       <h1 class="display whero-title">
         <span class="line" data-reveal>For couples who want their</span>
         <span class="line" data-reveal style="--reveal-delay:120ms">wedding to feel as</span>
@@ -73,10 +83,10 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
   <section class="section tight">
     <div class="container wide wed-intro">
       <p class="lede" data-reveal>
-        Your wedding deserves more than a DJ and a speaker. REmixed brings music, hosting, sound, lighting,
-        photo booths, dancing on the clouds, cold sparks and the right team to keep the celebration flowing
-        beautifully. From ceremony sound to the final song, we create a wedding that feels personal, polished
-        and <span class="font-stroke gtext">full of life.</span>
+        Your wedding deserves more than a DJ and a speaker. REmixed Events brings female wedding DJs, hosting,
+        ceremony sound, lighting, photo booths, dancing on clouds, cold sparks and the right team to keep the
+        celebration flowing beautifully. From ceremony sound to the final song, we help create a wedding day
+        that feels personal, polished and <span class="font-stroke gtext">full of life.</span>
       </p>
     </div>
   </section>
@@ -202,6 +212,19 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
       <div class="wed-quotes">
         {wedTestimonials.map((t, i) => <TestimonialCard {...t} delay={i * 80} />)}
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <Faq items={wedFaqs} kicker="Miami wedding DJ FAQ" heading="Wedding questions, answered." />
+
+  <!-- CTA -->
+  <section class="section tight">
+    <div class="container wide center-head">
+      <p class="kicker" data-reveal style="display:flex;justify-content:center">Let’s talk</p>
+      <h2 class="h2" data-reveal style="--reveal-delay:80ms">Let’s talk about your <span class="font-stroke gtext">wedding day.</span></h2>
+      <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">Book a free consultation and tell us the music, moments and details you care about most.</p>
+      <a href="/contact" class="btn btn-primary btn-lg" data-reveal style="--reveal-delay:200ms; margin-top:0.6rem">Check Your Date <span class="arrow">→</span></a>
     </div>
   </section>
 </Base>

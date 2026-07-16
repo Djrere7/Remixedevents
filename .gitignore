@@ -49,3 +49,6 @@ npm-debug.log*
 # editor
 .vscode/
 .idea/
+
+# iCloud placeholder stubs
+*.icloud
