@@ -34,7 +34,16 @@ export const site = {
 };
 
 export const nav = [
-  { label: 'Experiences', href: '/experiences' },
+  {
+    label: 'Experiences',
+    href: '/experiences',
+    children: [
+      { label: 'Luxe Weddings', href: '/weddings' },
+      { label: 'Brand & Influencer Events', href: '/experiences#brand-influencer-events' },
+      { label: 'Special Events', href: '/experiences#special-events' },
+      { label: 'Production & Enhancements', href: '/experiences#production-enhancements' },
+    ],
+  },
   { label: 'Weddings', href: '/weddings' },
   { label: 'Meet The Team', href: '/team' },
   { label: 'Contact', href: '/contact' },
@@ -69,7 +78,7 @@ export const services: Service[] = [
     points: ['Female DJs & hosting', 'Sound & lighting', 'Content-ready moments', 'On-brand curation'],
     image: '/img/activation-aero.jpg',
     alt: 'REmixed Events female DJ entertaining guests at a Miami brand event',
-    href: '/corporate',
+    href: '/experiences#brand-influencer-events',
   },
   {
     tag: '03',
@@ -79,7 +88,7 @@ export const services: Service[] = [
     points: ['Yacht & boat parties', 'Private celebrations', 'Proms & galas', 'Luxury dinners'],
     image: '/img/led-pool.jpg',
     alt: 'Poolside Miami special event lit by REmixed Events at night',
-    href: '/experiences',
+    href: '/experiences#special-events',
   },
   {
     tag: '04',
@@ -89,7 +98,7 @@ export const services: Service[] = [
     points: ['Sound & lighting', 'Photo booths', 'Cold sparks', 'Dancing on clouds'],
     image: '/img/cold-sparks.jpg',
     alt: 'Cold sparks and production for a Miami event by REmixed Events',
-    href: '/experiences',
+    href: '/experiences#production-enhancements',
   },
 ];
 

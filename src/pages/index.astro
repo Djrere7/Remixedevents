@@ -87,8 +87,12 @@ const gallery = [
 
   <!-- ============ BRAND LOGO STRIP ============ -->
   <section class="section tight brand-strip">
-    <div class="container wide">
-      <p class="awards-label">Brands we’ve moved the room for</p>
+    <div class="container wide brand-strip-head">
+      <h2 class="h3" data-reveal>Brands we’ve moved the room for.</h2>
+      <p class="brand-strip-copy" data-reveal style="--reveal-delay:80ms">
+        REmixed Events brings female DJ entertainment, polished production, and content-minded energy to brand
+        moments that need to feel stylish, intentional, and camera-ready.
+      </p>
     </div>
     <LogoMarquee />
   </section>
@@ -329,6 +333,8 @@ const gallery = [
   .sec-head-link { padding-bottom: 0.5rem; }
 
   .brand-strip { padding-top: 0 !important; }
+  .brand-strip-head { max-width: 640px; margin: 0 auto 1.8rem; text-align: center; display: grid; gap: 0.7rem; }
+  .brand-strip-copy { color: var(--text-dim); font-size: 0.98rem; }
 
   /* ---------- STORY (two column) ---------- */
   .story-2col {

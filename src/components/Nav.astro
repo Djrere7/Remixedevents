@@ -14,9 +14,20 @@ const { dark = false } = Astro.props;
 
     <nav class="nav-links" aria-label="Primary">
       {nav.map((item) => (
-        <a href={item.href} class:list={['nav-link', { active: isActive(item.href) }]}>
-          {item.label}
-        </a>
+        item.children ? (
+          <div class="nav-item has-dropdown">
+            <a href={item.href} class:list={['nav-link', { active: isActive(item.href) }]}>
+              {item.label}<span class="nav-caret" aria-hidden="true">▾</span>
+            </a>
+            <div class="nav-dropdown">
+              {item.children.map((c) => <a href={c.href} class="nav-drop-link">{c.label}</a>)}
+            </div>
+          </div>
+        ) : (
+          <a href={item.href} class:list={['nav-link', { active: isActive(item.href) }]}>
+            {item.label}
+          </a>
+        )
       ))}
     </nav>
 
@@ -33,7 +44,12 @@ const { dark = false } = Astro.props;
   <div class="nav-sheet" data-sheet hidden>
     <nav class="nav-sheet-links" aria-label="Mobile">
       {nav.map((item) => (
-        <a href={item.href} class="nav-sheet-link">{item.label}</a>
+        <Fragment>
+          <a href={item.href} class="nav-sheet-link">{item.label}</a>
+          {item.children && item.children.map((c) => (
+            <a href={c.href} class="nav-sheet-sub">{c.label}</a>
+          ))}
+        </Fragment>
       ))}
       <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-primary btn-lg nav-sheet-cta">Book a Call <span class="arrow">→</span></a>
     </nav>
@@ -98,6 +114,41 @@ const { dark = false } = Astro.props;
   }
   .nav-link:hover { color: var(--violet); background: rgba(123, 47, 247, 0.09); }
   .nav-link.active { color: var(--violet); font-weight: 700; }
+
+  /* Experiences dropdown */
+  .nav-item { position: relative; display: inline-flex; }
+  .nav-caret { font-size: 0.62em; margin-left: 0.35em; opacity: 0.65; vertical-align: middle; }
+  .nav-dropdown {
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    min-width: 250px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 24px 55px -22px rgba(40, 16, 80, 0.4);
+    padding: 0.5rem;
+    display: grid;
+    gap: 0.1rem;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+    z-index: 120;
+  }
+  .nav-dropdown::before { content: ""; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+  .nav-item.has-dropdown:hover .nav-dropdown,
+  .nav-item.has-dropdown:focus-within .nav-dropdown {
+    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px);
+  }
+  .nav-drop-link {
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--text);
+    white-space: nowrap;
+    transition: color 0.2s var(--ease), background 0.2s var(--ease);
+  }
+  .nav-drop-link:hover { background: rgba(123, 47, 247, 0.09); color: var(--violet); }
   .nav-link.active::after {
     content: "";
     position: absolute;
@@ -150,6 +201,16 @@ const { dark = false } = Astro.props;
     padding: 0.7rem 0;
     border-bottom: 1px solid var(--line);
   }
+  .nav-sheet-sub {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    padding: 0.55rem 0 0.55rem 1.1rem;
+    border-left: 2px solid var(--line-strong);
+    margin-left: 0.2rem;
+  }
+  .nav-sheet-sub:hover { color: var(--violet); }
   .nav-sheet-cta { margin-top: 1.5rem; }
 
   @media (max-width: 940px) {

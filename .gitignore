@@ -50,6 +50,8 @@ public/video/*
 !public/video/hero-b-poster.jpg
 !public/video/hero-c.mp4
 !public/video/hero-c-poster.jpg
+!public/video/photobooth.mp4
+!public/video/photobooth-poster.jpg
 # logs
 npm-debug.log*
 # editor

@@ -28,6 +28,16 @@ const team = [
     bio: 'DJ Ibe brings charisma, movement, and mic confidence to every event. As a breakdancer, performer, and versatile open-format DJ, she knows how to read the room, keep the crowd engaged, and bring the energy when it matters most. She is professional, fun, timeline-aware, and always ready to rock your event.',
   },
 ];
+
+// The team together + at real events — so visitors know who they're booking.
+const teamShots = [
+  { src: '/img/team-fun.jpg', alt: 'The REmixed Events team in branded tees', aspect: '3/4' },
+  { src: '/img/prom-crowd.jpg', alt: 'A full prom crowd at a REmixed Events event in South Florida', aspect: '3/2' },
+  { src: '/img/prom-dj.jpg', alt: 'A REmixed Events female DJ in action at a prom', aspect: '3/2' },
+  { src: '/img/dj-outdoor.jpg', alt: 'A REmixed Events female DJ at an outdoor brand event', aspect: '3/4' },
+  { src: '/img/special-prom.jpg', alt: 'A REmixed Events prom celebration', aspect: '3/2' },
+  { src: '/img/booth-setup.jpg', alt: 'A REmixed Events DJ booth setup', aspect: '3/2' },
+];
 ---
 
 <Base
@@ -55,6 +65,24 @@ const team = [
           </div>
         </article>
       ))}
+    </div>
+  </section>
+
+  <!-- TEAM IN ACTION -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="team-gallery-head">
+        <p class="kicker" data-reveal style="display:flex;justify-content:center">Together in the room</p>
+        <h2 class="h2" data-reveal style="--reveal-delay:80ms">Meet the women behind <span class="font-stroke gtext">REmixed Events.</span></h2>
+        <p class="lede mx-auto" data-reveal style="--reveal-delay:140ms">Different styles, same standard. This is the team you’re actually booking, at real events across South Florida.</p>
+      </div>
+      <div class="team-gallery">
+        {teamShots.map((g, i) => (
+          <figure class="tg-item" data-reveal style={`--reveal-delay:${i * 60}ms`}>
+            <Media src={g.src} alt={g.alt} aspect={g.aspect} feather={false} />
+          </figure>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -129,6 +157,11 @@ const team = [
     .member:nth-child(even) .member-photo { order: 0; }
     .member-photo { max-width: 360px; }
   }
+
+  .team-gallery-head { text-align: center; display: grid; gap: 0.9rem; justify-items: center; max-width: 46ch; margin: 0 auto clamp(1.8rem, 1.2rem + 2vw, 2.6rem); }
+  .team-gallery { columns: 3 240px; column-gap: 1rem; }
+  .tg-item { margin: 0 0 1rem; break-inside: avoid; border-radius: calc(var(--radius) + 4px); overflow: hidden; box-shadow: 0 22px 48px -30px rgba(40, 16, 80, 0.4); }
+  @media (max-width: 560px) { .team-gallery { columns: 2 150px; } }
 
   .roster-section { padding-block: clamp(1.5rem, 1rem + 2vw, 2.75rem) clamp(3rem, 2rem + 4vw, 5rem); }
   .group-wrap { display: grid; gap: 1rem; justify-items: center; }
