@@ -41,6 +41,11 @@ const contactFaqs = [
         <ul class="ct-badges" data-reveal style="--reveal-delay:320ms">
           {awards.slice(0, 3).map((a) => <li class="chip">✦ {a}</li>)}
         </ul>
+
+        <div class="ct-social" data-reveal style="--reveal-delay:360ms">
+          <a href={site.socials.instagram} target="_blank" rel="noopener" class="tlink">Follow @remixedeventsllc <span class="arrow">→</span></a>
+          <p class="ct-hashtag font-stroke">{site.hashtag}</p>
+        </div>
       </div>
 
       <div class="ct-form-col" data-reveal style="--reveal-delay:160ms">
@@ -135,6 +140,12 @@ const contactFaqs = [
   .ct-map { border-radius: 24px; overflow: hidden; padding: 1px; background: var(--grad-soft); box-shadow: 0 30px 70px -30px rgba(123, 47, 247, 0.45); }
   .ct-map iframe { display: block; width: 100%; height: clamp(320px, 42vh, 460px); border: 0; border-radius: 23px; filter: saturate(1.05); }
   @media (max-width: 880px) { .ct-map-grid { grid-template-columns: 1fr; } }
+  /* On touch devices the Google Map's one-finger pan traps page scrolling.
+     Disable its pointer capture so the whole Contact page scrolls freely. */
+  @media (pointer: coarse) { .ct-map iframe { pointer-events: none; } }
+
+  .ct-social { display: grid; gap: 0.5rem; padding-top: 0.6rem; }
+  .ct-hashtag { font-size: 1.4rem; background: var(--grad-soft); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
   .ct-form-frame {
     border-radius: 24px;

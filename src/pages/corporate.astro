@@ -35,12 +35,12 @@ const brandLogos = [
 const brandLoop = [...brandLogos, ...brandLogos];
 
 const activationImgs = [
+  { src: '/img/branded-dove-carpet.jpg', alt: 'Pink-carpet entrance at the Dove Miami Beach event by REmixed Events', aspect: '3/4' },
+  { src: '/img/branded-dove-decks.jpg', alt: 'REmixed Events DJ on the decks at the Dove event', aspect: '3/4' },
+  { src: '/img/branded-dove-activation.jpg', alt: 'Dove product activation table at a Miami event', aspect: '3/4' },
   { src: '/img/brand-fenty.jpg', alt: 'Savage X Fenty brand activation with REmixed', aspect: '3/4' },
-  { src: '/img/brand-lids.jpg', alt: 'LIDS brand activation with a custom DJ booth', aspect: '3/4' },
-  { src: '/img/brand-kors.jpg', alt: 'Michael Kors in store activation setup', aspect: '3/4' },
   { src: '/img/activation-aero.jpg', alt: 'Aeropostale and Cheetos brand activation booth', aspect: '3/4' },
-  { src: '/img/corporate-acc.jpg', alt: 'ACC branded activation tent', aspect: '3/4' },
-  { src: '/img/venue-uplights.jpg', alt: 'Uplit gala stage', aspect: '3/4' },
+  { src: '/img/dj-outdoor.jpg', alt: 'REmixed Events female DJ at an ACC brand activation', aspect: '3/4' },
 ];
 ---
 
@@ -50,8 +50,8 @@ const activationImgs = [
 >
   <PageHeader
     kicker="Brand & Influencer Events"
-    title="Brand moments,"
-    emphasis="remixed."
+    title="Branded"
+    emphasis="Moments."
     emphasisClass="font-stroke"
     lede="When your brand is in the room, every detail matters. REmixed Events brings female DJs, hosts, creators, sound, lighting, and content-minded energy to events that need to feel polished, intentional, and camera-ready. We love being part of the moment, not hidden in the background."
   >
@@ -172,13 +172,13 @@ const activationImgs = [
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
-  .logo-track { display: flex; width: max-content; align-items: center; gap: clamp(3rem, 2rem + 3vw, 5rem); animation: logoscroll 36s linear infinite; }
+  .logo-track { display: flex; width: max-content; align-items: center; gap: clamp(3.5rem, 2.5rem + 3vw, 5.5rem); animation: logoscroll 50s linear infinite; }
   .logo-marquee:hover .logo-track { animation-play-state: paused; }
   .logo-item { flex: none; display: flex; align-items: center; }
-  .logo-item img { height: 46px; width: auto; opacity: 0.92; transition: opacity 0.3s var(--ease); }
-  .logo-item img[src*="dove"] { height: 58px; }
+  .logo-item img { height: 60px; width: auto; opacity: 0.95; transition: opacity 0.3s var(--ease); }
+  .logo-item img[src*="dove"] { height: 76px; }
   .logo-item img:hover { opacity: 1; }
-  @media (max-width: 560px) { .logo-item img { height: 34px; } .logo-item img[src*="dove"] { height: 44px; } }
+  @media (max-width: 560px) { .logo-item img { height: 42px; } .logo-item img[src*="dove"] { height: 54px; } }
   @keyframes logoscroll { to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .logo-track { animation: none; } }
 

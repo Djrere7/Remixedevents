@@ -3,30 +3,15 @@ import Base from '../layouts/Base.astro';
 import Marquee from '../components/Marquee.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import Media from '../components/Media.astro';
-import Faq from '../components/Faq.astro';
 import LogoMarquee from '../components/LogoMarquee.astro';
 import { testimonials, awards, site } from '../data/site';
 
-const faqs = [
-  { q: 'Do you offer female DJs in Miami?', a: 'Yes. REmixed Events specializes in female DJ entertainment for weddings, brand events, influencer events, yacht parties, private celebrations, and special events across Miami and South Florida.' },
-  { q: 'What makes REmixed Events different from other DJ companies?', a: 'REmixed Events is a female-led DJ entertainment company known for stylish DJs, polished production, warm communication, and events that feel personal instead of cookie-cutter.' },
-  { q: 'Do you only serve Miami?', a: 'REmixed Events is based in Miami Beach and serves Miami, South Florida, destination events, and celebrations beyond.' },
-];
-
-// Homepage sells the FEELING — three visual tiles, short captions. The
-// Experiences page carries the full service cards.
+// Homepage sells the FEELING — three visual event-category previews. The
+// Experiences page carries the full service cards and the moments gallery.
 const known = [
   { href: '/weddings', src: '/img/wed-reception.jpg', k: 'Luxe Weddings', c: 'Ceremony to last dance, styled and full of life.' },
-  { href: '/corporate', src: '/img/dj-outdoor.jpg', k: 'Brand & Influencer Events', c: 'Female DJ energy that feels camera-ready.' },
-  { href: '/experiences', src: '/img/led-pool.jpg', k: 'Special Events', c: 'Yacht parties, private celebrations, and more.' },
-];
-
-const gallery = [
-  { src: '/img/wed-clouds.jpg', label: 'Miami Wedding Energy', caption: 'Female wedding DJs, full dance floors, and moments that feel like the couple.', alt: 'Cold sparks and dancing on clouds for a Miami wedding by REmixed Events', aspect: '4/3' },
-  { src: '/img/brand-fenty.jpg', label: 'Brand Event Energy', caption: 'Female DJ entertainment for brands that want the room to feel intentional and camera-ready.', alt: 'REmixed Events female DJ at a Savage X Fenty brand event in Miami', aspect: '4/5' },
-  { src: '/img/led-pool.jpg', label: 'Yacht Party Energy', caption: 'Female DJs for South Florida yacht parties, boat parties, and celebrations on the water.', alt: 'Poolside Miami night celebration lit by REmixed Events', aspect: '4/3' },
-  { src: '/img/cold-sparks.jpg', label: 'Pretty Little Details', caption: 'Photo booths, lighting, cold sparks, and production that make the room feel complete.', alt: 'Cold sparks and production details at a Miami event by REmixed Events', aspect: '4/5' },
-  { src: '/img/rere-decks.jpg', label: 'Behind the Booth', caption: 'The women behind REmixed Events bringing music, style, and energy to the room.', alt: 'DJ ReRe behind the booth at a Miami event by REmixed Events', aspect: '4/3' },
+  { href: '/experiences#brand-influencer-events', src: '/img/dj-outdoor.jpg', k: 'Brand & Influencer Events', c: 'Female DJ energy that feels camera-ready.' },
+  { href: '/experiences#special-events', src: '/img/prom-crowd.jpg', k: 'Special Events', c: 'Proms, galas, and private celebrations.' },
 ];
 ---
 
@@ -121,26 +106,6 @@ const gallery = [
     </div>
   </section>
 
-  <!-- ============ ABOUT PREVIEW ============ -->
-  <section class="section tight">
-    <div class="container wide about-prev">
-      <div class="about-prev-copy">
-        <p class="kicker" data-reveal>The women behind it</p>
-        <h2 class="h2" data-reveal style="--reveal-delay:80ms">Female-led. Detail-obsessed. <span class="font-stroke gtext">Dance-floor ready.</span></h2>
-        <p class="lede" data-reveal style="--reveal-delay:140ms">
-          REmixed Events is powered by Miami female DJs, hosts, creators, and event pros who know how to read the
-          room, respect the moment, and bring the energy when it counts.
-        </p>
-        <a href="/team" class="btn btn-primary btn-lg" data-reveal style="--reveal-delay:200ms">Meet The Team <span class="arrow">→</span></a>
-      </div>
-      <div class="about-prev-photos" data-reveal style="--reveal-delay:160ms">
-        <Media src="/img/team-rere.jpg" alt="DJ ReRe of REmixed Events" aspect="3/4" position="center top" feather={false} />
-        <Media src="/img/team-pynk.jpg" alt="DJ Pynk Honey of REmixed Events" aspect="3/4" position="center top" feather={false} />
-        <Media src="/img/team-ibe.jpg" alt="DJ Ibe of REmixed Events" aspect="3/4" position="center top" feather={false} />
-      </div>
-    </div>
-  </section>
-
   <!-- ============ WHAT WE'RE KNOWN FOR (visual tiles) ============ -->
   <section class="section">
     <div class="container wide">
@@ -165,31 +130,6 @@ const gallery = [
     </div>
   </section>
 
-  <!-- ============ GALLERY ============ -->
-  <section class="section tight">
-    <div class="container wide">
-      <div class="sec-head">
-        <div>
-          <p class="kicker" data-reveal>The gallery</p>
-          <h2 class="h2" data-reveal style="--reveal-delay:80ms">REmixed Events Moments</h2>
-          <p class="lede" data-reveal style="--reveal-delay:120ms">Real events. Real dance floors. Real moments brought to life by REmixed Events.</p>
-        </div>
-        <a href="/contact" class="tlink sec-head-link" data-reveal>Book a Miami female DJ <span class="arrow">→</span></a>
-      </div>
-      <div class="gallery">
-        {gallery.map((g) => (
-          <figure class="gallery-item gcap" data-reveal>
-            <Media src={g.src} alt={g.alt} aspect={g.aspect} feather={false} />
-            <figcaption class="gcap-label">
-              <span class="gcap-k">{g.label}</span>
-              {g.caption && <span class="gcap-c">{g.caption}</span>}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- ============ TESTIMONIALS ============ -->
   <section class="section">
     <div class="container wide">
@@ -205,8 +145,21 @@ const gallery = [
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
-  <Faq items={faqs} kicker="Miami female DJ FAQ" heading="Your questions, answered." />
+  <!-- ============ FINAL CTA ============ -->
+  <section class="section">
+    <div class="container wide">
+      <div class="home-cta" data-reveal>
+        <div class="home-cta-glow glow" aria-hidden="true"></div>
+        <div class="home-cta-inner">
+          <p class="kicker">Ready when you are</p>
+          <h2 class="h1">Ready for a DJ company that actually <span class="font-stroke">gets it?</span></h2>
+          <p class="lede">Let’s talk about your event and create an experience that feels like you — from the first song to the final moment.</p>
+          <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-primary btn-lg">Schedule a Free Consultation <span class="arrow">→</span></a>
+          <p class="home-cta-tag font-stroke">{site.hashtag}</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </Base>
 
 <style>
@@ -389,8 +342,15 @@ const gallery = [
   }
   .known-k { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; color: #fff; }
   .known-c { font-size: 0.92rem; color: rgba(255,255,255,0.88); }
-  @media (max-width: 820px) { .known-grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; } }
-  @media (max-width: 640px) { .sec-head { flex-direction: column; align-items: flex-start; } }
+  @media (max-width: 820px) { .known-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; } }
+  @media (max-width: 640px) {
+    .sec-head { flex-direction: column; align-items: flex-start; }
+    /* Prioritise the visual on mobile: caption drops below the image */
+    .known-tile { background: var(--surface); }
+    .known-cap { position: static; padding: 0.6rem 0.5rem 0.7rem; background: none; }
+    .known-k { color: var(--text); }
+    .known-c { color: var(--text-dim); }
+  }
 
   /* ---------- CORPORATE BAND ---------- */
   .corp-card {
@@ -462,4 +422,22 @@ const gallery = [
     gap: 1.2rem;
   }
   @media (max-width: 900px) { .quote-grid { grid-template-columns: 1fr; max-width: 560px; } }
+
+  /* ---------- FINAL CTA ---------- */
+  .home-cta {
+    position: relative;
+    padding: clamp(2.5rem, 1.5rem + 5vw, 5rem);
+    text-align: center;
+    border-radius: calc(var(--radius) + 8px);
+    background: var(--grad);
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 40px 80px -36px rgba(123, 47, 247, 0.55);
+  }
+  .home-cta-glow { width: 70%; height: 90%; top: -25%; left: 15%; background: radial-gradient(circle, rgba(255,255,255,0.45), transparent 65%); opacity: 0.55; filter: blur(60px); }
+  .home-cta-inner { position: relative; z-index: 1; display: grid; gap: 1.3rem; justify-items: center; }
+  .home-cta-inner .h1 { color: #fff; max-width: 20ch; }
+  .home-cta-inner .lede { color: rgba(255,255,255,0.92); max-width: 52ch; margin-inline: auto; }
+  .home-cta-inner .btn-primary { background: #fff; color: var(--violet); }
+  .home-cta-tag { color: #fff; font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem); margin-top: 0.3rem; opacity: 0.95; }
 </style>

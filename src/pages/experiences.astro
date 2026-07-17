@@ -1,10 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
-import ServiceCard from '../components/ServiceCard.astro';
 import Media from '../components/Media.astro';
 import Marquee from '../components/Marquee.astro';
-import { services, eventTypes, awards, site } from '../data/site';
+import { eventTypes, awards, site } from '../data/site';
 
 const process = [
   { n: '01', t: 'Tell us the vision', d: 'We learn about your event, your people, your music style and the feeling you want in the room.' },
@@ -13,20 +12,30 @@ const process = [
   { n: '04', t: 'You enjoy the moment', d: 'We read the room, lead the energy and keep the celebration moving.' },
 ];
 
-// Each category gets its own anchored, media-rich section: a video + four photos.
+// Concise visual nav — previews the categories and jumps to each section.
+const navCards = [
+  { href: '/weddings', img: '/img/wed-reception.jpg', t: 'Luxe Weddings', d: 'Ceremony to last dance.' },
+  { href: '#brand-influencer-events', img: '/img/branded-dove-carpet.jpg', t: 'Branded Moments', d: 'Brand & influencer events.' },
+  { href: '#special-events', img: '/img/prom-crowd.jpg', t: 'Special Events', d: 'Proms, galas & celebrations.' },
+  { href: '#production-enhancements', img: '/img/cold-sparks.jpg', t: 'Production & Enhancements', d: 'Sparks, clouds, booths & lighting.' },
+];
+
+// Each category is a media-rich section: video(s) + photos, real folder media.
 const categories = [
   {
     id: 'brand-influencer-events',
     eyebrow: 'Brand & Influencer Events',
-    title: 'Brand moments, remixed.',
+    title: 'Branded Moments.',
     copy: 'When your brand is in the room, every detail matters. We bring female DJs, hosts, creators, sound, lighting, and content-minded energy to launches, pop-ups, brand dinners, and influencer events that need to feel polished, intentional, and camera-ready.',
     videos: [
       { src: '/video/corp.mp4', poster: '/video/corp-poster.jpg', aspect: '16/9', cap: 'Dove Brand Event — female DJ entertainment, uplighting, and branded energy by REmixed Events.' },
     ],
     photos: [
-      { src: '/img/brand-fenty.jpg', alt: 'Savage X Fenty brand activation by REmixed Events', cap: 'Savage X Fenty activation' },
-      { src: '/img/activation-aero.jpg', alt: 'Aéropostale and Cheetos pop-up booth by REmixed Events', cap: 'Aéropostale × Cheetos pop-up' },
-      { src: '/img/brand-kors.jpg', alt: 'Michael Kors in-store activation by REmixed Events', cap: 'Michael Kors in-store' },
+      { src: '/img/branded-dove-carpet.jpg', alt: 'Pink-carpet entrance at the Dove Miami Beach event by REmixed Events', cap: 'Dove — the arrival moment' },
+      { src: '/img/branded-dove-decks.jpg', alt: 'REmixed Events DJ on the decks at the Dove event', cap: 'Dove — on the decks' },
+      { src: '/img/branded-dove-activation.jpg', alt: 'Dove product activation table at a Miami event', cap: 'Dove — the activation' },
+      { src: '/img/brand-fenty.jpg', alt: 'Savage X Fenty brand activation by REmixed Events', cap: 'Savage X Fenty' },
+      { src: '/img/activation-aero.jpg', alt: 'Aéropostale and Cheetos pop-up booth by REmixed Events', cap: 'Aéropostale × Cheetos' },
       { src: '/img/dj-outdoor.jpg', alt: 'Female DJ at an ACC × ESPN activation by REmixed Events', cap: 'ACC × ESPN activation' },
     ],
     link: { href: '/corporate', label: 'See the full brand & influencer page' },
@@ -34,16 +43,18 @@ const categories = [
   {
     id: 'special-events',
     eyebrow: 'Special Events',
-    title: 'Yacht parties, galas, and nights to remember.',
-    copy: 'Female DJs for yacht parties, boat parties, milestone celebrations, private events, luxury dinners, proms, and galas that deserve real personality and a floor that stays full.',
+    title: 'Proms, galas, and nights to remember.',
+    copy: 'Female DJs for proms, school dances, galas, milestone celebrations, private events, and luxury dinners. Our DJs do more than play music — they read the room, hop on the mic, and bring the personality. Yacht and boat celebrations available on request.',
     videos: [
       { src: '/video/hero-c.mp4', poster: '/video/hero-c-poster.jpg', aspect: '4/5', cap: 'DJ party moment — a packed floor by REmixed Events.' },
     ],
     photos: [
-      { src: '/img/led-pool.jpg', alt: 'Poolside Miami night celebration by REmixed Events', cap: 'Poolside Miami nights' },
-      { src: '/img/special-prom.jpg', alt: 'Prom and school event by REmixed Events', cap: 'Proms & school events' },
+      { src: '/img/prom-breakdance.jpg', alt: 'A dancer breaking in the middle of the floor at a prom by REmixed Events', cap: 'Prom — the floor opens up' },
+      { src: '/img/prom-hype.jpg', alt: 'DJ IB hyping the crowd on the mic at a prom', cap: 'DJ IB working the mic' },
+      { src: '/img/prom-dj-ib.jpg', alt: 'DJ IB on the decks at a school dance', cap: 'DJ IB on the decks' },
+      { src: '/img/prom-crowd.jpg', alt: 'A packed prom crowd under the chandelier', cap: 'Prom — the whole room' },
+      { src: '/img/special-prom.jpg', alt: 'A REmixed Events school dance celebration', cap: 'School dances & socials' },
       { src: '/img/rere-khaled.jpg', alt: 'DJ ReRe at a celebrity event', cap: 'Celebrity & VIP moments' },
-      { src: '/img/rere-disco.jpg', alt: 'DJ ReRe styled for a private celebration', cap: 'Private celebrations' },
     ],
     link: null,
   },
@@ -51,44 +62,68 @@ const categories = [
     id: 'production-enhancements',
     eyebrow: 'Production & Enhancements',
     title: 'The details that make the room feel complete.',
-    copy: 'The music matters, but so does the way the room looks, sounds, and feels. From photo booths to cold sparks, uplighting to dancing on clouds, we help your event feel polished from the first guest arrival to the final song.',
+    copy: 'The music matters, but so does the way the room looks, sounds, and feels. Cold sparks, dancing on clouds, photo booths, custom DJ booths, uplighting, and sound — we bring the enhancements that make an event feel polished from the first guest to the final song.',
     videos: [
-      { src: '/video/photobooth.mp4', poster: '/video/photobooth-poster.jpg', aspect: '4/5', cap: 'Photo Booth Moments — fun, stylish, and guest-approved.' },
       { src: '/video/wed-hero.mp4', poster: '/video/wed-hero-poster.jpg', aspect: '16/9', cap: 'Cold Spark Moments — venue-approved sparks for entrances and first dances.' },
+      { src: '/video/photobooth.mp4', poster: '/video/photobooth-poster.jpg', aspect: '4/5', cap: 'Photo Booth Moments — fun, stylish, and guest-approved.' },
     ],
     photos: [
-      { src: '/img/wed-clouds.jpg', alt: 'Dancing on clouds first-dance effect by REmixed Events', cap: 'Dancing on Clouds — a dreamy first-dance effect.' },
-      { src: '/img/venue-uplights.jpg', alt: 'Uplighting and ambiance by REmixed Events', cap: 'Uplighting & Ambiance — color, glow, atmosphere.' },
-      { src: '/img/production-lights.jpg', alt: 'Lighting and production by REmixed Events', cap: 'Lighting & production' },
-      { src: '/img/booth-setup.jpg', alt: 'DJ booth and sound setup by REmixed Events', cap: 'DJ booths & sound' },
+      { src: '/img/wed-clouds.jpg', alt: 'Dancing on clouds first-dance effect by REmixed Events', cap: 'Dancing on Clouds' },
+      { src: '/img/booth-setup.jpg', alt: 'A custom REmixed Events DJ booth setup', cap: 'DJ booths & facades' },
+      { src: '/img/production-lights.jpg', alt: 'Lighting and production by REmixed Events', cap: 'Lighting & ambiance' },
+      { src: '/img/venue-uplights.jpg', alt: 'Uplighting transforming a venue by REmixed Events', cap: 'Uplighting' },
+      { src: '/img/production-sparks.jpg', alt: 'Cold spark fountains at a REmixed Events event', cap: 'Cold sparks' },
+      { src: '/img/photobooth.jpg', alt: 'A REmixed Events photo booth with props', cap: 'Booths & props' },
     ],
     link: null,
   },
+];
+
+// REmixed Events Moments — the main visual portfolio (moved from the homepage).
+const gallery = [
+  { src: '/img/branded-dove-lounge.jpg', label: 'Brand Event Energy', alt: 'The Dove Miami Beach event lounge by REmixed Events', aspect: '4/3' },
+  { src: '/img/wed-clouds.jpg', label: 'Miami Wedding Energy', alt: 'Dancing on clouds and cold sparks for a Miami wedding', aspect: '4/5' },
+  { src: '/img/prom-breakdance.jpg', label: 'School Dance Energy', alt: 'A prom dance floor opening up for a breaker', aspect: '4/3' },
+  { src: '/img/rere-khaled.jpg', label: 'Celebrity Moments', alt: 'DJ ReRe at a celebrity event', aspect: '4/3' },
+  { src: '/img/cold-sparks.jpg', label: 'Cold Sparks', alt: 'Cold spark fountains lighting up a grand entrance', aspect: '4/5' },
+  { src: '/img/brand-kors.jpg', label: 'Brand Activations', alt: 'Michael Kors in-store activation by REmixed Events', aspect: '4/3' },
+  { src: '/img/wed-reception.jpg', label: 'Dance Floor Moments', alt: 'A packed wedding reception dance floor', aspect: '4/3' },
+  { src: '/img/corporate-acc.jpg', label: 'On-Brand Setups', alt: 'ACC branded activation tent by REmixed Events', aspect: '4/5' },
+  { src: '/img/prom-hype.jpg', label: 'Crowd Energy', alt: 'DJ IB hyping a prom crowd on the mic', aspect: '4/3' },
 ];
 ---
 
 <Base
   fullTitle="Female DJ Entertainment in Miami | Weddings, Brands & Events"
-  description="Explore female DJ entertainment in Miami for luxe weddings, brand events, influencer events, yacht parties, private celebrations, and special events."
+  description="Explore female DJ entertainment in Miami for luxe weddings, brand events, influencer events, proms, school dances, private celebrations, and special events."
 >
   <PageHeader
     kicker="What we curate"
     title="Miami female DJ entertainment for"
     emphasis="unforgettable events."
     emphasisClass="font-stroke"
-    lede="REmixed Events brings stylish female DJs, polished production, and unforgettable energy to luxe weddings, brand and influencer events, yacht parties, and special events across Miami, South Florida, and beyond. We listen first, then build the music, hosting, sound, lighting, and production around the room."
+    lede="REmixed Events brings stylish female DJs, polished production, and unforgettable energy to luxe weddings, brand and influencer events, proms, and special events across Miami, South Florida, and beyond. We listen first, then build the music, hosting, sound, lighting, and production around the room."
   />
 
-  <!-- CATEGORY CARDS (jump to sections) -->
+  <!-- CATEGORY NAV CARDS (preview + jump to sections) -->
   <section class="section tight">
     <div class="container wide">
-      <div class="svc-grid">
-        {services.map((s, i) => <ServiceCard {...s} delay={i * 60} />)}
+      <div class="nav-cards">
+        {navCards.map((c, i) => (
+          <a class="nav-card" href={c.href} data-reveal style={`--reveal-delay:${i * 60}ms`}>
+            <Media src={c.img} alt={`${c.t} by REmixed Events`} aspect="5/4" feather={false} />
+            <span class="nav-card-body">
+              <span class="nav-card-t">{c.t}</span>
+              <span class="nav-card-d">{c.d}</span>
+              <span class="nav-card-arrow gtext" aria-hidden="true">→</span>
+            </span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- CATEGORY DEEP-DIVES (anchored, media-rich) -->
+  <!-- CATEGORY DEEP-DIVES -->
   {categories.map((cat) => (
     <section class="section exp-cat" id={cat.id}>
       <div class="container wide">
@@ -104,24 +139,45 @@ const categories = [
         <div class="exp-media">
           <div class="exp-videos">
             {cat.videos.map((v) => (
-              <div class="exp-fig" data-reveal>
+              <figure class="exp-fig" data-reveal>
                 <Media type="video" src={v.src} poster={v.poster} aspect={v.aspect} feather={false} />
-                <p class="exp-cap">{v.cap}</p>
-              </div>
+                <figcaption class="exp-cap">{v.cap}</figcaption>
+              </figure>
             ))}
           </div>
           <div class="exp-photos">
             {cat.photos.map((p, i) => (
-              <div class="exp-fig" data-reveal style={`--reveal-delay:${i * 60}ms`}>
+              <figure class="exp-fig" data-reveal style={`--reveal-delay:${i * 50}ms`}>
                 <Media src={p.src} alt={p.alt} aspect="4/3" feather={false} />
-                <p class="exp-cap">{p.cap}</p>
-              </div>
+                <figcaption class="exp-cap">{p.cap}</figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </div>
     </section>
   ))}
+
+  <!-- REMIXED EVENTS MOMENTS (portfolio gallery) -->
+  <section class="section tight">
+    <div class="container wide">
+      <div class="sec-head">
+        <div>
+          <p class="kicker" data-reveal>The portfolio</p>
+          <h2 class="h2" data-reveal style="--reveal-delay:80ms">REmixed Events Moments</h2>
+          <p class="lede" data-reveal style="--reveal-delay:120ms">Real events. Real dance floors. Real moments brought to life by REmixed Events.</p>
+        </div>
+      </div>
+      <div class="gallery">
+        {gallery.map((g) => (
+          <figure class="gallery-item" data-reveal>
+            <Media src={g.src} alt={g.alt} aspect={g.aspect} feather={false} />
+            <figcaption class="gcap-label"><span class="gcap-k">{g.label}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- PROCESS -->
   <section class="section section-light">
@@ -154,7 +210,7 @@ const categories = [
     </div>
   </section>
 
-  <!-- CTA (full-width bar) -->
+  <!-- CTA -->
   <section class="section tight">
     <div class="container wide">
       <div class="exp-cta-bar" data-reveal>
@@ -163,6 +219,7 @@ const categories = [
           <p class="kicker">Let’s talk</p>
           <h2 class="h2">Let’s find the right fit for <span class="font-stroke">your event.</span></h2>
           <p class="lede">Tell us what you’re planning, and we’ll help match the female DJ entertainment, production, and energy to the moment.</p>
+          <p class="exp-cta-tag font-stroke">{site.hashtag}</p>
         </div>
         <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-primary btn-lg exp-cta-btn">Schedule a Free Consultation <span class="arrow">→</span></a>
       </div>
@@ -175,11 +232,27 @@ const categories = [
 </Base>
 
 <style>
-  .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-  @media (max-width: 640px) { .svc-grid { grid-template-columns: 1fr; } }
+  /* Concise nav cards */
+  .nav-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+  .nav-card { position: relative; display: block; border-radius: calc(var(--radius) + 4px); overflow: hidden; box-shadow: 0 22px 48px -30px rgba(40, 16, 80, 0.4); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+  .nav-card:hover { transform: translateY(-4px); box-shadow: 0 34px 60px -34px rgba(123, 47, 247, 0.5); }
+  .nav-card :global(.media) { border-radius: 0; box-shadow: none; }
+  .nav-card-body { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; display: grid; gap: 0.1rem; padding: 2.4rem 1rem 0.95rem; background: linear-gradient(to top, rgba(8,4,15,0.9), rgba(8,4,15,0.2) 60%, transparent); pointer-events: none; }
+  .nav-card-t { font-family: var(--font-display); font-size: 1.12rem; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
+  .nav-card-d { font-size: 0.85rem; color: rgba(255,255,255,0.85); }
+  .nav-card-arrow { position: absolute; top: 0.9rem; right: 1rem; font-size: 1.1rem; color: #fff; }
+  @media (max-width: 820px) { .nav-cards { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) {
+    /* Caption below the image so words never cover the photo */
+    .nav-card { background: var(--surface); }
+    .nav-card-body { position: static; padding: 0.55rem 0.6rem 0.7rem; background: none; }
+    .nav-card-t { color: var(--text); }
+    .nav-card-d { color: var(--text-dim); }
+    .nav-card-arrow { color: var(--violet); }
+  }
 
   .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
-  .sec-head > div { display: grid; gap: 0.9rem; max-width: 62ch; }
+  .sec-head > div { display: grid; gap: 0.9rem; max-width: 64ch; }
   .sec-head-link { padding-bottom: 0.4rem; white-space: nowrap; }
   @media (max-width: 700px) { .sec-head { flex-direction: column; align-items: flex-start; } }
 
@@ -188,11 +261,16 @@ const categories = [
   .exp-media { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.1rem, 0.8rem + 1.5vw, 1.8rem); align-items: start; }
   .exp-videos { display: grid; gap: 1rem; align-content: start; }
   .exp-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
-  .exp-fig { display: grid; gap: 0.45rem; }
+  .exp-fig { display: grid; gap: 0.45rem; margin: 0; }
   .exp-cap { font-size: 0.85rem; color: var(--text-mute); line-height: 1.4; }
-  @media (max-width: 820px) {
-    .exp-media { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 820px) { .exp-media { grid-template-columns: 1fr; } }
+
+  /* Portfolio gallery (masonry) */
+  .gallery { columns: 3 240px; column-gap: 1.1rem; }
+  .gallery-item { margin: 0 0 1.1rem; break-inside: avoid; position: relative; border-radius: calc(var(--radius) + 4px); overflow: hidden; box-shadow: 0 22px 48px -30px rgba(40, 16, 80, 0.4); }
+  .gcap-label { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 2.4rem 1.1rem 0.95rem; background: linear-gradient(to top, rgba(8,4,15,0.85), rgba(8,4,15,0.15) 60%, transparent); pointer-events: none; }
+  .gcap-k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; }
+  @media (max-width: 560px) { .gallery { columns: 2 150px; } }
 
   .proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
   .proc { padding: 1.8rem 1.5rem; display: grid; gap: 0.6rem; align-content: start; }
@@ -206,23 +284,12 @@ const categories = [
   .type-chip { font-size: 0.92rem; padding: 0.6em 1.1em; }
 
   /* Full-width CTA bar */
-  .exp-cta-bar {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1.5fr auto;
-    gap: clamp(1.5rem, 1rem + 3vw, 3.5rem);
-    align-items: center;
-    padding: clamp(2rem, 1.4rem + 3vw, 3.6rem);
-    border-radius: calc(var(--radius) + 8px);
-    background: var(--grad);
-    overflow: hidden;
-    isolation: isolate;
-    box-shadow: 0 40px 80px -40px rgba(123, 47, 247, 0.55);
-  }
+  .exp-cta-bar { position: relative; display: grid; grid-template-columns: 1.5fr auto; gap: clamp(1.5rem, 1rem + 3vw, 3.5rem); align-items: center; padding: clamp(2rem, 1.4rem + 3vw, 3.6rem); border-radius: calc(var(--radius) + 8px); background: var(--grad); overflow: hidden; isolation: isolate; box-shadow: 0 40px 80px -40px rgba(123, 47, 247, 0.55); }
   .exp-cta-glow { width: 55%; height: 130%; top: -15%; right: -8%; background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 65%); opacity: 0.5; filter: blur(60px); }
-  .exp-cta-text { position: relative; z-index: 1; display: grid; gap: 0.8rem; max-width: 46ch; }
+  .exp-cta-text { position: relative; z-index: 1; display: grid; gap: 0.8rem; max-width: 48ch; }
   .exp-cta-text .kicker, .exp-cta-text .h2 { color: #fff; }
   .exp-cta-text .lede { color: rgba(255,255,255,0.9); }
+  .exp-cta-tag { color: #fff; font-size: 1.4rem; margin-top: 0.2rem; }
   .exp-cta-btn { position: relative; z-index: 1; background: #fff; color: var(--violet); }
   @media (max-width: 760px) { .exp-cta-bar { grid-template-columns: 1fr; } }
 

@@ -9,7 +9,7 @@ const { dark = false } = Astro.props;
 <header class="nav" data-nav data-hero={dark ? 'dark' : undefined}>
   <div class="container wide nav-inner">
     <a href="/" class="nav-brand" aria-label="REmixed Events — home">
-      <Logo />
+      <Logo height={52} />
     </a>
 
     <nav class="nav-links" aria-label="Primary">
@@ -181,24 +181,32 @@ const { dark = false } = Astro.props;
   .nav-burger[aria-expanded='true'] span:first-child { transform: translateY(4px) rotate(45deg); }
   .nav-burger[aria-expanded='true'] span:last-child { transform: translateY(-4px) rotate(-45deg); }
 
+  /* When the mobile menu is open, force a solid, readable bar (even over a
+     dark hero) so the burger and sheet never blend into the media. */
+  .nav[data-menu-open] { background: #fbf9ff; border-bottom-color: var(--line); }
+  .nav[data-menu-open] .nav-burger { background: rgba(26, 11, 56, 0.04); border-color: var(--line-strong); }
+  .nav[data-menu-open] .nav-burger span { background: var(--text); }
+
   .nav-sheet {
     position: fixed;
     inset: 78px 0 0 0;
-    z-index: 200;
+    z-index: 190;
     background: #fbf9ff;
     backdrop-filter: blur(20px);
-    padding: 2rem var(--gutter) 3rem;
+    padding: 1.5rem var(--gutter) 3rem;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     animation: sheet 0.4s var(--ease);
   }
   @keyframes sheet { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
-  .nav-sheet-links { display: flex; flex-direction: column; gap: 0.4rem; }
+  .nav-sheet-links { display: flex; flex-direction: column; gap: 0.1rem; }
   .nav-sheet-link {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 600;
     letter-spacing: -0.03em;
-    padding: 0.7rem 0;
+    padding: 0.85rem 0;
     border-bottom: 1px solid var(--line);
   }
   .nav-sheet-sub {
@@ -231,17 +239,19 @@ const { dark = false } = Astro.props;
 
   const burger = document.querySelector('[data-burger]');
   const sheet = document.querySelector('[data-sheet]');
+  const setMenu = (open: boolean) => {
+    burger?.setAttribute('aria-expanded', String(open));
+    if (sheet) (sheet as HTMLElement).hidden = !open;
+    header?.toggleAttribute('data-menu-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
   burger?.addEventListener('click', () => {
-    const open = burger.getAttribute('aria-expanded') === 'true';
-    burger.setAttribute('aria-expanded', String(!open));
-    if (sheet) (sheet as HTMLElement).hidden = open;
-    document.body.style.overflow = open ? '' : 'hidden';
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
   });
-  sheet?.querySelectorAll('a').forEach((a) =>
-    a.addEventListener('click', () => {
-      burger?.setAttribute('aria-expanded', 'false');
-      (sheet as HTMLElement).hidden = true;
-      document.body.style.overflow = '';
-    }),
-  );
+  // Close after choosing a destination (including in-page anchors).
+  sheet?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  // Close if resized up to desktop so state never gets stuck.
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 940) setMenu(false);
+  });
 </script>

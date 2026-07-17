@@ -6,7 +6,8 @@
 export const site = {
   name: 'REmixed Events',
   legalName: 'REmixed Events LLC',
-  tagline: 'Anything but ordinary.',
+  tagline: 'Not Your Ordinary DJ Company.',
+  hashtag: '#AnythingButOrdinary',
   category: 'South Florida’s Female DJ Entertainment Company',
   coreSentence:
     'REmixed Events brings stylish female DJs, polished production, and unforgettable energy to luxe weddings, brand and influencer events, yacht parties, and special events across Miami, South Florida, and beyond.',
@@ -84,10 +85,10 @@ export const services: Service[] = [
     tag: '03',
     title: 'Special Events',
     blurb:
-      'Female DJs for yacht parties, boat parties, milestone celebrations, private events, luxury dinners, proms, galas, and social events that need personality.',
-    points: ['Yacht & boat parties', 'Private celebrations', 'Proms & galas', 'Luxury dinners'],
-    image: '/img/led-pool.jpg',
-    alt: 'Poolside Miami special event lit by REmixed Events at night',
+      'Female DJs for proms, school dances, galas, milestone celebrations, private events, and luxury dinners that deserve real personality. Yacht and boat celebrations available on request.',
+    points: ['Proms & school dances', 'Galas & milestones', 'Private celebrations', 'Luxury dinners'],
+    image: '/img/prom-crowd.jpg',
+    alt: 'A packed prom dance floor by REmixed Events in South Florida',
     href: '/experiences#special-events',
   },
   {
@@ -146,13 +147,13 @@ export const eventTypes = [
   'Luxe Weddings',
   'Brand Events',
   'Influencer Events',
-  'Yacht Parties',
-  'Boat Parties',
+  'Proms',
+  'School Dances',
   'Private Celebrations',
   'Luxury Dinners',
   'Galas',
   'Product Launches',
-  'Proms',
+  'Milestones',
   'Homecomings',
   'Community Events',
 ];

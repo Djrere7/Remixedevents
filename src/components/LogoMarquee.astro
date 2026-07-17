@@ -28,17 +28,17 @@ const loop = [...logos, ...logos];
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
-  .logo-track { display: flex; width: max-content; align-items: center; gap: clamp(3rem, 2rem + 3vw, 5rem); animation: logoscroll 36s linear infinite; }
+  .logo-track { display: flex; width: max-content; align-items: center; gap: clamp(3.5rem, 2.5rem + 3vw, 5.5rem); animation: logoscroll 50s linear infinite; }
   .logo-marquee:hover .logo-track { animation-play-state: paused; }
   .logo-item { flex: none; display: flex; align-items: center; }
   /* Full-colour, larger, readable — real brand proof, not gray blobs */
-  .logo-item img { height: 46px; width: auto; opacity: 0.92; transition: opacity 0.3s var(--ease); }
-  .logo-item img[src*="dove"] { height: 58px; }
+  .logo-item img { height: 60px; width: auto; opacity: 0.95; transition: opacity 0.3s var(--ease); }
+  .logo-item img[src*="dove"] { height: 76px; }
   .logo-item img:hover { opacity: 1; }
   @keyframes logoscroll { to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .logo-track { animation: none; } }
   @media (max-width: 560px) {
-    .logo-item img { height: 34px; }
-    .logo-item img[src*="dove"] { height: 44px; }
+    .logo-item img { height: 42px; }
+    .logo-item img[src*="dove"] { height: 54px; }
   }
 </style>
