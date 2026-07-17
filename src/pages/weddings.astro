@@ -42,12 +42,11 @@ const questions = [
 ];
 
 const gallery = [
-  { src: '/img/wed-clouds.jpg', alt: 'A couple’s first dance on the clouds with cold sparks', aspect: '4/3' },
-  { src: '/img/cold-sparks.jpg', alt: 'Cold spark fountains lighting up the celebration', aspect: '4/5' },
-  { src: '/img/photobooth.jpg', alt: 'A wedding photo booth setup with custom backdrop', aspect: '4/3' },
-  { src: '/img/wed-reception.jpg', alt: 'A packed wedding dance floor glowing with uplighting', aspect: '4/5' },
-  { src: '/img/venue-uplights.jpg', alt: 'Ballroom transformed with uplighting and a monogram floor', aspect: '4/3' },
-  { src: '/img/wed-2.jpg', alt: 'Guests celebrating on the dance floor', aspect: '4/5' },
+  { src: '/img/grand-entrance.jpg', alt: 'A grand entrance with cold sparks and the DJ ReRe booth at a Miami wedding', aspect: '4/3' },
+  { src: '/img/wed-party-dance.jpg', alt: 'A packed wedding reception dance floor under string lights', aspect: '4/5' },
+  { src: '/img/wed-swag.jpg', alt: 'Wedding guests swag surfing on the dance floor', aspect: '4/3' },
+  { src: '/img/photobooth-props.jpg', alt: 'A couple posing at a wedding photo booth with props', aspect: '4/5' },
+  { src: '/img/uplights-wedding.jpg', alt: 'An elegant wedding ballroom with amber uplighting and a monogram', aspect: '4/3' },
 ];
 
 const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(testimonials.filter((t) => t.role !== 'Wedding')).slice(0, 2);
@@ -267,7 +266,7 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
   }
   .wed-intro-bg {
     position: absolute; inset: 0; z-index: -2;
-    background: url('/img/venue-uplights.jpg') center / cover no-repeat;
+    background: url('/img/sparks-clouds.jpg') center / cover no-repeat;
     transform: scale(1.05);
   }
   .wed-intro-scrim {

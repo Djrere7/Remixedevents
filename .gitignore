@@ -52,6 +52,8 @@ public/video/*
 !public/video/hero-c-poster.jpg
 !public/video/photobooth.mp4
 !public/video/photobooth-poster.jpg
+!public/video/img0149.mp4
+!public/video/img0149-poster.jpg
 # logs
 npm-debug.log*
 # editor
@@ -61,3 +63,7 @@ npm-debug.log*
 # iCloud placeholder stubs
 *.icloud
 /Team/
+/*.jp2
+/*.JPEG
+/*.jpeg
+/*.jp2
