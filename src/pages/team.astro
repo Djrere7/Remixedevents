@@ -12,6 +12,7 @@ const team = [
     img: '/img/team-rere.jpg',
     alt: 'Miami female DJ and founder of REmixed Events, DJ ReRe',
     bio: 'The rare find who started it all. DJ ReRe is known for reading the room, leading with confidence, and creating celebrations that feel stylish, smooth, and full of life. She sets the standard for the REmixed Events sound, service, and energy.',
+    link: 'https://www.djrere.com',
   },
   {
     name: 'DJ Pynk Honey',
@@ -60,11 +61,20 @@ const teamShots = [
     <div class="container wide roster">
       {team.map((m, i) => (
         <article class="member" data-reveal style={`--reveal-delay:${i * 90}ms`}>
-          <Media src={m.img} alt={m.alt} aspect="4/5" position="center top" feather={false} class="member-photo" />
+          {m.link ? (
+            <a href={m.link} target="_blank" rel="noopener" class="member-photo-link" aria-label={`Visit ${m.name}'s website`}>
+              <Media src={m.img} alt={m.alt} aspect="4/5" position="center top" feather={false} class="member-photo" />
+            </a>
+          ) : (
+            <Media src={m.img} alt={m.alt} aspect="4/5" position="center top" feather={false} class="member-photo" />
+          )}
           <div class="member-body">
-            <h2 class="member-name">{m.name}</h2>
+            <h2 class="member-name">
+              {m.link ? <a href={m.link} target="_blank" rel="noopener" class="member-name-link">{m.name}</a> : m.name}
+            </h2>
             <p class="member-role gtext">{m.role}</p>
             <p class="member-bio">{m.bio}</p>
+            {m.link && <a href={m.link} target="_blank" rel="noopener" class="member-link">Visit djrere.com <span class="arrow">→</span></a>}
           </div>
         </article>
       ))}
@@ -150,6 +160,12 @@ const teamShots = [
   .member:nth-child(even) .member-photo { order: 2; }
   .member-body { display: grid; gap: 0.7rem; align-content: center; }
   .member-name { font-family: var(--font-display); font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem); font-weight: 600; letter-spacing: -0.02em; }
+  .member-name-link { color: inherit; text-decoration: none; background-image: linear-gradient(var(--violet), var(--violet)); background-size: 0% 2px; background-repeat: no-repeat; background-position: left 92%; transition: background-size 0.3s var(--ease); }
+  .member-name-link:hover { background-size: 100% 2px; }
+  .member-photo-link { display: block; transition: transform 0.4s var(--ease); }
+  .member-photo-link:hover { transform: translateY(-4px); }
+  .member-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.6rem; font-weight: 600; font-size: 0.98rem; color: var(--violet); width: fit-content; }
+  .member-link:hover { color: var(--magenta); }
   .member-role { font-family: var(--font-sans); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; }
   .member-bio { color: var(--text-dim); font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem); max-width: 52ch; }
   .member-photo { max-width: 460px; }
