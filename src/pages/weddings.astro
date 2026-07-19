@@ -298,7 +298,10 @@ const wedTestimonials = testimonials.filter((t) => t.role === 'Wedding').concat(
 
   .sec-head { margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
   .sec-head > div { display: grid; gap: 0.9rem; }
-  .center-head { display: grid; gap: 0.9rem; justify-items: center; text-align: center; max-width: 40ch; margin: 0 auto clamp(2rem, 1.5rem + 2vw, 3rem); }
+  /* Wide enough for the large heading on desktop (ch here would use the small
+     container font and squeeze the H2 into a mobile-width column). */
+  .center-head { display: grid; gap: 0.9rem; justify-items: center; text-align: center; max-width: 48rem; margin: 0 auto clamp(2rem, 1.5rem + 2vw, 3rem); }
+  .center-head .lede { max-width: 42ch; margin-inline: auto; }
 
   .wsvc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
   .wsvc { padding: clamp(1.5rem, 1.1rem + 1vw, 2rem); display: grid; gap: 0.6rem; align-content: start; }
