@@ -2,9 +2,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Update `site` once the production domain is connected.
+// Production domain (www is the primary/canonical host).
 export default defineConfig({
-  site: 'https://remixedeventsllc.com',
+  site: 'https://www.remixedeventsllc.com',
   integrations: [sitemap()],
   prefetch: {
     prefetchAll: true,
