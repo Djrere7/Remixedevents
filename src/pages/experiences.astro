@@ -15,7 +15,7 @@ const process = [
 // Concise visual nav — previews the categories and jumps to each section.
 const navCards = [
   { href: '/weddings', img: '/img/sparks-clouds.jpg', t: 'Luxe Weddings', d: 'Ceremony to last dance.' },
-  { href: '#brand-influencer-events', img: '/img/branded-dove7.jpg', t: 'Branded Moments', d: 'Brand & influencer events.' },
+  { href: '#brand-influencer-events', img: '/img/branded-dove-carpet.jpg', t: 'Branded Moments', d: 'Brand & influencer events.' },
   { href: '#special-events', img: '/img/prom-ibe-breakdance.jpg', t: 'Special Events', d: 'Proms, galas & celebrations.' },
   { href: '#production-enhancements', img: '/img/cold-sparks.jpg', t: 'Production & Enhancements', d: 'Sparks, clouds, booths & lighting.' },
 ];
@@ -31,12 +31,12 @@ const categories = [
       { src: '/video/corp.mp4', poster: '/video/corp-poster.jpg', aspect: '16/9', cap: 'Dove Brand Event — female DJ entertainment, uplighting, and branded energy by REmixed Events.' },
     ],
     photos: [
-      { src: '/img/branded-dove-carpet.jpg', alt: 'Pink-carpet entrance at the Dove Miami Beach event by REmixed Events', cap: 'Dove — the arrival moment' },
       { src: '/img/branded-dove2.jpg', alt: 'REmixed Events DJ on the decks at the Dove event', cap: 'Dove — on the decks' },
-      { src: '/img/branded-dove-activation.jpg', alt: 'Dove product activation table at a Miami event', cap: 'Dove — the activation' },
+      { src: '/img/branded-dove7.jpg', alt: 'A beachside branded activation by REmixed Events', cap: 'Beachside brand activation' },
       { src: '/img/brand-fenty.jpg', alt: 'Savage X Fenty brand activation by REmixed Events', cap: 'Savage X Fenty' },
+      { src: '/img/brand-kors.jpg', alt: 'Michael Kors in-store activation by REmixed Events', cap: 'Michael Kors' },
+      { src: '/img/activation-aero.jpg', alt: 'Aéropostale and Cheetos pop-up booth by REmixed Events', cap: 'Aéropostale × Cheetos' },
       { src: '/img/corp-team.jpg', alt: 'The REmixed Events team at a corporate brand event', cap: 'The team on-site' },
-      { src: '/img/corp-team2.jpg', alt: 'REmixed Events DJs at a branded corporate event', cap: 'Branded corporate nights' },
     ],
     link: { href: '/corporate', label: 'See the full brand & influencer page' },
   },
@@ -46,15 +46,15 @@ const categories = [
     title: 'Proms, galas, and nights to remember.',
     copy: 'Female DJs for proms, school dances, galas, milestone celebrations, private events, and luxury dinners. Our DJs do more than play music — they read the room, hop on the mic, and bring the personality. Yacht and boat celebrations available on request.',
     videos: [
-      { src: '/video/img0149.mp4', poster: '/video/img0149-poster.jpg', aspect: '4/5', cap: 'A REmixed Events DJ spinning at an evening celebration under the lights.' },
+      { src: '/video/school-dance-ibe.mp4', poster: '/video/school-dance-ibe-poster.jpg', aspect: '4/5', cap: 'DJ IB rocking a packed school dance floor.' },
     ],
     photos: [
       { src: '/img/prom-breakdance.jpg', alt: 'A dancer breaking in the middle of the floor at a prom by REmixed Events', cap: 'Prom — the floor opens up' },
-      { src: '/img/prom-hype.jpg', alt: 'DJ IB hyping the crowd on the mic at a prom', cap: 'DJ IB working the mic' },
-      { src: '/img/prom-ibe.jpg', alt: 'DJ Ibe in the mix at a school dance', cap: 'DJ Ibe in the mix' },
+      { src: '/img/school-dance3.jpg', alt: 'Students dancing and celebrating at a school dance by REmixed Events', cap: 'School dance dance floor' },
+      { src: '/img/prom-hype.jpg', alt: 'DJ IB hyping the crowd on the mic at a prom', cap: 'DJ IB working the crowd' },
       { src: '/img/youth-dj.jpg', alt: 'REmixed Events female DJs at a youth First Spin event', cap: 'Youth DJ programs & school events' },
       { src: '/img/special-prom.jpg', alt: 'A REmixed Events school dance celebration', cap: 'School dances & socials' },
-      { src: '/img/prom-dj.jpg', alt: 'A REmixed Events female DJ in action at a school dance', cap: 'A DJ in action' },
+      { src: '/img/clouds-sweet16.jpg', alt: 'A Sweet 16 dancing on the clouds by REmixed Events', cap: 'Dancing on Clouds — Sweet 16' },
     ],
     link: null,
   },
@@ -69,8 +69,8 @@ const categories = [
     photos: [
       { src: '/img/wed-clouds.jpg', alt: 'Dancing on clouds first-dance effect by REmixed Events', cap: 'Dancing on Clouds' },
       { src: '/img/booth-setup.jpg', alt: 'A custom REmixed Events DJ booth setup', cap: 'DJ booths & facades' },
-      { src: '/img/production-lights.jpg', alt: 'Lighting and production by REmixed Events', cap: 'Lighting & ambiance' },
-      { src: '/img/venue-uplights.jpg', alt: 'Uplighting transforming a venue by REmixed Events', cap: 'Uplighting' },
+      { src: '/img/uplights-wedding.jpg', alt: 'An elegant ballroom with amber uplighting by REmixed Events', cap: 'Lighting & ambiance' },
+      { src: '/img/wed-cocktail.jpg', alt: 'A wedding cocktail and reception space styled with uplighting by REmixed Events', cap: 'Cocktail & reception ambiance' },
       { src: '/img/production-sparks.jpg', alt: 'Cold spark fountains at a REmixed Events event', cap: 'Cold sparks' },
       { src: '/img/production.jpg', alt: 'A completed REmixed Events production setup', cap: 'Full production setups' },
     ],
@@ -81,14 +81,14 @@ const categories = [
 // REmixed Events Moments — the main visual portfolio (moved from the homepage).
 const gallery = [
   { src: '/img/branded-dove-lounge.jpg', label: 'Brand Event Energy', alt: 'The Dove Miami Beach event lounge by REmixed Events', aspect: '4/3' },
-  { src: '/img/wed-reception.jpg', label: 'Wedding Dance Floors', alt: 'A packed wedding reception dance floor', aspect: '4/5' },
+  { src: '/img/wed-party-dance.jpg', label: 'Wedding Dance Floors', alt: 'A packed wedding reception dance floor under string lights', aspect: '4/5' },
   { src: '/img/corp-team4.jpg', label: 'The Team On-Site', alt: 'The REmixed Events team at a corporate event', aspect: '4/3' },
-  { src: '/img/rere-disco.jpg', label: 'Behind the Booth', alt: 'DJ ReRe styled behind the booth', aspect: '4/3' },
-  { src: '/img/brand-kors.jpg', label: 'Brand Activations', alt: 'Michael Kors in-store activation by REmixed Events', aspect: '4/5' },
+  { src: '/img/female-djs.jpg', label: 'Female DJs', alt: 'The women of REmixed Events at an event', aspect: '4/3' },
+  { src: '/img/dj-outdoor.jpg', label: 'Brand Activations', alt: 'A REmixed Events female DJ at an ACC brand activation', aspect: '4/5' },
   { src: '/img/corporate-acc.jpg', label: 'On-Brand Setups', alt: 'ACC branded activation tent by REmixed Events', aspect: '4/3' },
   { src: '/img/wed-team-carlos.jpg', label: 'Behind the Scenes', alt: 'The REmixed Events team behind the scenes at an event', aspect: '4/3' },
   { src: '/img/brand-lids.jpg', label: 'Custom DJ Booths', alt: 'A custom LIDS activation DJ booth by REmixed Events', aspect: '4/5' },
-  { src: '/img/activation-aero.jpg', label: 'Pop-Ups & Launches', alt: 'Aéropostale and Cheetos pop-up booth by REmixed Events', aspect: '4/3' },
+  { src: '/img/branded-dove-activation.jpg', label: 'Pop-Ups & Launches', alt: 'A branded product activation table by REmixed Events', aspect: '4/3' },
 ];
 ---
 

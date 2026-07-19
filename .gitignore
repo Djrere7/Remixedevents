@@ -54,6 +54,10 @@ public/video/*
 !public/video/photobooth-poster.jpg
 !public/video/img0149.mp4
 !public/video/img0149-poster.jpg
+!public/video/wedding-neeek.mp4
+!public/video/wedding-neeek-poster.jpg
+!public/video/school-dance-ibe.mp4
+!public/video/school-dance-ibe-poster.jpg
 # logs
 npm-debug.log*
 # editor
