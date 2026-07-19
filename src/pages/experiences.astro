@@ -15,7 +15,7 @@ const process = [
 // Concise visual nav — previews the categories and jumps to each section.
 const navCards = [
   { href: '/weddings', img: '/img/sparks-clouds.jpg', t: 'Luxe Weddings', d: 'Ceremony to last dance.' },
-  { href: '#brand-influencer-events', img: '/img/branded-dove-carpet.jpg', t: 'Branded Moments', d: 'Brand & influencer events.' },
+  { href: '#brand-influencer-events', img: '/img/shein-dj4.jpg', pos: 'center 22%', t: 'Branded Moments', d: 'Brand & influencer events.' },
   { href: '#special-events', img: '/img/prom-ibe-breakdance.jpg', t: 'Special Events', d: 'Proms, galas & celebrations.' },
   { href: '#production-enhancements', img: '/img/cold-sparks.jpg', t: 'Production & Enhancements', d: 'Sparks, clouds, booths & lighting.' },
 ];
@@ -51,7 +51,7 @@ const categories = [
     photos: [
       { src: '/img/prom-breakdance.jpg', alt: 'A dancer breaking in the middle of the floor at a prom by REmixed Events', cap: 'Prom — the floor opens up' },
       { src: '/img/school-dance3.jpg', alt: 'Students dancing and celebrating at a school dance by REmixed Events', cap: 'School dance dance floor' },
-      { src: '/img/prom-hype.jpg', alt: 'DJ IB hyping the crowd on the mic at a prom', cap: 'DJ IB working the crowd' },
+      { src: '/img/prom-hype.jpg', alt: 'DJ Pynk Honey hyping the crowd on the mic at a school dance', cap: 'DJ Pynk Honey working the crowd' },
       { src: '/img/youth-dj.jpg', alt: 'REmixed Events female DJs at a youth First Spin event', cap: 'Youth DJ programs & school events' },
       { src: '/img/special-prom.jpg', alt: 'A REmixed Events school dance celebration', cap: 'School dances & socials' },
       { src: '/img/clouds-sweet16.jpg', alt: 'A Sweet 16 dancing on the clouds by REmixed Events', cap: 'Dancing on Clouds — Sweet 16' },
@@ -70,9 +70,9 @@ const categories = [
       { src: '/img/wed-clouds.jpg', alt: 'Dancing on clouds first-dance effect by REmixed Events', cap: 'Dancing on Clouds' },
       { src: '/img/booth-setup.jpg', alt: 'A custom REmixed Events DJ booth setup', cap: 'DJ booths & facades' },
       { src: '/img/uplights-wedding.jpg', alt: 'An elegant ballroom with amber uplighting by REmixed Events', cap: 'Lighting & ambiance' },
-      { src: '/img/wed-cocktail.jpg', alt: 'A wedding cocktail and reception space styled with uplighting by REmixed Events', cap: 'Cocktail & reception ambiance' },
-      { src: '/img/production-sparks.jpg', alt: 'Cold spark fountains at a REmixed Events event', cap: 'Cold sparks' },
-      { src: '/img/production.jpg', alt: 'A completed REmixed Events production setup', cap: 'Full production setups' },
+      { src: '/img/wed-cocktail.jpg', alt: 'A wedding cocktail and reception space styled with uplighting by REmixed Events', cap: 'Cocktail & reception ambiance', aspect: '4/5' },
+      { src: '/img/grand-entrance.jpg', alt: 'A grand entrance lit by cold sparks at a Miami wedding by REmixed Events', cap: 'Grand entrances & cold sparks' },
+      { src: '/img/dj-setup.jpg', alt: 'A glowing custom REmixed Events DJ booth and sound setup', cap: 'Full production setups' },
     ],
     link: null,
   },
@@ -86,9 +86,9 @@ const gallery = [
   { src: '/img/female-djs.jpg', label: 'Female DJs', alt: 'The women of REmixed Events at an event', aspect: '4/3' },
   { src: '/img/dj-outdoor.jpg', label: 'Brand Activations', alt: 'A REmixed Events female DJ at an ACC brand activation', aspect: '4/5' },
   { src: '/img/corporate-acc.jpg', label: 'On-Brand Setups', alt: 'ACC branded activation tent by REmixed Events', aspect: '4/3' },
-  { src: '/img/wed-team-carlos.jpg', label: 'Behind the Scenes', alt: 'The REmixed Events team behind the scenes at an event', aspect: '4/3' },
+  { src: '/img/rere-decks.jpg', label: 'Behind the Booth', alt: 'DJ ReRe behind the booth at a REmixed Events event', aspect: '4/3' },
   { src: '/img/brand-lids.jpg', label: 'Custom DJ Booths', alt: 'A custom LIDS activation DJ booth by REmixed Events', aspect: '4/5' },
-  { src: '/img/branded-dove-activation.jpg', label: 'Pop-Ups & Launches', alt: 'A branded product activation table by REmixed Events', aspect: '4/3' },
+  { src: '/img/corp-dj-165646.jpg', label: 'Pop-Ups & Launches', alt: 'DJ ReRe at a branded corporate event with a sponsor wall', aspect: '4/5' },
 ];
 ---
 
@@ -110,7 +110,7 @@ const gallery = [
       <div class="nav-cards">
         {navCards.map((c, i) => (
           <a class="nav-card" href={c.href} data-reveal style={`--reveal-delay:${i * 60}ms`}>
-            <Media src={c.img} alt={`${c.t} by REmixed Events`} aspect="5/4" feather={false} />
+            <Media src={c.img} alt={`${c.t} by REmixed Events`} aspect="5/4" position={c.pos || 'center'} feather={false} />
             <span class="nav-card-body">
               <span class="nav-card-t">{c.t}</span>
               <span class="nav-card-d">{c.d}</span>
@@ -147,7 +147,7 @@ const gallery = [
           <div class="exp-photos">
             {cat.photos.map((p, i) => (
               <figure class="exp-fig" data-reveal style={`--reveal-delay:${i * 50}ms`}>
-                <Media src={p.src} alt={p.alt} aspect="4/3" feather={false} />
+                <Media src={p.src} alt={p.alt} aspect={p.aspect || '4/3'} position={p.pos || 'center'} feather={false} />
                 <figcaption class="exp-cap">{p.cap}</figcaption>
               </figure>
             ))}
