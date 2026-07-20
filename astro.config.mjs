@@ -2,9 +2,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Production domain (www is the primary/canonical host).
+// Production domain (the no-www apex is the primary/canonical host; www redirects to it).
 export default defineConfig({
-  site: 'https://www.remixedeventsllc.com',
+  site: 'https://remixedeventsllc.com',
   integrations: [sitemap()],
   prefetch: {
     prefetchAll: true,
