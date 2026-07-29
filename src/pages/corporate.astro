@@ -29,10 +29,12 @@ const logos = [
 ];
 
 const brandLogos = [
-  '/img/logos/dove.png', '/img/logos/fenty.png', '/img/logos/acc.png', '/img/logos/aeropostale.png',
-  '/img/logos/cheetos.png', '/img/logos/shein.png', '/img/logos/canes.svg',
+  { src: '/img/logos/dove.png', name: 'Dove' }, { src: '/img/logos/fenty.png', name: 'Fenty' },
+  { src: '/img/logos/acc.png', name: 'ACC' }, { src: '/img/logos/aeropostale.png', name: 'Aeropostale' },
+  { src: '/img/logos/cheetos.png', name: 'Cheetos' }, { src: '/img/logos/shein.png', name: 'SHEIN' },
+  { src: '/img/logos/canes.svg', name: "Raising Cane's" },
 ];
-const brandLoop = [...brandLogos, ...brandLogos];
+const brandLoop = [...brandLogos, ...brandLogos.map((l) => ({ ...l, dup: true }))];
 
 const activationImgs = [
   { src: '/img/branded-dove-carpet.jpg', alt: 'Pink-carpet entrance at the Dove Miami Beach event by REmixed Events', aspect: '3/4' },
@@ -69,10 +71,10 @@ const activationImgs = [
         {logos.map((l) => <span class="client-name">{l}</span>)}
       </div>
     </div>
-    <div class="logo-marquee" aria-hidden="true">
+    <div class="logo-marquee">
       <div class="logo-track">
-        {brandLoop.map((src) => (
-          <span class="logo-item"><img src={src} alt="" loading="eager" decoding="async" /></span>
+        {brandLoop.map((l) => (
+          <span class="logo-item"><img src={l.src} alt={l.dup ? '' : l.name} aria-hidden={l.dup ? 'true' : undefined} loading="eager" decoding="async" /></span>
         ))}
       </div>
     </div>
@@ -109,7 +111,7 @@ const activationImgs = [
         <a href="/contact" class="btn btn-primary btn-lg" data-reveal style="--reveal-delay:200ms">Start your brief <span class="arrow">→</span></a>
       </div>
       <div class="cs-media" data-reveal style="--reveal-delay:120ms">
-        <Media type="video" src="/video/corp.mp4" poster="/video/corp-poster.jpg" aspect="16/9" feather={false} class="cs-video" />
+        <Media type="video" src="/video/corp.mp4" poster="/video/corp-poster.jpg" aspect="16/9" feather={false} class="cs-video" alt="Inside a REmixed Events Dove brand activation" />
         <p class="cs-cap"><strong>Dove Brand Event</strong> — Female DJ entertainment, uplighting, and branded energy by REmixed Events.</p>
       </div>
     </div>

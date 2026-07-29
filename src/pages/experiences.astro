@@ -139,7 +139,7 @@ const gallery = [
           <div class="exp-videos">
             {cat.videos.map((v) => (
               <figure class="exp-fig" data-reveal>
-                <Media type="video" src={v.src} poster={v.poster} aspect={v.aspect} feather={false} />
+                <Media type="video" src={v.src} poster={v.poster} aspect={v.aspect} feather={false} alt={v.cap} />
                 <figcaption class="exp-cap">{v.cap}</figcaption>
               </figure>
             ))}

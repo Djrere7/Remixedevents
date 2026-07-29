@@ -135,12 +135,12 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const awards: string[] = [
-  'BusinessRate Top 3 DJ Service in Miami Beach',
-  'Recognized 2 Years in a Row',
-  'Global Wedding Vendor 2022',
-  'Featured on Zola',
+  'Best of 2025 · #1 DJ Service in Miami Beach',
+  'Global Wedding Awards 2022',
+  "WeddingRule Editor's Choice 2020",
+  'Rated 5.0★ on Google',
   'Official CHAUVET DJ Brand Partner',
-  'Award-Winning DJ Team',
+  'Featured on Zola',
 ];
 
 export const eventTypes = [
@@ -161,7 +161,7 @@ export const eventTypes = [
 /** Headline stats. Company recognition, not personal accolades. */
 export const stats = [
   { value: '5★', label: 'Rated on Google' },
-  { value: '2×', label: 'BusinessRate Top 3 in Miami Beach' },
-  { value: '2022', label: 'Global Wedding Vendor' },
+  { value: '#1', label: 'DJ Service in Miami Beach · 2025' },
+  { value: '2022', label: 'Global Wedding Award' },
   { value: '100%', label: 'Woman owned' },
 ];

@@ -28,10 +28,12 @@ const year = new Date().getFullYear();
 
       <div class="footer-col">
         <h3 class="footer-h">Connect</h3>
-        <a href={`mailto:${site.email}`}>{site.email}</a>
-        <a href={site.phoneHref}>{site.phone}</a>
-        <span class="footer-meta">{site.address}</span>
-        <span class="footer-meta">Based in Miami Beach. Serving South Florida & destination events.</span>
+        <address class="footer-nap">
+          <span class="footer-nap-name">REmixed Events LLC</span>
+          <span>1000 5th Street, Miami Beach, FL 33139</span>
+          <span><a href={site.phoneHref}>(786) 910-2799</a> · <a href={`mailto:${site.email}`}>{site.email}</a></span>
+        </address>
+        <span class="footer-meta">Based in Miami Beach. Serving South Florida &amp; destination events.</span>
       </div>
     </div>
 
@@ -90,6 +92,10 @@ const year = new Date().getFullYear();
   .footer-col a { color: var(--text-dim); font-size: 0.95rem; transition: color 0.3s var(--ease); width: fit-content; }
   .footer-col a:hover { color: var(--text); }
   .footer-meta { color: var(--text-mute); font-size: 0.95rem; }
+  .footer-nap { font-style: normal; display: grid; gap: 0.35rem; color: var(--text-dim); font-size: 0.95rem; line-height: 1.45; }
+  .footer-nap-name { font-weight: 600; color: var(--text); }
+  .footer-nap a { color: var(--text-dim); }
+  .footer-nap a:hover { color: var(--magenta); }
 
   .footer-base {
     display: flex;

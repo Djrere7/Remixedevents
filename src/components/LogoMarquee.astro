@@ -3,21 +3,25 @@
  * Scrolling brand-logo strip. Logos normalized to one tone for a clean wall.
  */
 const logos = [
-  '/img/logos/dove.png',
-  '/img/logos/fenty.png',
-  '/img/logos/acc.png',
-  '/img/logos/aeropostale.png',
-  '/img/logos/cheetos.png',
-  '/img/logos/shein.png',
-  '/img/logos/canes.svg',
+  { src: '/img/logos/dove.png', name: 'Dove' },
+  { src: '/img/logos/fenty.png', name: 'Fenty' },
+  { src: '/img/logos/acc.png', name: 'ACC' },
+  { src: '/img/logos/aeropostale.png', name: 'Aeropostale' },
+  { src: '/img/logos/cheetos.png', name: 'Cheetos' },
+  { src: '/img/logos/shein.png', name: 'SHEIN' },
+  { src: '/img/logos/canes.svg', name: "Raising Cane's" },
 ];
-const loop = [...logos, ...logos];
+// First set carries the brand name as alt; the duplicate set (for the seamless
+// scroll) is decorative, so it's aria-hidden with empty alt.
+const loop = [...logos, ...logos.map((l) => ({ ...l, dup: true }))];
 ---
 
-<div class="logo-marquee" aria-hidden="true">
+<div class="logo-marquee">
   <div class="logo-track">
-    {loop.map((src) => (
-      <span class="logo-item"><img src={src} alt="" loading="eager" decoding="async" /></span>
+    {loop.map((l) => (
+      <span class="logo-item">
+        <img src={l.src} alt={l.dup ? '' : l.name} aria-hidden={l.dup ? 'true' : undefined} loading="eager" decoding="async" />
+      </span>
     ))}
   </div>
 </div>

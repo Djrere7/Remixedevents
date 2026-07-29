@@ -77,8 +77,7 @@ const contactFaqs = [
             src="/quote-form.html"
             title="Request a quote"
             loading="eager"
-            scrolling="no"
-            style="width:100%;border:0;height:1500px;"
+            style="width:100%;border:0;height:700px;"
           ></iframe>
         </div>
         <p class="ct-secure">🔒 Submissions go straight to the REmixed Events team. We never share your details.</p>
@@ -206,11 +205,18 @@ const contactFaqs = [
 </style>
 
 <script>
-  // Auto-size the quote iframe to its content.
+  // Auto-size the quote iframe to the DJEP form's real content height. The form
+  // loads asynchronously, so the child keeps re-reporting as its lower fields
+  // render. We only ever GROW the iframe — a brief early (short) measurement can
+  // therefore never clip the form on iOS. The iframe also stays scrollable as a
+  // last-resort fallback if height reporting is blocked entirely.
   window.addEventListener('message', (e) => {
     if (e?.data?.type === 'qf-height' && typeof e.data.height === 'number') {
       const frame = document.getElementById('quote-iframe') as HTMLIFrameElement | null;
-      if (frame) frame.style.height = Math.max(600, e.data.height + 24) + 'px';
+      if (!frame) return;
+      const reported = Math.min(6000, Math.max(600, Math.round(e.data.height)));
+      const current = parseInt(frame.style.height, 10) || 0;
+      if (reported > current) frame.style.height = reported + 'px';
     }
   });
 

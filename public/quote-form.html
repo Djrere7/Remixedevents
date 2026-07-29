@@ -119,18 +119,53 @@
   </div>
 
   <script>
-    // Report document height to the parent so the iframe can size itself.
-    // The DJEP form is injected by an external script, so re-measure a few times
-    // and keep watching for changes (fonts, late field rendering, validation rows).
-    function reportHeight() {
-      var h = document.body.scrollHeight;
-      parent.postMessage({ type: 'qf-height', height: h }, '*');
-    }
-    window.addEventListener('load', function () {
-      reportHeight();
-      [300, 900, 1800, 3000].forEach(function (t) { setTimeout(reportHeight, t); });
-    });
-    new ResizeObserver(reportHeight).observe(document.body);
+    // Report the FULL form height to the parent so the iframe grows to fit it.
+    // The DJEP form is injected asynchronously (document.write + jQuery), so on
+    // slower devices (iOS especially) an early single measurement clips the form.
+    // We measure the real content height from several sources + the form's own
+    // bottom edge, and keep re-reporting via DOMContentLoaded, load, resize,
+    // MutationObserver, ResizeObserver, image loads, and a 15s poll.
+    (function () {
+      var last = 0;
+      function measure() {
+        // Measure the CONTENT only. Note: document.documentElement (<html>)
+        // stretches to fill the iframe's set height, so using its scrollHeight
+        // would feed the parent's height back in and ratchet upward forever.
+        // The <body> here is content-sized (no height:100%), so it's safe.
+        var b = document.body;
+        var h = b ? Math.max(b.scrollHeight, b.offsetHeight) : 0;
+        var form = document.querySelector('form[name="reqinfoform"]');
+        if (form) {
+          var bottom = form.getBoundingClientRect().bottom + (window.pageYOffset || 0);
+          if (bottom > h) h = bottom;
+        }
+        return Math.ceil(h) + 24; // small buffer so there's never an internal scrollbar
+      }
+      function report(force) {
+        var h = measure();
+        if (force || Math.abs(h - last) > 2) {
+          last = h;
+          parent.postMessage({ type: 'qf-height', height: h }, '*');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', function () { report(true); });
+      window.addEventListener('load', function () {
+        report(true);
+        Array.prototype.forEach.call(document.images, function (img) {
+          if (!img.complete) img.addEventListener('load', function () { report(true); }, { once: true });
+        });
+      });
+      window.addEventListener('resize', function () { report(true); });
+      if (window.MutationObserver) {
+        new MutationObserver(function () { report(false); })
+          .observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+      }
+      if (window.ResizeObserver && document.body) {
+        try { new ResizeObserver(function () { report(false); }).observe(document.body); } catch (e) {}
+      }
+      var ticks = 0;
+      var iv = setInterval(function () { report(false); if (++ticks > 30) clearInterval(iv); }, 500);
+    })();
   </script>
 </body>
 </html>

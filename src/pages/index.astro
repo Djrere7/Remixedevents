@@ -1,17 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
-import Marquee from '../components/Marquee.astro';
+import AwardsStrip from '../components/AwardsStrip.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
 import Media from '../components/Media.astro';
 import LogoMarquee from '../components/LogoMarquee.astro';
-import { testimonials, awards, site } from '../data/site';
+import { testimonials, site } from '../data/site';
 
 // Homepage sells the FEELING — three visual event-category previews. The
 // Experiences page carries the full service cards and the moments gallery.
 const known = [
-  { href: '/weddings', src: '/img/wed-sparks.jpg', k: 'Luxe Weddings', c: 'Ceremony to last dance, styled and full of life.' },
-  { href: '/experiences#brand-influencer-events', src: '/img/rere-khaled-brand.jpg', k: 'Brand & Influencer Events', c: 'Female DJ energy that feels camera-ready.' },
-  { href: '/experiences#special-events', src: '/img/prom-crowd.jpg', k: 'Special Events', c: 'Proms, galas, and private celebrations.' },
+  { href: '/weddings', src: '/img/wed-sparks.jpg', k: 'Luxe Weddings', c: 'Ceremony to last dance, styled and full of life.', alt: 'Bride and groom under cold sparks on a Miami Beach wedding dance floor' },
+  { href: '/experiences#brand-influencer-events', src: '/img/rere-khaled-brand.jpg', k: 'Brand & Influencer Events', c: 'Female DJ energy that feels camera-ready.', alt: 'DJ ReRe with DJ Khaled at a Miami brand event' },
+  { href: '/experiences#special-events', src: '/img/prom-crowd.jpg', k: 'Special Events', c: 'Proms, galas, and private celebrations.', alt: 'Packed prom dance floor at a South Florida celebration' },
 ];
 ---
 
@@ -23,14 +23,14 @@ const known = [
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-media" aria-hidden="true">
-      <div class="hero-collage">
-        <video class="hero-panel" autoplay muted loop playsinline preload="metadata" poster="/video/hero-a-poster.jpg">
+      <div class="hero-collage" role="img" aria-label="Female DJ performing at a luxury Miami Beach event">
+        <video class="hero-panel" autoplay muted loop playsinline preload="metadata" poster="/video/hero-a-poster.jpg" aria-label="Female DJ performing at a luxury Miami Beach event">
           <source src="/video/hero-a.mp4" type="video/mp4" />
         </video>
-        <video class="hero-panel hero-panel-2" autoplay muted loop playsinline preload="metadata" poster="/video/hero-b-poster.jpg">
+        <video class="hero-panel hero-panel-2" autoplay muted loop playsinline preload="metadata" poster="/video/hero-b-poster.jpg" aria-label="Women's brunch event with a REmixed Events female DJ">
           <source src="/video/hero-b.mp4" type="video/mp4" />
         </video>
-        <video class="hero-panel hero-panel-3" autoplay muted loop playsinline preload="metadata" poster="/video/hero-c-poster.jpg">
+        <video class="hero-panel hero-panel-3" autoplay muted loop playsinline preload="metadata" poster="/video/hero-c-poster.jpg" aria-label="Packed wedding reception dance floor at a Miami event">
           <source src="/video/hero-c.mp4" type="video/mp4" />
         </video>
       </div>
@@ -62,13 +62,8 @@ const known = [
     </a>
   </section>
 
-  <!-- ============ RECOGNITION TICKER ============ -->
-  <section class="section tight awards-strip">
-    <div class="container wide">
-      <p class="awards-label">Recognized & trusted</p>
-    </div>
-    <Marquee items={awards} />
-  </section>
+  <!-- ============ AWARDS & RECOGNITION ============ -->
+  <AwardsStrip />
 
   <!-- ============ BRAND LOGO STRIP ============ -->
   <section class="section tight brand-strip">
@@ -101,7 +96,7 @@ const known = [
         </p>
       </div>
       <div class="story-2col-media" data-reveal style="--reveal-delay:160ms">
-        <Media src="/img/rere-disco.jpg" alt="DJ ReRe, founder of REmixed Events" aspect="4/5" feather={false} />
+        <Media src="/img/rere-disco.jpg" alt="DJ ReRe, founder of REmixed Events, performing under disco lighting" aspect="4/5" feather={false} />
       </div>
     </div>
   </section>
@@ -119,7 +114,7 @@ const known = [
       <div class="known-grid">
         {known.map((t, i) => (
           <a class="known-tile" href={t.href} data-reveal style={`--reveal-delay:${i * 80}ms`}>
-            <Media src={t.src} alt={`${t.k} by REmixed Events`} aspect="4/5" feather={false} />
+            <Media src={t.src} alt={t.alt} aspect="4/5" feather={false} />
             <span class="known-cap">
               <span class="known-k">{t.k}</span>
               <span class="known-c">{t.c}</span>

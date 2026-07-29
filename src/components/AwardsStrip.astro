@@ -1,0 +1,60 @@
+---
+/**
+ * Awards & Recognition strip — display-only badges (no links), one row.
+ * Only real, already-won awards belong here (no placeholders on the live site).
+ */
+const badges = [
+  { img: '/img/awards/businessrate-2025.png', label: 'Best of 2025 · #1 DJ Service in Miami Beach', sub: 'BusinessRate · Google Reviews, Aug 2025' },
+  { img: '/img/awards/lux-2022.png', label: 'Best Female Wedding DJ Provider, Florida', sub: 'Global Wedding Awards 2022 · LUXlife' },
+  { img: '/img/awards/wedding-rule-2020.png', label: "Editor's Choice Award, Winner 2020", sub: 'WeddingRule' },
+];
+const alsoRecognized = ['Rated 5.0★ on Google', 'Official CHAUVET DJ Brand Partner', 'Featured on Zola'];
+---
+
+<section class="section tight awards-rec">
+  <div class="container wide">
+    <div class="awards-rec-head">
+      <p class="kicker" data-reveal style="display:flex;justify-content:center">Awards &amp; Recognition</p>
+      <h2 class="h2" data-reveal style="--reveal-delay:80ms">Recognized across Miami — <span class="font-stroke gtext">and globally.</span></h2>
+    </div>
+
+    <div class="award-row">
+      {badges.map((a, i) => (
+        <figure class="award-badge" data-reveal style={`--reveal-delay:${i * 80}ms`}>
+          <img src={a.img} alt={`${a.label} — ${a.sub}`} loading="lazy" decoding="async" />
+          <figcaption class="award-cap">
+            <span class="award-cap-label">{a.label}</span>
+            <span class="award-cap-sub">{a.sub}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <ul class="award-also" data-reveal>
+      {alsoRecognized.map((r) => <li class="chip">✦ {r}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .awards-rec-head { text-align: center; display: grid; gap: 0.9rem; justify-items: center; max-width: 44ch; margin: 0 auto clamp(1.8rem, 1.2rem + 2vw, 2.8rem); }
+
+  /* One centered row on desktop/tablet; wraps gracefully on phones. Equal image
+     HEIGHT keeps the mixed-shape badges aligned. */
+  .award-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: clamp(1.6rem, 1rem + 3vw, 3.2rem); }
+  .award-badge { display: grid; gap: 0.6rem; justify-items: center; text-align: center; margin: 0; flex: 0 1 200px; }
+  .award-badge img { height: clamp(96px, 6vw + 60px, 132px); width: auto; max-width: 100%; display: block; filter: drop-shadow(0 16px 30px rgba(40, 16, 80, 0.26)); }
+  .award-cap { display: grid; gap: 0.15rem; max-width: 22ch; }
+  .award-cap-label { font-family: var(--font-display); font-weight: 600; font-size: 0.92rem; letter-spacing: -0.01em; color: var(--text); }
+  .award-cap-sub { font-size: 0.8rem; color: var(--text-mute); }
+
+  /* Supporting recognitions — a touch bigger now that the badges are one row */
+  .award-also { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin: clamp(2rem, 1.5rem + 2vw, 3rem) auto 0; max-width: 760px; }
+  .award-also .chip { font-size: 1rem; padding: 0.6em 1.2em; font-weight: 500; }
+
+  @media (max-width: 560px) {
+    .award-row { gap: 1.4rem 1.6rem; }
+    .award-badge { flex: 0 1 132px; }
+    .award-also .chip { font-size: 0.94rem; }
+  }
+</style>
