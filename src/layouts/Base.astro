@@ -16,7 +16,7 @@ const {
   title,
   fullTitle,
   description = 'REmixed Events is South Florida’s female DJ entertainment company for luxe weddings, brand and influencer events, yacht parties, and special events in Miami.',
-  image = '/og.jpg',
+  image = '/img/og-card.png',
   heroTheme = 'light',
 } = Astro.props;
 
@@ -47,9 +47,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://remixedeven
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(image, Astro.site ?? 'https://remixedeventsllc.com').href} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="REmixed Events — Miami female DJ and event entertainment" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site ?? 'https://remixedeventsllc.com').href} />
+    <meta name="twitter:image:alt" content="REmixed Events — Miami female DJ and event entertainment" />
 
     <!-- Preconnect fonts -->
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
