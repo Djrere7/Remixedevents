@@ -428,6 +428,29 @@ h2.section-title{font-size:clamp(2rem,5.4vw,3.5rem)}
 .disclosure{margin-top:1.2rem;font-size:.8rem;color:#7fa9a5;max-width:80ch}
 @media (max-width:760px){.footer-grid{grid-template-columns:1fr;gap:1.6rem}}
 
+/* ============================ BRAND MOTIFS ============================ */
+.motif{position:absolute;pointer-events:none;z-index:0;color:var(--aqua);opacity:.13}
+.motif.orange{color:var(--orange)}
+.motif.faint{opacity:.08}
+.hero .wrap{position:relative;z-index:1}
+.section-teal{position:relative;overflow:hidden}
+.section-teal .wrap{position:relative;z-index:1}
+.support{position:relative;overflow:hidden}
+.support .wrap{position:relative;z-index:1}
+.spin{transform-origin:50% 50%;animation:spin 20s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Youth DJ ticker */
+.ticker{background:var(--ink);color:#fff;overflow:hidden;border-top:3px solid var(--orange);border-bottom:3px solid var(--aqua);white-space:nowrap}
+.ticker-track{display:inline-flex;align-items:center;animation:ticker 30s linear infinite}
+.ticker:hover .ticker-track,.ticker:focus-within .ticker-track{animation-play-state:paused}
+.ticker-seg{display:inline-flex;align-items:center;padding:.85rem 0}
+.ticker-seg .word{font-family:var(--font-display);font-size:1.15rem;letter-spacing:.05em;padding:0 1.15rem;text-transform:uppercase}
+.ticker-seg .word.aqua{color:var(--aqua-bright)}
+.ticker-seg .word.orange{color:var(--orange)}
+.ticker-seg svg{width:20px;height:20px;flex:none}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
 /* ============================ MOTION ============================ */
 html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 html.js .reveal.in{opacity:1;transform:none}
@@ -440,6 +463,49 @@ html.js .reveal.in{opacity:1;transform:none}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Brand motif sprites (vinyl, palm, headphones, note, wave) — decorative, reused across the page. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="m-vinyl" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="currentColor"/>
+      <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2"/>
+      <circle cx="50" cy="50" r="28" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+      <circle cx="50" cy="50" r="20" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
+      <circle cx="50" cy="50" r="13" fill="var(--orange)"/>
+      <circle cx="50" cy="50" r="3.4" fill="#0b0f14"/>
+    </symbol>
+    <symbol id="m-palm" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 96 C47 74 47 60 51 47"/>
+        <path d="M51 47 C37 41 22 42 9 51"/>
+        <path d="M51 47 C65 41 80 42 93 51"/>
+        <path d="M51 47 C41 34 30 26 18 23"/>
+        <path d="M51 47 C61 34 72 26 84 23"/>
+        <path d="M51 47 C51 33 51 22 51 11"/>
+      </g>
+    </symbol>
+    <symbol id="m-phones" viewBox="0 0 100 100">
+      <path d="M17 62 V52 a33 33 0 0 1 66 0 V62" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <rect x="9" y="58" width="16" height="30" rx="8" fill="currentColor"/>
+      <rect x="75" y="58" width="16" height="30" rx="8" fill="currentColor"/>
+    </symbol>
+    <symbol id="m-note" viewBox="0 0 100 100">
+      <path d="M40 22 L74 15 V58" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="33" cy="66" r="13" fill="currentColor"/>
+      <circle cx="74" cy="58" r="13" fill="currentColor"/>
+    </symbol>
+    <symbol id="m-wave" viewBox="0 0 100 100">
+      <g stroke="currentColor" stroke-width="8" stroke-linecap="round">
+        <line x1="14" y1="42" x2="14" y2="58"/>
+        <line x1="32" y1="28" x2="32" y2="72"/>
+        <line x1="50" y1="16" x2="50" y2="84"/>
+        <line x1="68" y1="28" x2="68" y2="72"/>
+        <line x1="86" y1="42" x2="86" y2="58"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
 
 <!-- ============================ HEADER ============================ -->
 <header class="site-header">
@@ -474,6 +540,10 @@ html.js .reveal.in{opacity:1;transform:none}
 
 <!-- ============================ HERO ============================ -->
 <section class="hero" aria-labelledby="hero-title">
+  <svg class="motif spin" style="width:200px;height:200px;top:9%;left:-58px;opacity:.09" aria-hidden="true"><use href="#m-vinyl"/></svg>
+  <svg class="motif" style="width:150px;height:150px;bottom:-14px;left:40%;opacity:.1" aria-hidden="true"><use href="#m-palm"/></svg>
+  <svg class="motif orange" style="width:46px;height:46px;top:20%;left:41%;opacity:.5" aria-hidden="true"><use href="#m-note"/></svg>
+  <svg class="motif" style="width:34px;height:34px;top:12%;left:47%;opacity:.55" aria-hidden="true"><use href="#m-note"/></svg>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
@@ -509,6 +579,30 @@ html.js .reveal.in{opacity:1;transform:none}
     </div>
   </div>
 </section>
+
+<!-- ============================ DJ TICKER ============================ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-seg">
+      <span class="word aqua">Learn the Craft</span><svg><use href="#m-vinyl"/></svg>
+      <span class="word">Live the Culture</span><svg class="motif orange" style="position:static;opacity:1"><use href="#m-note"/></svg>
+      <span class="word orange">Mix</span><svg><use href="#m-vinyl"/></svg>
+      <span class="word">Beatmatch</span><svg class="motif orange" style="position:static;opacity:1"><use href="#m-note"/></svg>
+      <span class="word aqua">Scratch</span><svg><use href="#m-vinyl"/></svg>
+      <span class="word">Create</span><svg class="motif orange" style="position:static;opacity:1"><use href="#m-note"/></svg>
+      <span class="word orange">Perform</span><svg><use href="#m-vinyl"/></svg>
+    </div>
+    <div class="ticker-seg">
+      <span class="word aqua">Learn the Craft</span><svg><use href="#m-vinyl"/></svg>
+      <span class="word">Live the Culture</span><svg class="motif orange" style="position:static;opacity:1"><use href="#m-note"/></svg>
+      <span class="word orange">Mix</span><svg><use href="#m-vinyl"/></svg>
+      <span class="word">Beatmatch</span><svg class="motif orange" style="position:static;opacity:1"><use href="#m-note"/></svg>
+      <span class="word aqua">Scratch</span><svg><use href="#m-vinyl"/></svg>
+      <span class="word">Create</span><svg class="motif orange" style="position:static;opacity:1"><use href="#m-note"/></svg>
+      <span class="word orange">Perform</span><svg><use href="#m-vinyl"/></svg>
+    </div>
+  </div>
+</div>
 
 <!-- ============================ SECTION 1: WHY ============================ -->
 <section id="about" class="reveal" aria-labelledby="why-title">
@@ -554,6 +648,8 @@ html.js .reveal.in{opacity:1;transform:none}
 
 <!-- ============================ SECTION 2: 7-WEEK TIMELINE ============================ -->
 <section id="program" class="section-teal reveal" aria-labelledby="prog-title">
+  <svg class="motif spin faint" style="width:260px;height:260px;top:-60px;right:-70px" aria-hidden="true"><use href="#m-vinyl"/></svg>
+  <svg class="motif" style="width:140px;height:140px;bottom:-24px;left:-30px;opacity:.09" aria-hidden="true"><use href="#m-palm"/></svg>
   <div class="wrap">
     <span class="eyebrow on-dark">The Seven-Week Experience</span>
     <h2 id="prog-title" class="section-title">From First Touch to Live Show</h2>
@@ -727,6 +823,8 @@ html.js .reveal.in{opacity:1;transform:none}
 
 <!-- ============================ SECTION 8: SUPPORT ============================ -->
 <section id="support" class="support reveal" aria-labelledby="support-title">
+  <svg class="motif" style="width:170px;height:170px;top:40px;right:-36px;opacity:.1" aria-hidden="true"><use href="#m-palm"/></svg>
+  <svg class="motif orange faint" style="width:120px;height:120px;bottom:30px;left:-30px" aria-hidden="true"><use href="#m-wave"/></svg>
   <div class="wrap">
     <span class="eyebrow on-dark">Support the Program</span>
     <h2 id="support-title" class="section-title">Help Us Keep the First Spin Within Reach</h2>
@@ -980,6 +1078,10 @@ html.js .reveal.in{opacity:1;transform:none}
 
 <!-- ============================ SECTION 11: FINAL CTA ============================ -->
 <section class="final-cta reveal" aria-labelledby="final-title">
+  <svg class="motif" style="width:130px;height:130px;bottom:-20px;left:4%;opacity:.12" aria-hidden="true"><use href="#m-palm"/></svg>
+  <svg class="motif spin faint" style="width:150px;height:150px;top:-30px;right:3%" aria-hidden="true"><use href="#m-vinyl"/></svg>
+  <svg class="motif orange" style="width:40px;height:40px;top:24%;left:12%;opacity:.5" aria-hidden="true"><use href="#m-note"/></svg>
+  <svg class="motif" style="width:30px;height:30px;top:30%;right:14%;opacity:.5" aria-hidden="true"><use href="#m-note"/></svg>
   <div class="wrap">
     <h2 id="final-title">Every Great DJ Starts With a <span class="hl">First Spin.</span></h2>
     <p>Help a young person discover their creativity, build their confidence, and experience what's possible behind the turntables.</p>
