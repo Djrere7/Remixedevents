@@ -356,7 +356,16 @@ h2.section-title{font-size:clamp(2rem,5.4vw,3.5rem)}
 .tag{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;font-weight:700;font-size:.9rem;color:var(--teal-800)}
 
 /* ============================ FORMS ============================ */
-.forms{background:linear-gradient(180deg,var(--cream) 0%,#eafaf8 100%)}
+.forms{
+  background:
+    linear-gradient(180deg,rgba(255,246,234,.92) 0%,rgba(234,250,248,.93) 100%),
+    url("img/firstspin-pattern-teal.svg");
+  background-size:auto, 300px 300px;
+  background-repeat:no-repeat, repeat;
+}
+/* Bold brand-pattern divider band */
+.pattern-band{height:150px;background:url("img/firstspin-pattern-teal.svg");background-size:300px 300px;background-repeat:repeat;border-top:4px solid var(--orange);border-bottom:4px solid var(--aqua)}
+@media (max-width:600px){.pattern-band{height:120px;background-size:220px 220px}}
 .form-tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin:2rem 0 1.6rem}
 .form-tab{
   background:var(--paper);border:2px solid var(--line);border-radius:999px;padding:.8rem 1.3rem;font-weight:800;
@@ -1075,6 +1084,9 @@ html.js .reveal.in{opacity:1;transform:none}
     </div>
   </div>
 </section>
+
+<!-- Brand-pattern divider (decorative) -->
+<div class="pattern-band" role="presentation" aria-hidden="true"></div>
 
 <!-- ============================ SECTION 11: FINAL CTA ============================ -->
 <section class="final-cta reveal" aria-labelledby="final-title">
