@@ -51,8 +51,8 @@ Netlify, GitHub Pages, etc.) to deploy.
 - Title: *First Spin DJ Bootcamp | No-Cost DJ Education in South Florida*
 - Open Graph / Twitter card, Organization + nonprofit JSON-LD schema, canonical
   URL, sitemap, and robots are all in place.
-- Replace the OG image with a dedicated 1200×630 branded card when available
-  (currently uses the students-showcase photo).
+- Social-share image is a dedicated 1200×630 branded card at `img/og-card.png`
+  (regenerate with the Pillow snippet in git history if branding changes).
 
 ## Accessibility
 Skip link, semantic landmarks, labeled form fields, visible focus states,
