@@ -156,9 +156,9 @@ INTEREST_BTN = '<a class="btn btn-primary btn-lg" href="/#interest" data-cta="in
 summer_body = crumbs([("Home","/"),("Summer 2027",None)]) + hero(
   "Summer 2027",
   'First Spin DJ Bootcamp &mdash; <span class="hl">Summer 2027</span>',
-  "Seven weeks of music, creativity, confidence &amp; culture. First Spin returns in Summer 2027 with plans to serve families in both Miami-Dade and Broward County. The free seven-week experience gives students ages 7+ hands-on access to DJ education, mentorship, entrepreneurship and live performance.",
+  "Seven weeks of music, creativity, confidence &amp; culture. First Spin returns in Summer 2027 serving families in both Miami-Dade and Broward County. The free seven-week experience gives students ages 7+ hands-on access to DJ education, mentorship, entrepreneurship and live performance.",
   INTEREST_BTN.format(loc="summer-hero") + '<a class="btn btn-ghost" href="/host/" data-track="host_click" data-track-loc="summer-hero">Help Us Secure a Location</a>',
-  pills=["Proposed: Summer 2027 · June–August","Exact Dates Coming Soon"]
+  pills=["Summer 2027 · June–August","Miami-Dade & Broward County"]
 ) + '''
 <div class="ticker" aria-hidden="true"><div class="ticker-track">
 <div class="ticker-seg"><span class="word t">Summer 2027</span><span class="dotmark"></span><span class="word">Ages 7+</span><span class="dotmark"></span><span class="word o">100% Free</span><span class="dotmark"></span><span class="word">Seven Weeks</span><span class="dotmark"></span><span class="word t">Live Showcase</span><span class="dotmark"></span></div>
@@ -168,12 +168,12 @@ summer_body = crumbs([("Home","/"),("Summer 2027",None)]) + hero(
 <span class="eyebrow">The 2027 Season</span>
 <h2 class="section-title">Everything You Need to <span class="accent">Know</span></h2>
 <div class="feature-grid">
-<div class="feature"><h3>Summer Season</h3><p>Proposed: June&ndash;August 2027. Exact class dates and weekly schedule coming soon &mdash; announced once locations are finalized.</p></div>
+<div class="feature"><h3>Summer Season</h3><p>June&ndash;August 2027. Program dates and registration go to our interest list first.</p></div>
 <div class="feature"><h3>Cost</h3><p>Free for participating families.</p></div>
 <div class="feature"><h3>Experience</h3><p>Beginner-friendly. No prior DJ experience required.</p></div>
 <div class="feature"><h3>Ages</h3><p>Open to students ages 7 and up.</p></div>
-<div class="feature"><h3>Miami-Dade</h3><p>2027 location being finalized. <a href="/miami-dj-bootcamp/" style="color:var(--orange-deep);font-weight:700">Miami interest list &rarr;</a></p></div>
-<div class="feature"><h3>Broward</h3><p>2027 location being finalized. <a href="/broward-dj-bootcamp/" style="color:var(--orange-deep);font-weight:700">Broward interest list &rarr;</a></p></div>
+<div class="feature"><h3>Miami-Dade</h3><p>Summer 2027 &middot; Miami-Dade County. <a href="/miami-dj-bootcamp/" style="color:var(--orange-deep);font-weight:700">Miami interest list &rarr;</a></p></div>
+<div class="feature"><h3>Broward</h3><p>Summer 2027 &middot; Broward County. <a href="/broward-dj-bootcamp/" style="color:var(--orange-deep);font-weight:700">Broward interest list &rarr;</a></p></div>
 </div></div></section>
 <section class="section-teal reveal"><div class="wrap">
 <span class="eyebrow on-dark">The Seven-Week Experience</span>
@@ -188,7 +188,7 @@ summer_body = crumbs([("Home","/"),("Summer 2027",None)]) + hero(
 </div></div></section>
 <section class="final-cta has-art reveal"><div class="wrap">
 <h2>Join the 2027 <span class="hl">Priority List.</span></h2>
-<p>Be first to receive exact dates, locations and registration information for Summer 2027.</p>
+<p>Be first to receive program dates, locations and registration information for Summer 2027.</p>
 <div class="btn-row"><a class="btn btn-primary btn-lg" href="/#interest" data-cta="interest" data-track-loc="summer-final">Join the 2027 Priority Interest List</a></div>
 </div></section>'''
 page("summer-2027/index.html",
@@ -234,8 +234,8 @@ parents_body = crumbs([("Home","/"),("For Parents",None)]) + hero(
 ("Does my child need their own equipment?","No. First Spin provides access to DJ equipment during class."),
 ("How much does the program cost?","The summer bootcamp is offered at no cost to participating families."),
 ("How long is the program?","Seven weeks."),
-("When is the 2027 program?","Between June and August 2027. Exact dates will be announced after locations and schedules are finalized."),
-("Where will the program take place?","Our 2027 goal is to operate one program in Miami-Dade and one in Broward County. Exact venues are being finalized."),
+("When is the 2027 program?","Between June and August 2027. Dates and registration are announced to our interest list first."),
+("Where will the program take place?","First Spin is expanding to both Miami-Dade and Broward County for Summer 2027. Program locations are shared with interest-list families first."),
 ("Is attendance important?","Yes. Because students build skills week by week and prepare for a final showcase, consistent attendance is important. Specific expectations are provided during enrollment."),
 ("Will parents receive updates?","Yes. Enrolled parents receive ongoing program communication and access to our parent communication group."),
 ("Is there a performance?","Yes. The curriculum includes preparation for a live showcase experience."),
@@ -261,17 +261,14 @@ impact_body = crumbs([("Home","/"),("Our Impact",None)]) + hero(
 <div class="impact-grid">
 <div class="impact-card a"><div class="yr" data-editable>2024</div><p data-editable>One program location</p></div>
 <div class="impact-card b"><div class="yr" data-editable>2025</div><p data-editable>Expanded to two program locations</p></div>
-<div class="impact-card c"><div class="yr">2027 Goal</div><p>Build sustainable Miami-Dade and Broward programs while strengthening the operating structure needed for future growth.</p></div>
+<div class="impact-card c"><div class="yr">2027</div><p>Build sustainable Miami-Dade and Broward programs while strengthening the operating structure needed for future growth.</p></div>
 </div>
-<div class="metric-grid" aria-label="Program metrics (editable — verified figures only)">
-<div class="metric"><b data-editable>—</b><span>Students served</span></div>
+<div class="metric-grid" aria-label="Program facts">
 <div class="metric"><b data-editable>2</b><span>Program locations</span></div>
-<div class="metric"><b data-editable>—</b><span>Instructional hours</span></div>
-<div class="metric"><b data-editable>—</b><span>Showcases completed</span></div>
-<div class="metric"><b data-editable>—</b><span>Professional DJs involved</span></div>
-<div class="metric"><b data-editable>—</b><span>Returning families</span></div>
+<div class="metric"><b>7</b><span>Week program</span></div>
+<div class="metric"><b>7+</b><span>Ages</span></div>
+<div class="metric"><b>$0</b><span>Cost to families</span></div>
 </div>
-<p class="loc-note" style="font-size:.86rem">Metrics are editable placeholders. First Spin publishes only verified statistics and adds stronger year-over-year data as it is collected.</p>
 </div></section>
 <section class="final-cta has-art reveal"><div class="wrap">
 <h2>Help Us Reach <span class="hl">More Families.</span></h2>
@@ -473,8 +470,8 @@ host_body = crumbs([("Home","/"),("Host First Spin",None)]) + hero(
 <div><span class="eyebrow">What First Spin Brings</span><h2 class="section-title">Not Just an <span class="accent">Empty Room</span></h2>{two_col(host_brings)}</div>
 </div></div></section>
 <section class="section-teal reveal"><div class="wrap"><div class="loc-grid">
-<div class="loc-card miami"><h3>Miami-Dade</h3><span class="status">Exploring 2027 Space</span><p>Help us bring First Spin to Miami-Dade for Summer 2027.</p><a class="btn btn-teal" href="#venue-form">Offer a Miami Space</a></div>
-<div class="loc-card broward"><h3>Broward</h3><span class="status">Exploring 2027 Space</span><p>Help us build First Spin in Broward County for Summer 2027.</p><a class="btn btn-teal" href="#venue-form">Offer a Broward Space</a></div>
+<div class="loc-card miami"><h3>Miami-Dade</h3><span class="status">Summer 2027</span><p>Help us bring First Spin to Miami-Dade for Summer 2027.</p><a class="btn btn-teal" href="#venue-form">Offer a Miami Space</a></div>
+<div class="loc-card broward"><h3>Broward</h3><span class="status">Summer 2027</span><p>Help us build First Spin in Broward County for Summer 2027.</p><a class="btn btn-teal" href="#venue-form">Offer a Broward Space</a></div>
 </div></div></section>
 <section id="venue-form" class="forms reveal"><div class="wrap">
 <span class="eyebrow">Tell Us About Your Space</span>
@@ -561,15 +558,15 @@ news_body = crumbs([("Home","/"),("News & Resources",None)]) + hero(
   INTEREST_BTN.format(loc="news-hero"), art=True
 ) + f'''
 <section class="section-cream reveal"><div class="wrap">
-<span class="eyebrow">Coming Soon</span>
-<h2 class="section-title">Stories &amp; Guides on the <span class="accent">Way</span></h2>
-<p class="lede">We're building meaningful, useful content — parent guides, DJ education explainers, entrepreneurship lessons and First Spin stories. Join the email community to get new posts and program news each month.</p>
+<span class="eyebrow">News &amp; Stories</span>
+<h2 class="section-title">Follow the First Spin <span class="accent">Journey</span></h2>
+<p class="lede">First Spin news, parent guides, DJ education explainers, entrepreneurship lessons and student stories — all in one place. Join the email community to get new posts and program news each month.</p>
 <div class="feature-grid" style="margin-top:2rem">{news_html}</div>
 <div class="btn-row" style="margin-top:1.8rem"><a class="btn btn-primary" href="/#interest" data-cta="interest" data-track-loc="news">Join the 2027 Interest List</a></div>
 </div></section>'''
 page("news/index.html",
      "First Spin News, Stories &amp; Resources | DJ Education",
-     "First Spin DJ Bootcamp news, parent resources, DJ education explainers and community stories from South Florida. Coming soon — join the email community.",
+     "First Spin DJ Bootcamp news, parent resources, DJ education explainers and community stories from South Florida. Follow along and join the email community.",
      news_body, "https://firstspindjbootcamp.org/news/", data_page="news")
 
 # ---- Thank You ----
@@ -583,7 +580,7 @@ ty_body = '''<section class="hero has-art" aria-labelledby="h1"><div class="wrap
 <span class="eyebrow">What&rsquo;s Next</span>
 <h2 class="section-title">Between Now &amp; <span class="accent">Summer</span></h2>
 <ul class="check-list">''' + check_items([
-"Miami-Dade and Broward location updates","Exact program dates","Registration information","First Spin news &amp; community events","Student stories &amp; important parent information"]) + '''</ul>
+"Miami-Dade and Broward location updates","Program dates","Registration information","First Spin news &amp; community events","Student stories &amp; important parent information"]) + '''</ul>
 </div></section>'''
 page("thank-you/index.html",
      "You're on the List | First Spin DJ Bootcamp",
