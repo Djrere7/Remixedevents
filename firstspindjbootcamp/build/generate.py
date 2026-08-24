@@ -158,7 +158,7 @@ summer_body = crumbs([("Home","/"),("Summer 2027",None)]) + hero(
   'First Spin DJ Bootcamp &mdash; <span class="hl">Summer 2027</span>',
   "Seven weeks of music, creativity, confidence &amp; culture. First Spin returns in Summer 2027 with plans to serve families in both Miami-Dade and Broward County. The free seven-week experience gives students ages 7+ hands-on access to DJ education, mentorship, entrepreneurship and live performance.",
   INTEREST_BTN.format(loc="summer-hero") + '<a class="btn btn-ghost" href="/host/" data-track="host_click" data-track-loc="summer-hero">Help Us Secure a Location</a>',
-  pills=["Summer 2027 | June–August","Exact Dates Coming Soon"]
+  pills=["Proposed: Summer 2027 · June–August","Exact Dates Coming Soon"]
 ) + '''
 <div class="ticker" aria-hidden="true"><div class="ticker-track">
 <div class="ticker-seg"><span class="word t">Summer 2027</span><span class="dotmark"></span><span class="word">Ages 7+</span><span class="dotmark"></span><span class="word o">100% Free</span><span class="dotmark"></span><span class="word">Seven Weeks</span><span class="dotmark"></span><span class="word t">Live Showcase</span><span class="dotmark"></span></div>
@@ -168,7 +168,7 @@ summer_body = crumbs([("Home","/"),("Summer 2027",None)]) + hero(
 <span class="eyebrow">The 2027 Season</span>
 <h2 class="section-title">Everything You Need to <span class="accent">Know</span></h2>
 <div class="feature-grid">
-<div class="feature"><h3>Summer Season</h3><p>June&ndash;August 2027. Exact program dates coming soon &mdash; announced once locations and schedules are finalized.</p></div>
+<div class="feature"><h3>Summer Season</h3><p>Proposed: June&ndash;August 2027. Exact class dates and weekly schedule coming soon &mdash; announced once locations are finalized.</p></div>
 <div class="feature"><h3>Cost</h3><p>Free for participating families.</p></div>
 <div class="feature"><h3>Experience</h3><p>Beginner-friendly. No prior DJ experience required.</p></div>
 <div class="feature"><h3>Ages</h3><p>Open to students ages 7 and up.</p></div>
@@ -359,8 +359,9 @@ sponsor_body = crumbs([("Home","/"),("Sponsors & Partners",None)]) + hero(
 <section class="section-cream reveal"><div class="wrap">
 <span class="eyebrow">Industry Equipment Support</span>
 <h2 class="section-title">Professional Tools. <span class="accent">Real Access.</span></h2>
-<!-- [NEEDS FIRST SPIN APPROVAL] AlphaTheta: publish name/logo + exact statement only after First Spin confirms permission. -->
-<p class="lede">A major DJ-industry partner has committed equipment support for six First Spin DJ stations, including controllers, studio monitors and headphones — a major step toward giving students access to professional-quality tools without requiring families to purchase equipment. <em>Public partner recognition will be announced once approved.</em></p>
+<p class="lede"><strong>AlphaTheta</strong> has committed equipment support for six First Spin DJ stations, including controllers, studio monitors and headphones. This commitment is a major step toward giving students access to professional-quality tools without requiring families to purchase equipment &mdash; and evidence that industry leaders believe in what First Spin is building.</p>
+<!-- Official AlphaTheta logo: add /img/alphatheta-logo.png and swap the text chip for an <img>. -->
+<div class="logo-row" style="max-width:520px;margin:1.4rem 0 0"><div class="logo-chip">AlphaTheta<small>Confirmed Equipment Partner &middot; 6 DJ stations</small></div></div>
 </div></section>
 <section class="section-cream reveal" style="background:linear-gradient(180deg,#eafaf8,var(--cream))"><div class="wrap">
 <span class="eyebrow">What We Need Now</span>

@@ -3,12 +3,12 @@
    Staff: set live links & endpoints here (one place, all pages).
    ============================================================ */
 window.FIRST_SPIN_CONFIG = {
-  // Parent 2027 interest list — paste the approved Google Form URL.
+  // Parent 2027 interest list — approved Google Form.
   // Every "Join the 2027 Interest List" button opens this.
-  interestFormUrl: "",           // e.g. "https://forms.gle/XXXXXXXX"
+  interestFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdrJJnw7UlveyVE3LE9332Fr0D1CDEhuYfOBKeybyquc-DRCg/viewform",
 
-  // Donation URL (MixHer Inc. / First Spin designation). Leave "" to route Donate to the Donate page.
-  donateUrl: "",                 // e.g. Givebutter/Donorbox link
+  // Donation URL — SpotFund (MixHer Inc. / First Spin). Powers "Donate to First Spin".
+  donateUrl: "https://www.spotfund.com/story/0eca9210-2fdb-46e5-b0ac-4e155f853170",
 
   // Newsletter signup URL (email platform). Leave "" to use the on-page form fallback.
   newsletterUrl: "",
