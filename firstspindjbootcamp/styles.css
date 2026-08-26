@@ -365,6 +365,14 @@ section{padding-block:clamp(54px,8vw,100px)}
 .moment figcaption{position:absolute;left:0;right:0;bottom:0;padding:.9rem .85rem .6rem;font-size:.78rem;font-weight:700;color:#fff;background:linear-gradient(transparent,rgba(2,9,10,.82))}
 @media(max-width:760px){.moment-gallery{grid-template-columns:1fr 1fr}.moment img{height:210px}}
 @media(max-width:480px){.moment-gallery{grid-template-columns:1fr}.moment img{height:240px}}
+/* class showcase (video + learning photos) */
+.class-gallery{grid-template-columns:repeat(4,1fr)}
+.moment video{width:100%;height:270px;object-fit:cover;display:block;background:#02090A}
+.moment .live{position:absolute;left:10px;top:10px;z-index:2;background:rgba(2,9,10,.72);color:#fff;font-weight:800;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .6rem;border-radius:999px;display:inline-flex;gap:.35rem;align-items:center}
+.moment .live .rec{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+@media(max-width:900px){.class-gallery{grid-template-columns:1fr 1fr}.moment video{height:300px}}
+@media(max-width:480px){.class-gallery{grid-template-columns:1fr}.moment video{height:320px}}
 
 /* ---------------- motion ---------------- */
 html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
