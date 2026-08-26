@@ -368,8 +368,8 @@ sponsor_body = crumbs([("Home","/"),("Sponsors & Partners",None)]) + hero(
 <span class="eyebrow">Industry Equipment Support</span>
 <h2 class="section-title">Professional Tools. <span class="accent">Real Access.</span></h2>
 <p class="lede"><strong>AlphaTheta</strong> has committed equipment support for six First Spin DJ stations, including controllers, studio monitors and headphones. This commitment is a major step toward giving students access to professional-quality tools without requiring families to purchase equipment &mdash; and evidence that industry leaders believe in what First Spin is building.</p>
-<!-- Official AlphaTheta logo: add /img/alphatheta-logo.png and swap the text chip for an <img>. -->
-<div class="logo-row" style="max-width:520px;margin:1.4rem 0 0"><div class="logo-chip">AlphaTheta<small>Confirmed Equipment Partner &middot; 6 DJ stations</small></div></div>
+<!-- Official AlphaTheta logo: drop /img/alphatheta-logo.png into img/ and replace the .at-mark + .at-name spans with <img src="/img/alphatheta-logo.png" alt="AlphaTheta logo" />. -->
+<div style="margin:1.5rem 0 0"><div class="alphatheta-logo" role="img" aria-label="AlphaTheta — Confirmed Equipment Partner"><span class="at-mark" aria-hidden="true">&alpha;&theta;</span><span class="at-name">AlphaTheta</span></div><p class="logo-cap">Confirmed Equipment Partner &middot; 6 DJ Stations</p></div>
 </div></section>
 <section class="section-cream reveal" style="background:linear-gradient(180deg,#eafaf8,var(--cream))"><div class="wrap">
 <span class="eyebrow">What We Need Now</span>
