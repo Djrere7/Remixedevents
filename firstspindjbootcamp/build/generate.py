@@ -226,6 +226,17 @@ parents_body = crumbs([("Home","/"),("For Parents",None)]) + hero(
 "Advance notice about important dates and requirements","A team committed to helping students grow"]) + '''</ul>
 <p class="loc-note" style="color:#9fc0bd;margin-top:1.2rem">Parents and guardians handle all registration and communication for minors. Children do not create website accounts.</p>
 </div></section>
+<section class="section-cream reveal"><div class="wrap">
+<span class="eyebrow">Inside the Class</span>
+<h2 class="section-title">See the Class in <span class="accent">Action</span></h2>
+<p class="lede">Real First Spin students, learning hands-on from experienced instructors on professional gear.</p>
+<div class="moment-gallery class-gallery">
+<figure class="moment"><span class="live"><span class="rec"></span> Live class</span><video autoplay muted loop playsinline preload="metadata" poster="/img/class-clip-poster.jpg" aria-label="A First Spin student learning to mix during class."><source src="/img/class-clip.mp4" type="video/mp4" /></video><figcaption>In the mix &middot; live class</figcaption></figure>
+<figure class="moment"><img src="/img/class-learning-1.jpg" width="1400" height="1050" loading="lazy" alt="A First Spin instructor teaching a young student to mix on a Pioneer DJ controller." /><figcaption>Hands-on coaching</figcaption></figure>
+<figure class="moment"><img src="/img/class-learning-2.jpg" width="1400" height="1050" loading="lazy" alt="A young First Spin student learning to DJ on professional equipment." /><figcaption>Learning the gear</figcaption></figure>
+<figure class="moment"><img src="/img/class-learning-3.jpg" width="1400" height="1050" loading="lazy" alt="A First Spin instructor guiding a student through cueing on the decks." /><figcaption>Cueing the next track</figcaption></figure>
+</div>
+</div></section>
 <section class="section-cream reveal" style="background:linear-gradient(180deg,#eafaf8,var(--cream))"><div class="wrap">
 <span class="eyebrow">Parent FAQ</span>
 <h2 class="section-title">Parent Questions &amp; <span class="accent">Answers</span></h2>''' + faq([
