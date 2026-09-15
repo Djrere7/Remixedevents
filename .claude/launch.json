@@ -6,6 +6,12 @@
       "runtimeExecutable": "/Users/djrere/.local/node/bin/node",
       "runtimeArgs": ["node_modules/astro/astro.js", "dev"],
       "port": 4321
+    },
+    {
+      "name": "firstspin-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8099", "--directory", "firstspindjbootcamp"],
+      "port": 8099
     }
   ]
 }
