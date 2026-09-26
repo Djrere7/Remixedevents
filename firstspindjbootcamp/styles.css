@@ -13,7 +13,7 @@
   --orange-deep:#e56a00;
   --black:#02090A;
   --ink:#02090A;
-  --cream:#F4EFE9;
+  --cream:#ffffff;
   --silver:#A7A7A7;
   --paper:#ffffff;
   --text:#1a2422;
@@ -118,10 +118,9 @@ section{padding-block:clamp(54px,8vw,100px)}
 
 /* ---------------- hero ---------------- */
 .hero{position:relative;color:#fff;background:var(--teal-900) center/cover no-repeat;overflow:hidden}
-.hero.has-art{background-image:linear-gradient(160deg,rgba(2,9,10,.975) 0%,rgba(2,9,10,.92) 45%,rgba(2,9,10,.82) 100%),url("img/bg-hero.jpg")}
+.hero.has-art{background-image:linear-gradient(155deg,rgba(6,42,45,.93) 0%,rgba(9,64,68,.85) 52%,rgba(17,120,125,.6) 100%),url("img/bg-hero.jpg")}
 .hero .wrap{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,56px);align-items:center;padding-block:clamp(40px,5.5vw,64px)}
-@media (min-width:861px){.hero-media img{height:clamp(360px,38vw,500px);object-fit:cover}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,56px);align-items:start;padding-block:clamp(40px,5.5vw,64px)}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:.5rem .9rem;border-radius:999px;font-weight:700;font-size:.8rem;letter-spacing:.03em;margin-bottom:1.2rem}
 .hero-badge .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(18,179,184,.28)}
 .hero h1{font-size:clamp(2.7rem,6.6vw,4.9rem);line-height:.96;letter-spacing:.03em}
